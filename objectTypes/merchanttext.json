@@ -1,0 +1,27 @@
+{
+	"name": "merchantText",
+	"plugin-id": "Spritefont2",
+	"sid": 122239690697957,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "ID",
+			"type": "string",
+			"desc": "",
+			"sid": 956924100031877
+		}
+	],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"image": {
+		"width": 128,
+		"height": 256,
+		"originX": 0.5,
+		"originY": 0.5,
+		"originalSource": "",
+		"exportFormat": "png",
+		"exportQuality": 0.8,
+		"imageSpriteId": 9843012,
+		"useCollisionPoly": true
+	}
+}

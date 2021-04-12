@@ -1,0 +1,348 @@
+{
+	"projectFormatVersion": 1,
+	"savedWithRelease": 24100,
+	"name": "Resources",
+	"runtime": "c3",
+	"useWorker": "auto",
+	"bundleAddons": false,
+	"usedAddons": [
+		{
+			"type": "plugin",
+			"id": "Sprite",
+			"name": "Sprite",
+			"author": "Scirra",
+			"version": "r241",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Tilemap",
+			"name": "Tilemap",
+			"author": "Scirra",
+			"version": "r241",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Spritefont2",
+			"name": "Sprite font",
+			"author": "Scirra",
+			"version": "r241",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Audio",
+			"name": "Audio",
+			"author": "Scirra",
+			"version": "r241",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Keyboard",
+			"name": "Keyboard",
+			"author": "Scirra",
+			"version": "r241",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Mouse",
+			"name": "Mouse",
+			"author": "Scirra",
+			"version": "r241",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "solid",
+			"name": "Solid",
+			"author": "Scirra",
+			"version": "r241",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "Bullet",
+			"name": "Bullet",
+			"author": "Scirra",
+			"version": "r241",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "wrap",
+			"name": "Wrap",
+			"author": "Scirra",
+			"version": "r241",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "TileMovement",
+			"name": "Tile movement",
+			"author": "Scirra",
+			"version": "r241",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "LOS",
+			"name": "Line of sight",
+			"author": "Scirra",
+			"version": "r241",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "Pathfinding",
+			"name": "Pathfinding",
+			"author": "Scirra",
+			"version": "r241",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "scrollto",
+			"name": "Scroll To",
+			"author": "Scirra",
+			"version": "r241",
+			"bundled": false
+		}
+	],
+	"uniqueId": "h46i3qi9kc2",
+	"objectTypes": {
+		"items": [
+			"damageFlash",
+			"merchCol"
+		],
+		"subfolders": [
+			{
+				"items": [
+					"Torch",
+					"TorchSide",
+					"Banner",
+					"Tilemap",
+					"Door",
+					"Ladder",
+					"TilemapSolid",
+					"CandleStick"
+				],
+				"subfolders": [],
+				"name": "Background"
+			},
+			{
+				"items": [
+					"Player",
+					"Merchant"
+				],
+				"subfolders": [
+					{
+						"items": [
+							"bouncingSkull",
+							"Skeleton",
+							"phasingSkull"
+						],
+						"subfolders": [],
+						"name": "Enemies"
+					}
+				],
+				"name": "Characters"
+			},
+			{
+				"items": [
+					"Key",
+					"Arrow",
+					"Coin",
+					"RedPotion",
+					"upSlash",
+					"BluePotion"
+				],
+				"subfolders": [],
+				"name": "Items"
+			},
+			{
+				"items": [
+					"Spikes",
+					"Flames",
+					"Sprite"
+				],
+				"subfolders": [],
+				"name": "Traps"
+			},
+			{
+				"items": [
+					"goldCount",
+					"goldText",
+					"lifeCount",
+					"lifeText",
+					"merchantText",
+					"levelText",
+					"levelCount",
+					"weaponPrice",
+					"potionPrice"
+				],
+				"subfolders": [],
+				"name": "Text"
+			},
+			{
+				"items": [
+					"Audio",
+					"Keyboard",
+					"Menu",
+					"Mouse"
+				],
+				"subfolders": [],
+				"name": "System"
+			}
+		]
+	},
+	"autosaveData": null,
+	"containers": [],
+	"families": {
+		"items": [
+			"EnemyFam"
+		],
+		"subfolders": []
+	},
+	"layouts": {
+		"items": [
+			"Dungeon",
+			"Merchant Room"
+		],
+		"subfolders": []
+	},
+	"eventSheets": {
+		"items": [
+			"eMain"
+		],
+		"subfolders": []
+	},
+	"rootFileFolders": {
+		"script": {
+			"items": [],
+			"subfolders": []
+		},
+		"sound": {
+			"items": [
+				{
+					"name": "slash_1.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 806949396115300
+				},
+				{
+					"name": "gold.mp3",
+					"type": "audio/mpeg",
+					"sid": 381247172915550
+				},
+				{
+					"name": "slash_2.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 988005750559915
+				},
+				{
+					"name": "door.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 793688634392679
+				},
+				{
+					"name": "hit.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 211802099015505
+				}
+			],
+			"subfolders": []
+		},
+		"music": {
+			"items": [
+				{
+					"name": "Dungeon.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 851941471302528
+				},
+				{
+					"name": "Merchant.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 404545960415117
+				}
+			],
+			"subfolders": []
+		},
+		"video": {
+			"items": [],
+			"subfolders": []
+		},
+		"font": {
+			"items": [],
+			"subfolders": []
+		},
+		"icon": {
+			"items": [],
+			"subfolders": []
+		},
+		"general": {
+			"items": [],
+			"subfolders": []
+		}
+	},
+	"timelines": {
+		"items": [],
+		"subfolders": [
+			{
+				"items": [],
+				"subfolders": []
+			}
+		]
+	},
+	"properties": {
+		"description": "",
+		"version": "1.0.0.0",
+		"author": "",
+		"authorEmail": "",
+		"authorWebsite": "",
+		"appId": "",
+		"pixelRounding": false,
+		"useLoaderLayout": false,
+		"fullscreenMode": "letterbox-scale",
+		"fullscreenQuality": "low",
+		"viewportFit": "auto",
+		"backgroundColor": [
+			0,
+			0,
+			0,
+			0
+		],
+		"splashColor": [
+			1,
+			1,
+			1,
+			0
+		],
+		"useThemeColor": false,
+		"themeColor": [
+			1,
+			1,
+			1,
+			0
+		],
+		"useHighDpi": true,
+		"orientations": "landscape",
+		"enableWebGL": true,
+		"gpuPreference": "high-performance",
+		"scriptsType": "module",
+		"framerateMode": "vsync",
+		"compositingMode": "standard",
+		"sampling": "nearest",
+		"downscaling": "medium",
+		"maxSpriteSheetSize": 2048,
+		"loaderStyle": "splash",
+		"preloadSounds": true,
+		"clearBackground": true,
+		"enhancedAccelerationPrecision": true,
+		"cordovaiOSScheme": "app"
+	},
+	"viewportWidth": 550,
+	"viewportHeight": 400,
+	"firstLayout": "Dungeon"
+}

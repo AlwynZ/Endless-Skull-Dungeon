@@ -1,0 +1,20 @@
+{
+	"name": "EnemyFam",
+	"plugin-id": "Sprite",
+	"sid": 180820572234053,
+	"instanceVariables": [
+		{
+			"name": "Strength",
+			"type": "number",
+			"desc": "",
+			"sid": 427024506043183
+		}
+	],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"members": [
+		"phasingSkull",
+		"Skeleton",
+		"bouncingSkull"
+	]
+}

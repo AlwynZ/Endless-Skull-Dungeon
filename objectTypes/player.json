@@ -1,0 +1,252 @@
+{
+	"name": "Player",
+	"plugin-id": "Sprite",
+	"sid": 434218303419140,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "scrollto",
+			"name": "ScrollTo",
+			"sid": 599462060756072
+		},
+		{
+			"behaviorId": "TileMovement",
+			"name": "TileMovement",
+			"sid": 614761653148301
+		}
+	],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 32,
+						"height": 32,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 6812286,
+						"collisionPoly": {
+							"points": [
+								0.1875,
+								0.1875,
+								0.5,
+								0.0625,
+								0.6875,
+								0.25,
+								0.9375,
+								0.5,
+								0.75,
+								0.75,
+								0.5,
+								0.875,
+								0.0625,
+								0.875,
+								0.0625,
+								0.5
+							]
+						},
+						"useCollisionPoly": true,
+						"imagePoints": [
+							{
+								"name": "upSlash",
+								"x": 0.5,
+								"y": -0.0625
+							},
+							{
+								"name": "leftSlash",
+								"x": -0.125,
+								"y": 0.5
+							},
+							{
+								"name": "downSlash",
+								"x": 0.5,
+								"y": 1.0625
+							},
+							{
+								"name": "rightSlash",
+								"x": 1.125,
+								"y": 0.5
+							}
+						],
+						"duration": 1
+					},
+					{
+						"width": 32,
+						"height": 32,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 3434780,
+						"collisionPoly": {
+							"points": [
+								0.1875,
+								0.1875,
+								0.5,
+								0.0625,
+								0.6875,
+								0.25,
+								0.9375,
+								0.5,
+								0.6875,
+								0.6875,
+								0.5,
+								0.875,
+								0.0625,
+								0.875,
+								0,
+								0.5
+							]
+						},
+						"useCollisionPoly": true,
+						"imagePoints": [
+							{
+								"name": "upSlash",
+								"x": 0.5,
+								"y": -0.0625
+							},
+							{
+								"name": "leftSlash",
+								"x": -0.125,
+								"y": 0.5
+							},
+							{
+								"name": "downSlash",
+								"x": 0.5,
+								"y": 1.0625
+							},
+							{
+								"name": "rightSlash",
+								"x": 1.125,
+								"y": 0.5
+							}
+						],
+						"duration": 1
+					},
+					{
+						"width": 32,
+						"height": 32,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 4441402,
+						"collisionPoly": {
+							"points": [
+								0.125,
+								0.125,
+								0.5,
+								0,
+								0.6875,
+								0.25,
+								0.9375,
+								0.5,
+								0.6875,
+								0.6875,
+								0.5,
+								0.875,
+								0.0625,
+								0.875,
+								0,
+								0.5
+							]
+						},
+						"useCollisionPoly": true,
+						"imagePoints": [
+							{
+								"name": "upSlash",
+								"x": 0.5,
+								"y": -0.0625
+							},
+							{
+								"name": "leftSlash",
+								"x": -0.125,
+								"y": 0.5
+							},
+							{
+								"name": "downSlash",
+								"x": 0.5,
+								"y": 1.0625
+							},
+							{
+								"name": "rightSlash",
+								"x": 1.125,
+								"y": 0.5
+							}
+						],
+						"duration": 1
+					},
+					{
+						"width": 32,
+						"height": 32,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 3201389,
+						"collisionPoly": {
+							"points": [
+								0.125,
+								0.125,
+								0.5,
+								0,
+								0.6875,
+								0.25,
+								0.9375,
+								0.5,
+								0.75,
+								0.75,
+								0.5,
+								0.875,
+								0.0625,
+								0.875,
+								0.0625,
+								0.5
+							]
+						},
+						"useCollisionPoly": true,
+						"imagePoints": [
+							{
+								"name": "upSlash",
+								"x": 0.5,
+								"y": -0.0625
+							},
+							{
+								"name": "leftSlash",
+								"x": -0.125,
+								"y": 0.5
+							},
+							{
+								"name": "downSlash",
+								"x": 0.5,
+								"y": 1.0625
+							},
+							{
+								"name": "rightSlash",
+								"x": 1.125,
+								"y": 0.5
+							}
+						],
+						"duration": 1
+					}
+				],
+				"sid": 696914839831079,
+				"name": "Animation 1",
+				"isLooping": true,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 6
+			}
+		],
+		"subfolders": []
+	}
+}

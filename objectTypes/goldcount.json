@@ -1,0 +1,20 @@
+{
+	"name": "goldCount",
+	"plugin-id": "Spritefont2",
+	"sid": 761464063732883,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"image": {
+		"width": 128,
+		"height": 256,
+		"originX": 0.5,
+		"originY": 0.5,
+		"originalSource": "",
+		"exportFormat": "png",
+		"exportQuality": 0.8,
+		"imageSpriteId": 2416864,
+		"useCollisionPoly": true
+	}
+}
