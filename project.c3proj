@@ -150,7 +150,8 @@
 						"items": [
 							"bouncingSkull",
 							"Skeleton",
-							"phasingSkull"
+							"phasingSkull",
+							"Boss"
 						],
 						"subfolders": [],
 						"name": "Enemies"
