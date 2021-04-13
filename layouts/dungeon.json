@@ -128,11 +128,11 @@
 						"8Direction": {
 							"properties": {
 								"max-speed": 200,
-								"acceleration": 600,
-								"deceleration": 500,
+								"acceleration": 20000,
+								"deceleration": 20000,
 								"directions": "dir-8",
-								"set-angle": "smooth",
-								"default-controls": true,
+								"set-angle": "no",
+								"default-controls": false,
 								"enabled": true
 							}
 						}
@@ -1641,6 +1641,52 @@
 						"angle": 6.278523571948757,
 						"zElevation": 0
 					}
+				},
+				{
+					"type": "direction",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 46,
+					"instanceVariables": {},
+					"behaviors": {
+						"固定": {
+							"properties": {
+								"destroy": false
+							}
+						},
+						"8方向": {
+							"properties": {
+								"max-speed": 200,
+								"acceleration": 20000,
+								"deceleration": 20000,
+								"directions": "dir-8",
+								"set-angle": "interval-45",
+								"default-controls": false,
+								"enabled": true
+							}
+						}
+					},
+					"world": {
+						"x": -48,
+						"y": 176,
+						"width": 16,
+						"height": 16,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
 				}
 			],
 			"sid": 533510686170490,
@@ -1918,6 +1964,35 @@
 						"height": 16,
 						"originX": 0,
 						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Sprite2",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 40,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 368,
+						"y": -128,
+						"width": 250,
+						"height": 250,
+						"originX": 0.5,
+						"originY": 0.5,
 						"color": [
 							1,
 							1,

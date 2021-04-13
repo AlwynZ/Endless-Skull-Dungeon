@@ -135,6 +135,20 @@
 						"width": "upSlash.Width+10*upgrade",
 						"height": "upSlash.Height+10*upgrade"
 					}
+				},
+				{
+					"id": "pin-to-object-imagepoint",
+					"objectClass": "direction",
+					"sid": 937340636678425,
+					"behaviorType": "固定",
+					"parameters": {
+						"pin-to": "Player",
+						"image-point": "0",
+						"angle": false,
+						"width-type": "no",
+						"height-type": "no",
+						"z": true
+					}
 				}
 			],
 			"sid": 646039266402763,
@@ -1340,6 +1354,245 @@
 				}
 			],
 			"sid": 746665832804429
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "PlayerMovement",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "key-is-down",
+							"objectClass": "Keyboard",
+							"sid": 125900194781080,
+							"parameters": {
+								"key": 38
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "simulate-control",
+							"objectClass": "Player",
+							"sid": 387128237631312,
+							"behaviorType": "8Direction",
+							"parameters": {
+								"control": "up"
+							}
+						},
+						{
+							"id": "simulate-control",
+							"objectClass": "direction",
+							"sid": 872648123713205,
+							"behaviorType": "8方向",
+							"parameters": {
+								"control": "up"
+							}
+						}
+					],
+					"sid": 387753969660294
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "key-is-down",
+							"objectClass": "Keyboard",
+							"sid": 319320793283315,
+							"parameters": {
+								"key": 40
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "simulate-control",
+							"objectClass": "Player",
+							"sid": 803709472040055,
+							"behaviorType": "8Direction",
+							"parameters": {
+								"control": "down"
+							}
+						},
+						{
+							"id": "simulate-control",
+							"objectClass": "direction",
+							"sid": 893677426005962,
+							"behaviorType": "8方向",
+							"parameters": {
+								"control": "down"
+							}
+						}
+					],
+					"sid": 501052452653960
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "key-is-down",
+							"objectClass": "Keyboard",
+							"sid": 697808325545779,
+							"parameters": {
+								"key": 37
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "simulate-control",
+							"objectClass": "Player",
+							"sid": 929535606971093,
+							"behaviorType": "8Direction",
+							"parameters": {
+								"control": "left"
+							}
+						},
+						{
+							"id": "simulate-control",
+							"objectClass": "direction",
+							"sid": 754456582650631,
+							"behaviorType": "8方向",
+							"parameters": {
+								"control": "left"
+							}
+						}
+					],
+					"sid": 197640056093948
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "key-is-down",
+							"objectClass": "Keyboard",
+							"sid": 498248086544046,
+							"parameters": {
+								"key": 39
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "simulate-control",
+							"objectClass": "Player",
+							"sid": 875537898688142,
+							"behaviorType": "8Direction",
+							"parameters": {
+								"control": "right"
+							}
+						},
+						{
+							"id": "simulate-control",
+							"objectClass": "direction",
+							"sid": 351121648399561,
+							"behaviorType": "8方向",
+							"parameters": {
+								"control": "right"
+							}
+						}
+					],
+					"sid": 484872760371262
+				}
+			],
+			"sid": 143208339756670
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "PlayerAnimation",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-moving",
+							"objectClass": "direction",
+							"sid": 312738433619955,
+							"behaviorType": "8方向"
+						}
+					],
+					"actions": [],
+					"sid": 259194557928249,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-within-angle",
+									"objectClass": "direction",
+									"sid": 505980562111911,
+									"parameters": {
+										"within": "46",
+										"angle": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "Player",
+									"sid": 985265995104255,
+									"parameters": {
+										"animation": "\"Animation 1\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "set-mirrored",
+									"objectClass": "Player",
+									"sid": 364266347120511,
+									"parameters": {
+										"state": "not-mirrored"
+									}
+								}
+							],
+							"sid": 728978377328891
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-within-angle",
+									"objectClass": "direction",
+									"sid": 178030489926808,
+									"parameters": {
+										"within": "46",
+										"angle": "180"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "Player",
+									"sid": 163439730129188,
+									"parameters": {
+										"animation": "\"Animation 1\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "set-mirrored",
+									"objectClass": "Player",
+									"sid": 483069054112952,
+									"parameters": {
+										"state": "mirrored"
+									}
+								}
+							],
+							"sid": 515676476530141
+						}
+					]
+				}
+			],
+			"sid": 620333301900732
 		},
 		{
 			"eventType": "group",
