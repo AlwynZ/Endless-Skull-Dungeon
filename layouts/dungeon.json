@@ -125,17 +125,15 @@
 								"enabled": true
 							}
 						},
-						"TileMovement": {
+						"8Direction": {
 							"properties": {
-								"grid-width": 32,
-								"grid-height": 32,
-								"grid-offset-x": 16,
-								"grid-offset-y": 16,
-								"speed-x": 200,
-								"speed-y": 200,
-								"enabled": true,
+								"max-speed": 200,
+								"acceleration": 600,
+								"deceleration": 500,
+								"directions": "dir-8",
+								"set-angle": "smooth",
 								"default-controls": true,
-								"isometric": false
+								"enabled": true
 							}
 						}
 					},

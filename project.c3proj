@@ -109,6 +109,14 @@
 			"author": "Scirra",
 			"version": "r241",
 			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "EightDir",
+			"name": "8 Direction",
+			"author": "Scirra",
+			"version": "r241",
+			"bundled": false
 		}
 	],
 	"uniqueId": "h46i3qi9kc2",
@@ -209,7 +217,8 @@
 	"layouts": {
 		"items": [
 			"Dungeon",
-			"Merchant Room"
+			"Merchant Room",
+			"Layout 1"
 		],
 		"subfolders": []
 	},
