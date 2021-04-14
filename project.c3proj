@@ -32,8 +32,16 @@
 		},
 		{
 			"type": "plugin",
+			"id": "Text",
+			"name": "Text",
+			"author": "Scirra",
+			"version": "r241",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
 			"id": "Audio",
-			"name": "Audio",
+			"name": "音频",
 			"author": "Scirra",
 			"version": "r241",
 			"bundled": false
@@ -57,7 +65,7 @@
 		{
 			"type": "behavior",
 			"id": "solid",
-			"name": "Solid",
+			"name": "刚体",
 			"author": "Scirra",
 			"version": "r241",
 			"bundled": false
@@ -65,7 +73,7 @@
 		{
 			"type": "behavior",
 			"id": "Bullet",
-			"name": "Bullet",
+			"name": "子弹",
 			"author": "Scirra",
 			"version": "r241",
 			"bundled": false
@@ -73,7 +81,7 @@
 		{
 			"type": "behavior",
 			"id": "wrap",
-			"name": "Wrap",
+			"name": "边界穿梭",
 			"author": "Scirra",
 			"version": "r241",
 			"bundled": false
@@ -81,7 +89,7 @@
 		{
 			"type": "behavior",
 			"id": "TileMovement",
-			"name": "Tile movement",
+			"name": "网格移动",
 			"author": "Scirra",
 			"version": "r241",
 			"bundled": false
@@ -89,7 +97,7 @@
 		{
 			"type": "behavior",
 			"id": "LOS",
-			"name": "Line of sight",
+			"name": "视线",
 			"author": "Scirra",
 			"version": "r241",
 			"bundled": false
@@ -97,7 +105,7 @@
 		{
 			"type": "behavior",
 			"id": "Pathfinding",
-			"name": "Pathfinding",
+			"name": "寻路",
 			"author": "Scirra",
 			"version": "r241",
 			"bundled": false
@@ -105,7 +113,7 @@
 		{
 			"type": "behavior",
 			"id": "scrollto",
-			"name": "Scroll To",
+			"name": "视野跟随",
 			"author": "Scirra",
 			"version": "r241",
 			"bundled": false
@@ -113,7 +121,7 @@
 		{
 			"type": "behavior",
 			"id": "EightDir",
-			"name": "8 Direction",
+			"name": "8方向",
 			"author": "Scirra",
 			"version": "r241",
 			"bundled": false
@@ -121,7 +129,7 @@
 		{
 			"type": "behavior",
 			"id": "Pin",
-			"name": "Pin",
+			"name": "固定",
 			"author": "Scirra",
 			"version": "r241",
 			"bundled": false
@@ -210,7 +218,8 @@
 					"levelText",
 					"levelCount",
 					"weaponPrice",
-					"potionPrice"
+					"potionPrice",
+					"temAngleText"
 				],
 				"subfolders": [],
 				"name": "Text"
