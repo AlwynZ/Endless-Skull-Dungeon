@@ -1,0 +1,57 @@
+{
+	"name": "downSlash",
+	"plugin-id": "Sprite",
+	"sid": 364841534674813,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 401,
+						"height": 241,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 8292171,
+						"collisionPoly": {
+							"points": [
+								1,
+								0,
+								0.9127182044887778,
+								0.6203319502074686,
+								0.6371571072319208,
+								0.9460580912863065,
+								0.2892768079800543,
+								0.9439834024896266,
+								0.11720698254364159,
+								0.7095435684647305,
+								0,
+								0.21369294605809286,
+								0,
+								0,
+								0.5810473815461353,
+								0.004149377593360981
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 220149959429731,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

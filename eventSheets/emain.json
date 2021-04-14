@@ -2445,12 +2445,15 @@
 							}
 						},
 						{
-							"id": "set-position",
-							"objectClass": "upSlash",
-							"sid": 971622803820409,
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 552483994150419,
 							"parameters": {
+								"object-to-create": "upSlash",
+								"layer": "0",
 								"x": "Player.X",
-								"y": "Player.Y-25"
+								"y": "Player.Y-25",
+								"create-hierarchy": false
 							}
 						},
 						{
@@ -2474,13 +2477,9 @@
 							}
 						},
 						{
-							"id": "set-position",
+							"id": "destroy",
 							"objectClass": "upSlash",
-							"sid": 443372169630151,
-							"parameters": {
-								"x": "-64",
-								"y": "240"
-							}
+							"sid": 411886703174543
 						},
 						{
 							"id": "wait",
@@ -2544,20 +2543,15 @@
 							}
 						},
 						{
-							"id": "rotate-counter-clockwise",
-							"objectClass": "upSlash",
-							"sid": 577320984235472,
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 406697747711602,
 							"parameters": {
-								"degrees": "90"
-							}
-						},
-						{
-							"id": "set-position",
-							"objectClass": "upSlash",
-							"sid": 683466494257235,
-							"parameters": {
+								"object-to-create": "leftSlash",
+								"layer": "0",
 								"x": "Player.X-25",
-								"y": "Player.Y"
+								"y": "Player.Y",
+								"create-hierarchy": false
 							}
 						},
 						{
@@ -2581,21 +2575,9 @@
 							}
 						},
 						{
-							"id": "set-position",
-							"objectClass": "upSlash",
-							"sid": 733766488480522,
-							"parameters": {
-								"x": "-64",
-								"y": "240"
-							}
-						},
-						{
-							"id": "rotate-clockwise",
-							"objectClass": "upSlash",
-							"sid": 467380288389621,
-							"parameters": {
-								"degrees": "90"
-							}
+							"id": "destroy",
+							"objectClass": "leftSlash",
+							"sid": 781775512838627
 						},
 						{
 							"id": "wait",
@@ -2659,20 +2641,15 @@
 							}
 						},
 						{
-							"id": "rotate-counter-clockwise",
-							"objectClass": "upSlash",
-							"sid": 855787249362798,
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 865107814620542,
 							"parameters": {
-								"degrees": "180"
-							}
-						},
-						{
-							"id": "set-position",
-							"objectClass": "upSlash",
-							"sid": 220193351873256,
-							"parameters": {
+								"object-to-create": "downSlash",
+								"layer": "0",
 								"x": "Player.X",
-								"y": "Player.Y+25"
+								"y": "Player.Y+25",
+								"create-hierarchy": false
 							}
 						},
 						{
@@ -2696,21 +2673,9 @@
 							}
 						},
 						{
-							"id": "set-position",
-							"objectClass": "upSlash",
-							"sid": 793779269883924,
-							"parameters": {
-								"x": "-64",
-								"y": "240"
-							}
-						},
-						{
-							"id": "rotate-clockwise",
-							"objectClass": "upSlash",
-							"sid": 328610410045919,
-							"parameters": {
-								"degrees": "180"
-							}
+							"id": "destroy",
+							"objectClass": "downSlash",
+							"sid": 301025880200136
 						},
 						{
 							"id": "wait",
@@ -2774,20 +2739,15 @@
 							}
 						},
 						{
-							"id": "rotate-clockwise",
-							"objectClass": "upSlash",
-							"sid": 799699376168065,
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 236441744356493,
 							"parameters": {
-								"degrees": "90"
-							}
-						},
-						{
-							"id": "set-position",
-							"objectClass": "upSlash",
-							"sid": 348262978798257,
-							"parameters": {
+								"object-to-create": "rightSlash",
+								"layer": "0",
 								"x": "Player.X+25",
-								"y": "Player.Y"
+								"y": "Player.Y",
+								"create-hierarchy": false
 							}
 						},
 						{
@@ -2811,21 +2771,9 @@
 							}
 						},
 						{
-							"id": "set-position",
-							"objectClass": "upSlash",
-							"sid": 926516182721361,
-							"parameters": {
-								"x": "-64",
-								"y": "240"
-							}
-						},
-						{
-							"id": "rotate-counter-clockwise",
-							"objectClass": "upSlash",
-							"sid": 702143707058298,
-							"parameters": {
-								"degrees": "90"
-							}
+							"id": "destroy",
+							"objectClass": "rightSlash",
+							"sid": 839788269483412
 						},
 						{
 							"id": "wait",

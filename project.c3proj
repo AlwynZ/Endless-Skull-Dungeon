@@ -175,10 +175,20 @@
 					"Arrow",
 					"Coin",
 					"RedPotion",
-					"upSlash",
 					"BluePotion"
 				],
-				"subfolders": [],
+				"subfolders": [
+					{
+						"items": [
+							"downSlash",
+							"rightSlash",
+							"leftSlash",
+							"upSlash"
+						],
+						"subfolders": [],
+						"name": "slashes"
+					}
+				],
 				"name": "Items"
 			},
 			{
@@ -232,7 +242,8 @@
 	"containers": [],
 	"families": {
 		"items": [
-			"EnemyFam"
+			"EnemyFam",
+			"SlashFam"
 		],
 		"subfolders": []
 	},
@@ -240,7 +251,7 @@
 		"items": [
 			"Dungeon",
 			"Merchant Room",
-			"Layout 1"
+			"Boss Room"
 		],
 		"subfolders": []
 	},
@@ -296,6 +307,11 @@
 					"name": "Merchant.webm",
 					"type": "audio/webm; codecs=opus",
 					"sid": 404545960415117
+				},
+				{
+					"name": "Boss.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 608492585063785
 				}
 			],
 			"subfolders": []

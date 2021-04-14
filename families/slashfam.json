@@ -1,0 +1,14 @@
+{
+	"name": "SlashFam",
+	"plugin-id": "Sprite",
+	"sid": 113794506269620,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"members": [
+		"downSlash",
+		"leftSlash",
+		"rightSlash",
+		"upSlash"
+	]
+}
