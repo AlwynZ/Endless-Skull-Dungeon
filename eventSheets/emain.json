@@ -112,6 +112,16 @@
 			"sid": 872612591949011
 		},
 		{
+			"eventType": "variable",
+			"name": "attackAngle",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 635947840900529
+		},
+		{
 			"eventType": "group",
 			"disabled": false,
 			"title": "Generate Dungeon",
@@ -1749,6 +1759,14 @@
 							"parameters": {
 								"angle": "random(0,360)"
 							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "temAngleText",
+							"sid": 471296885856757,
+							"parameters": {
+								"text": "attackAngle"
+							}
 						}
 					],
 					"sid": 525142999906582,
@@ -2409,9 +2427,9 @@
 						{
 							"id": "on-key-pressed",
 							"objectClass": "Keyboard",
-							"sid": 140467003341792,
+							"sid": 359845910655202,
 							"parameters": {
-								"key": 87
+								"key": 73
 							}
 						},
 						{
@@ -2507,9 +2525,9 @@
 						{
 							"id": "on-key-pressed",
 							"objectClass": "Keyboard",
-							"sid": 216729470861237,
+							"sid": 722692264850481,
 							"parameters": {
-								"key": 65
+								"key": 74
 							}
 						},
 						{
@@ -2605,9 +2623,9 @@
 						{
 							"id": "on-key-pressed",
 							"objectClass": "Keyboard",
-							"sid": 230272332364884,
+							"sid": 639444903810819,
 							"parameters": {
-								"key": 83
+								"key": 75
 							}
 						},
 						{
@@ -2703,9 +2721,9 @@
 						{
 							"id": "on-key-pressed",
 							"objectClass": "Keyboard",
-							"sid": 685601465079120,
+							"sid": 273654365831774,
 							"parameters": {
-								"key": 68
+								"key": 76
 							}
 						},
 						{
@@ -2794,6 +2812,426 @@
 						}
 					],
 					"sid": 494997784520658
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-click",
+							"objectClass": "Mouse",
+							"sid": 134509053842585,
+							"parameters": {
+								"mouse-button": "left",
+								"click-type": "clicked"
+							}
+						},
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 295766574094168,
+							"parameters": {
+								"first-value": "LayoutName",
+								"comparison": 0,
+								"second-value": "\"Dungeon\""
+							}
+						},
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 438485916571215,
+							"parameters": {
+								"variable": "midAttack"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 842285414351257,
+							"parameters": {
+								"variable": "attackAngle",
+								"value": "angle(Player.ImagePointX(0), Player.ImagePointY(0), Mouse.X, Mouse.Y)"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "temAngleText",
+							"sid": 228734404681222,
+							"parameters": {
+								"text": "attackAngle"
+							}
+						}
+					],
+					"sid": 127040118572133,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 797327725333183,
+									"parameters": {
+										"variable": "attackAngle",
+										"comparison": 3,
+										"value": "45"
+									}
+								},
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 765804595324909,
+									"parameters": {
+										"variable": "attackAngle",
+										"comparison": 4,
+										"value": "-45"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 911349785160824,
+									"parameters": {
+										"variable": "midAttack",
+										"value": "true"
+									}
+								},
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 444346555112625,
+									"parameters": {
+										"object-to-create": "rightSlash",
+										"layer": "0",
+										"x": "Player.X+25",
+										"y": "Player.Y",
+										"create-hierarchy": false
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 812602465262171,
+									"parameters": {
+										"seconds": "0.1"
+									}
+								},
+								{
+									"id": "play-by-name",
+									"objectClass": "Audio",
+									"sid": 709305247828979,
+									"parameters": {
+										"folder": "sounds",
+										"audio-file-name": "\"slash_\"&choose(1,2)",
+										"loop": "not-looping",
+										"volume": "0",
+										"tag-optional": "\"\""
+									}
+								},
+								{
+									"id": "destroy",
+									"objectClass": "rightSlash",
+									"sid": 770806122876024
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 920655277240984,
+									"parameters": {
+										"seconds": "0.3"
+									}
+								},
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 510943203061753,
+									"parameters": {
+										"variable": "midAttack",
+										"value": "false"
+									}
+								}
+							],
+							"sid": 492688118866028
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 572907302870374,
+									"parameters": {
+										"variable": "attackAngle",
+										"comparison": 3,
+										"value": "135"
+									}
+								},
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 775627037642159,
+									"parameters": {
+										"variable": "attackAngle",
+										"comparison": 4,
+										"value": "45"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 674013709503378,
+									"parameters": {
+										"variable": "midAttack",
+										"value": "true"
+									}
+								},
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 928334441927878,
+									"parameters": {
+										"object-to-create": "downSlash",
+										"layer": "0",
+										"x": "Player.X",
+										"y": "Player.Y+25",
+										"create-hierarchy": false
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 216138806504246,
+									"parameters": {
+										"seconds": "0.1"
+									}
+								},
+								{
+									"id": "play-by-name",
+									"objectClass": "Audio",
+									"sid": 651488782909681,
+									"parameters": {
+										"folder": "sounds",
+										"audio-file-name": "\"slash_\"&choose(1,2)",
+										"loop": "not-looping",
+										"volume": "0",
+										"tag-optional": "\"\""
+									}
+								},
+								{
+									"id": "destroy",
+									"objectClass": "downSlash",
+									"sid": 265886697775904
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 418849840254933,
+									"parameters": {
+										"seconds": "0.3"
+									}
+								},
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 280258460098476,
+									"parameters": {
+										"variable": "midAttack",
+										"value": "false"
+									}
+								}
+							],
+							"sid": 249068698376804
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 937095993921050,
+									"parameters": {
+										"variable": "attackAngle",
+										"comparison": 3,
+										"value": "-135"
+									}
+								},
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 726997059987962,
+									"parameters": {
+										"variable": "attackAngle",
+										"comparison": 4,
+										"value": "135"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 144272385755416,
+									"parameters": {
+										"variable": "midAttack",
+										"value": "true"
+									}
+								},
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 491059079328311,
+									"parameters": {
+										"object-to-create": "leftSlash",
+										"layer": "0",
+										"x": "Player.X-25",
+										"y": "Player.Y",
+										"create-hierarchy": false
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 195796756579923,
+									"parameters": {
+										"seconds": "0.1"
+									}
+								},
+								{
+									"id": "play-by-name",
+									"objectClass": "Audio",
+									"sid": 544128699548193,
+									"parameters": {
+										"folder": "sounds",
+										"audio-file-name": "\"slash_\"&choose(1,2)",
+										"loop": "not-looping",
+										"volume": "0",
+										"tag-optional": "\"\""
+									}
+								},
+								{
+									"id": "destroy",
+									"objectClass": "leftSlash",
+									"sid": 994821616033692
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 643719418393420,
+									"parameters": {
+										"seconds": "0.3"
+									}
+								},
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 355654755254081,
+									"parameters": {
+										"variable": "midAttack",
+										"value": "false"
+									}
+								}
+							],
+							"sid": 814250556331296,
+							"isOrBlock": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 312092014935023,
+									"parameters": {
+										"variable": "attackAngle",
+										"comparison": 3,
+										"value": "-45"
+									}
+								},
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 618119923432354,
+									"parameters": {
+										"variable": "attackAngle",
+										"comparison": 4,
+										"value": "-135"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 346193774974689,
+									"parameters": {
+										"variable": "midAttack",
+										"value": "true"
+									}
+								},
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 435662656804016,
+									"parameters": {
+										"object-to-create": "upSlash",
+										"layer": "0",
+										"x": "Player.X",
+										"y": "Player.Y-25",
+										"create-hierarchy": false
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 907983192731251,
+									"parameters": {
+										"seconds": "0.1"
+									}
+								},
+								{
+									"id": "play-by-name",
+									"objectClass": "Audio",
+									"sid": 136200001145666,
+									"parameters": {
+										"folder": "sounds",
+										"audio-file-name": "\"slash_\"&choose(1,2)",
+										"loop": "not-looping",
+										"volume": "0",
+										"tag-optional": "\"\""
+									}
+								},
+								{
+									"id": "destroy",
+									"objectClass": "upSlash",
+									"sid": 917534757160942
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 828869150818041,
+									"parameters": {
+										"seconds": "0.3"
+									}
+								},
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 840064612709591,
+									"parameters": {
+										"variable": "midAttack",
+										"value": "false"
+									}
+								}
+							],
+							"sid": 457753945718859
+						}
+					]
 				}
 			],
 			"sid": 746665832804429
@@ -2811,9 +3249,9 @@
 						{
 							"id": "key-is-down",
 							"objectClass": "Keyboard",
-							"sid": 125900194781080,
+							"sid": 494558262935642,
 							"parameters": {
-								"key": 38
+								"key": 87
 							}
 						}
 					],
@@ -2845,9 +3283,9 @@
 						{
 							"id": "key-is-down",
 							"objectClass": "Keyboard",
-							"sid": 319320793283315,
+							"sid": 736918281888653,
 							"parameters": {
-								"key": 40
+								"key": 83
 							}
 						}
 					],
@@ -2879,9 +3317,9 @@
 						{
 							"id": "key-is-down",
 							"objectClass": "Keyboard",
-							"sid": 697808325545779,
+							"sid": 651311147132504,
 							"parameters": {
-								"key": 37
+								"key": 65
 							}
 						}
 					],
@@ -2913,9 +3351,9 @@
 						{
 							"id": "key-is-down",
 							"objectClass": "Keyboard",
-							"sid": 498248086544046,
+							"sid": 287822757267372,
 							"parameters": {
-								"key": 39
+								"key": 68
 							}
 						}
 					],
