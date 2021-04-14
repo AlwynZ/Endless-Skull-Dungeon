@@ -3,13 +3,53 @@
 	"events": [
 		{
 			"eventType": "variable",
+			"name": "tileSize",
+			"type": "number",
+			"initialValue": "32",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 350128101988630
+		},
+		{
+			"eventType": "variable",
+			"name": "numRooms",
+			"type": "number",
+			"initialValue": "5",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 427672542856966
+		},
+		{
+			"eventType": "variable",
+			"name": "dungeonWidth",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 163982840860369
+		},
+		{
+			"eventType": "variable",
+			"name": "dungeonHeight",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 635318649232828
+		},
+		{
+			"eventType": "variable",
 			"name": "lives",
 			"type": "number",
 			"initialValue": "3",
 			"comment": "",
 			"isStatic": false,
 			"isConstant": false,
-			"sid": 235340572484262
+			"sid": 762064108081304
 		},
 		{
 			"eventType": "variable",
@@ -72,19 +112,1474 @@
 			"sid": 872612591949011
 		},
 		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Generate Dungeon",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 342887769426309
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 306146541821804,
+							"parameters": {
+								"variable": "dungeonHeight",
+								"value": "LayoutHeight"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 199721199937727,
+							"parameters": {
+								"variable": "dungeonWidth",
+								"value": "LayoutWidth"
+							}
+						}
+					],
+					"sid": 415237542535862,
+					"children": [
+						{
+							"eventType": "comment",
+							"text": "Create rooms"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for",
+									"objectClass": "System",
+									"sid": 557641916961532,
+									"parameters": {
+										"name": "\"LoopRoom\"",
+										"start-index": "1",
+										"end-index": "numRooms"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 880305485227852,
+									"parameters": {
+										"object-to-create": "Room",
+										"layer": "1",
+										"x": "0",
+										"y": "0",
+										"create-hierarchy": false
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Room",
+									"sid": 429110693598242,
+									"parameters": {
+										"instance-variable": "ID",
+										"value": "loopindex(\"LoopRoom\")"
+									}
+								},
+								{
+									"id": "set-size",
+									"objectClass": "Room",
+									"sid": 277970832232396,
+									"parameters": {
+										"width": "round(int(random( 4, 12) * tileSize)/64) * 64 +32",
+										"height": "round(int(random( 4, 12) * tileSize)/64) * 64+32"
+									}
+								},
+								{
+									"id": "set-position",
+									"objectClass": "Room",
+									"sid": 904829683987732,
+									"parameters": {
+										"x": "round(random(tileSize * 8, LayoutWidth - tileSize * 8)/32)*32+16",
+										"y": "round(random(tileSize * 8, LayoutHeight - tileSize * 8)/32)*32+16"
+									}
+								},
+								{
+									"id": "spawn-another-object",
+									"objectClass": "Room",
+									"sid": 739610882224489,
+									"parameters": {
+										"object": "RoomCenter",
+										"layer": "1",
+										"image-point": "0",
+										"create-hierarchy": false
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "RoomCenter",
+									"sid": 958246104816791,
+									"parameters": {
+										"instance-variable": "ID",
+										"value": "Room.ID "
+									}
+								}
+							],
+							"sid": 381021695636301,
+							"children": [
+								{
+									"eventType": "comment",
+									"text": "Change the ID of this RoomCenter only, so that the last Room will connect back here"
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "RoomCenter",
+											"sid": 594227657344940,
+											"parameters": {
+												"instance-variable": "ID",
+												"comparison": 0,
+												"value": "1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "RoomCenter",
+											"sid": 434241803232522,
+											"parameters": {
+												"instance-variable": "ID",
+												"value": "10"
+											}
+										}
+									],
+									"sid": 999135903996779
+								}
+							]
+						}
+					]
+				},
+				{
+					"eventType": "comment",
+					"text": "Create Hallways"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 770295215696965,
+							"parameters": {
+								"first-value": "tickcount",
+								"comparison": 0,
+								"second-value": "2"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 902900760366386,
+					"children": [
+						{
+							"eventType": "comment",
+							"text": "Horizontal Hallways"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 861554333189127,
+									"parameters": {
+										"object": "Room"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "spawn-another-object",
+									"objectClass": "Room",
+									"sid": 626115864137866,
+									"parameters": {
+										"object": "Hall",
+										"layer": "1",
+										"image-point": "0",
+										"create-hierarchy": false
+									}
+								}
+							],
+							"sid": 635168045047857,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "RoomCenter",
+											"sid": 115191944727973,
+											"parameters": {
+												"instance-variable": "ID",
+												"comparison": 0,
+												"value": "Room.ID + 1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-size",
+											"objectClass": "Hall",
+											"sid": 475654731126461,
+											"parameters": {
+												"width": "abs( RoomCenter.X - Room.X ) + 32",
+												"height": "32"
+											}
+										},
+										{
+											"id": "set-position",
+											"objectClass": "Hall",
+											"sid": 524573898713834,
+											"parameters": {
+												"x": "( Room.X + RoomCenter.X ) / 2",
+												"y": "Room.Y"
+											}
+										}
+									],
+									"sid": 591171373343482
+								}
+							]
+						},
+						{
+							"eventType": "comment",
+							"text": "Vertical Hallways"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 182959776269344,
+									"parameters": {
+										"object": "Room"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "spawn-another-object",
+									"objectClass": "Room",
+									"sid": 856683978073589,
+									"parameters": {
+										"object": "Hall",
+										"layer": "1",
+										"image-point": "0",
+										"create-hierarchy": false
+									}
+								}
+							],
+							"sid": 106214842727674,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "RoomCenter",
+											"sid": 846417480906330,
+											"parameters": {
+												"instance-variable": "ID",
+												"comparison": 0,
+												"value": "Room.ID + 1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-size",
+											"objectClass": "Hall",
+											"sid": 337535727479084,
+											"parameters": {
+												"width": "32",
+												"height": "abs( Room.Y - RoomCenter.Y ) +32"
+											}
+										},
+										{
+											"id": "set-position",
+											"objectClass": "Hall",
+											"sid": 379274572516761,
+											"parameters": {
+												"x": "RoomCenter.X",
+												"y": "( RoomCenter.Y + Room.Y ) / 2"
+											}
+										}
+									],
+									"sid": 304461604577343
+								}
+							]
+						}
+					]
+				},
+				{
+					"eventType": "comment",
+					"text": "Create Borders"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 703783530271957,
+							"parameters": {
+								"first-value": "tickcount",
+								"comparison": 0,
+								"second-value": "3"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 120059110346136,
+					"children": [
+						{
+							"eventType": "comment",
+							"text": "Room Borders"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 305747413262286,
+									"parameters": {
+										"object": "Room"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "spawn-another-object",
+									"objectClass": "Room",
+									"sid": 762139281440738,
+									"parameters": {
+										"object": "Border",
+										"layer": "1",
+										"image-point": "0",
+										"create-hierarchy": false
+									}
+								},
+								{
+									"id": "set-size",
+									"objectClass": "Border",
+									"sid": 774838866050247,
+									"parameters": {
+										"width": "Room.Width + 64",
+										"height": "Room.Height + 64"
+									}
+								}
+							],
+							"sid": 844349260788830
+						},
+						{
+							"eventType": "comment",
+							"text": "Hall Borders"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 212655711455149,
+									"parameters": {
+										"object": "Hall"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "spawn-another-object",
+									"objectClass": "Hall",
+									"sid": 680709731360419,
+									"parameters": {
+										"object": "Border",
+										"layer": "1",
+										"image-point": "0",
+										"create-hierarchy": false
+									}
+								},
+								{
+									"id": "set-size",
+									"objectClass": "Border",
+									"sid": 128846068894335,
+									"parameters": {
+										"width": "Hall.Width + 64",
+										"height": "Hall.Height + 64"
+									}
+								}
+							],
+							"sid": 125330842321579
+						}
+					]
+				},
+				{
+					"eventType": "comment",
+					"text": "toggle visibility (for debugging; switch initial visibility off in properties)"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 143601308222925,
+							"parameters": {
+								"first-value": "tickcount",
+								"comparison": 0,
+								"second-value": "5"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "Room",
+							"sid": 148974954719672,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "RoomCenter",
+							"sid": 967509646463288,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "Hall",
+							"sid": 421973341813511,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "Border",
+							"sid": 244624697230707,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						}
+					],
+					"sid": 789909186715960,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Room",
+									"sid": 208878521803720,
+									"parameters": {
+										"instance-variable": "ID",
+										"comparison": 0,
+										"value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-position",
+									"objectClass": "Player",
+									"sid": 593282603925224,
+									"parameters": {
+										"x": "Room.X - 48",
+										"y": "Room.Y"
+									}
+								}
+							],
+							"sid": 296104758130061
+						}
+					]
+				}
+			],
+			"sid": 377137962723341
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Fill Tilemap",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 402502780830390,
+							"parameters": {
+								"first-value": "tickcount",
+								"comparison": 0,
+								"second-value": "4"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 231727380114742,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 765979946648875,
+									"parameters": {
+										"object": "Room"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 248494703703082,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "for",
+											"objectClass": "System",
+											"sid": 568137879561617,
+											"parameters": {
+												"name": "\"i\"",
+												"start-index": "Room.X/tileSize - ((Room.Width/tileSize)/2)",
+												"end-index": "Room.X/tileSize + ((Room.Width/tileSize)/2) -1"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 503921537237318,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "for",
+													"objectClass": "System",
+													"sid": 579784553655003,
+													"parameters": {
+														"name": "\"j\"",
+														"start-index": "Room.Y/tileSize - ((Room.Height/tileSize)/2)",
+														"end-index": "Room.Y/tileSize + ((Room.Height/tileSize)/2) -1"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-tile",
+													"objectClass": "Tilemap",
+													"sid": 619690454173363,
+													"parameters": {
+														"tile-x": "loopindex(\"i\")",
+														"tile-y": "loopindex(\"j\")",
+														"tile": "choose(6,7,8,9,16,17,18,19,26,27,28,29)",
+														"state": "normal"
+													}
+												}
+											],
+											"sid": 131894593991461
+										}
+									]
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 513210444994117,
+									"parameters": {
+										"object": "Border"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 393919401657642,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "for",
+											"objectClass": "System",
+											"sid": 652953042077388,
+											"parameters": {
+												"name": "\"i\"",
+												"start-index": "Border.X/tileSize - ((Border.Width/tileSize)/2)",
+												"end-index": "Border.X/tileSize + ((Border.Width/tileSize)/2) -1"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 361032312764297,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "for",
+													"objectClass": "System",
+													"sid": 685426710809713,
+													"parameters": {
+														"name": "\"j\"",
+														"start-index": "Border.Y/tileSize - ((Border.Height/tileSize)/2)",
+														"end-index": "Border.Y/tileSize + ((Border.Height/tileSize)/2) -1"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-position",
+													"objectClass": "TempTile",
+													"sid": 534434497159690,
+													"parameters": {
+														"x": "loopindex(\"i\")*tileSize + tileSize/2",
+														"y": "loopindex(\"j\")*tileSize + tileSize/2"
+													}
+												}
+											],
+											"sid": 949600506260927,
+											"children": [
+												{
+													"eventType": "comment",
+													"text": "Left wall tiles"
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 176156904794038,
+															"parameters": {
+																"first-value": "loopindex(\"i\")",
+																"comparison": 0,
+																"second-value": "Border.X/tileSize - ((Border.Width/tileSize)/2)"
+															}
+														}
+													],
+													"actions": [],
+													"sid": 845209827327385,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-two-values",
+																	"objectClass": "System",
+																	"sid": 537753985976922,
+																	"parameters": {
+																		"first-value": "TilemapSolid.TileAt(loopindex(\"i\"), loopindex(\"j\"))",
+																		"comparison": 0,
+																		"second-value": "-1"
+																	}
+																},
+																{
+																	"id": "compare-two-values",
+																	"objectClass": "System",
+																	"sid": 764493806942818,
+																	"parameters": {
+																		"first-value": "TilemapSolid.TileAt(loopindex(\"i\"), loopindex(\"j\"))",
+																		"comparison": 0,
+																		"second-value": "40"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-tile",
+																	"objectClass": "TilemapSolid",
+																	"sid": 351194409153236,
+																	"parameters": {
+																		"tile-x": "loopindex(\"i\")",
+																		"tile-y": "loopindex(\"j\")",
+																		"tile": "choose(0,10,20,30)",
+																		"state": "normal"
+																	}
+																}
+															],
+															"sid": 965386457420305,
+															"isOrBlock": true
+														}
+													]
+												},
+												{
+													"eventType": "comment",
+													"text": "Right wall tiles"
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 413102983226192,
+															"parameters": {
+																"first-value": "loopindex(\"i\")",
+																"comparison": 0,
+																"second-value": "Border.X/tileSize + ((Border.Width/tileSize)/2) -1"
+															}
+														}
+													],
+													"actions": [],
+													"sid": 510580113484079,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-two-values",
+																	"objectClass": "System",
+																	"sid": 271021671522817,
+																	"parameters": {
+																		"first-value": "TilemapSolid.TileAt(loopindex(\"i\"), loopindex(\"j\"))",
+																		"comparison": 0,
+																		"second-value": "-1"
+																	}
+																},
+																{
+																	"id": "compare-two-values",
+																	"objectClass": "System",
+																	"sid": 523892359426451,
+																	"parameters": {
+																		"first-value": "TilemapSolid.TileAt(loopindex(\"i\"), loopindex(\"j\"))",
+																		"comparison": 0,
+																		"second-value": "45"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-tile",
+																	"objectClass": "TilemapSolid",
+																	"sid": 971892939819068,
+																	"parameters": {
+																		"tile-x": "loopindex(\"i\")",
+																		"tile-y": "loopindex(\"j\")",
+																		"tile": "choose(5,15,25,35)",
+																		"state": "normal"
+																	}
+																}
+															],
+															"sid": 423593181361551,
+															"isOrBlock": true
+														}
+													]
+												},
+												{
+													"eventType": "comment",
+													"text": "Top wall tiles"
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 284032609349597,
+															"parameters": {
+																"first-value": "loopindex(\"j\")",
+																"comparison": 0,
+																"second-value": "Border.Y/tileSize - ((Border.Height/tileSize)/2)"
+															}
+														}
+													],
+													"actions": [],
+													"sid": 109842152478929,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-two-values",
+																	"objectClass": "System",
+																	"sid": 181872101789028,
+																	"parameters": {
+																		"first-value": "loopindex(\"i\")",
+																		"comparison": 1,
+																		"second-value": "Border.X/tileSize - ((Border.Width/tileSize)/2)"
+																	}
+																},
+																{
+																	"id": "compare-two-values",
+																	"objectClass": "System",
+																	"sid": 653358872819260,
+																	"parameters": {
+																		"first-value": "loopindex(\"i\")",
+																		"comparison": 1,
+																		"second-value": "Border.X/tileSize + ((Border.Width/tileSize)/2) -1"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-tile",
+																	"objectClass": "TilemapSolid",
+																	"sid": 729129488303185,
+																	"parameters": {
+																		"tile-x": "loopindex(\"i\")",
+																		"tile-y": "loopindex(\"j\")",
+																		"tile": "choose(1,2,3,4)",
+																		"state": "normal"
+																	}
+																}
+															],
+															"sid": 845699276207883
+														}
+													]
+												},
+												{
+													"eventType": "comment",
+													"text": "Bottom wall tiles"
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 666825419932424,
+															"parameters": {
+																"first-value": "loopindex(\"j\")",
+																"comparison": 0,
+																"second-value": "Border.Y/tileSize + ((Border.Height/tileSize)/2) -1"
+															}
+														}
+													],
+													"actions": [],
+													"sid": 219997755896607,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-two-values",
+																	"objectClass": "System",
+																	"sid": 998909817854491,
+																	"parameters": {
+																		"first-value": "loopindex(\"i\")",
+																		"comparison": 0,
+																		"second-value": "Border.X/tileSize - ((Border.Width/tileSize)/2)"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-tile",
+																	"objectClass": "TilemapSolid",
+																	"sid": 152464350214812,
+																	"parameters": {
+																		"tile-x": "loopindex(\"i\")",
+																		"tile-y": "loopindex(\"j\")",
+																		"tile": "40",
+																		"state": "normal"
+																	}
+																}
+															],
+															"sid": 531028405712431
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-two-values",
+																	"objectClass": "System",
+																	"sid": 343497081353221,
+																	"parameters": {
+																		"first-value": "loopindex(\"i\")",
+																		"comparison": 0,
+																		"second-value": "Border.X/tileSize + ((Border.Width/tileSize)/2) -1"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-tile",
+																	"objectClass": "TilemapSolid",
+																	"sid": 459450133386356,
+																	"parameters": {
+																		"tile-x": "loopindex(\"i\")",
+																		"tile-y": "loopindex(\"j\")",
+																		"tile": "45",
+																		"state": "normal"
+																	}
+																}
+															],
+															"sid": 496575452087001
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-two-values",
+																	"objectClass": "System",
+																	"sid": 843212678076835,
+																	"parameters": {
+																		"first-value": "loopindex(\"i\")",
+																		"comparison": 1,
+																		"second-value": "Border.X/tileSize - ((Border.Width/tileSize)/2)"
+																	}
+																},
+																{
+																	"id": "compare-two-values",
+																	"objectClass": "System",
+																	"sid": 616325894382459,
+																	"parameters": {
+																		"first-value": "loopindex(\"i\")",
+																		"comparison": 1,
+																		"second-value": "Border.X/tileSize + ((Border.Width/tileSize)/2) -1"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-tile",
+																	"objectClass": "TilemapSolid",
+																	"sid": 305352676979175,
+																	"parameters": {
+																		"tile-x": "loopindex(\"i\")",
+																		"tile-y": "loopindex(\"j\")",
+																		"tile": "choose(41,42,43,44,51,52)",
+																		"state": "normal"
+																	}
+																}
+															],
+															"sid": 795038919326897
+														}
+													]
+												},
+												{
+													"eventType": "comment",
+													"text": "Erase room and hall colliding tiles"
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "pick-overlapping-point",
+															"objectClass": "System",
+															"sid": 279534092950635,
+															"parameters": {
+																"object": "Hall",
+																"x": "loopindex(\"i\")*32 + 16",
+																"y": "loopindex(\"j\")*32 + 16"
+															}
+														},
+														{
+															"id": "pick-overlapping-point",
+															"objectClass": "System",
+															"sid": 181699427925855,
+															"parameters": {
+																"object": "Room",
+																"x": "loopindex(\"i\")*32 + 16",
+																"y": "loopindex(\"j\")*32 + 16"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "erase-tile",
+															"objectClass": "TilemapSolid",
+															"sid": 666347169640556,
+															"parameters": {
+																"tile-x": "loopindex(\"i\")",
+																"tile-y": "loopindex(\"j\")"
+															}
+														}
+													],
+													"sid": 677518191126466,
+													"isOrBlock": true
+												}
+											]
+										}
+									]
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 908773261161914,
+									"parameters": {
+										"object": "Hall"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 976773166846311,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "for",
+											"objectClass": "System",
+											"sid": 329352104807032,
+											"parameters": {
+												"name": "\"i\"",
+												"start-index": "Hall.X/tileSize - ((Hall.Width/tileSize)/2)",
+												"end-index": "Hall.X/tileSize + ((Hall.Width/tileSize)/2) -1"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 641509114088333,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "for",
+													"objectClass": "System",
+													"sid": 470539433725287,
+													"parameters": {
+														"name": "\"j\"",
+														"start-index": "Hall.Y/tileSize - ((Hall.Height/tileSize)/2)",
+														"end-index": "Hall.Y/tileSize + ((Hall.Height/tileSize)/2) -1"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-tile",
+													"objectClass": "Tilemap",
+													"sid": 329171339234543,
+													"parameters": {
+														"tile-x": "loopindex(\"i\")",
+														"tile-y": "loopindex(\"j\")",
+														"tile": "choose(6,7,8,9,16,17,18,19,26,27,28,29)",
+														"state": "normal"
+													}
+												},
+												{
+													"id": "set-position",
+													"objectClass": "TempTile",
+													"sid": 723008975939308,
+													"parameters": {
+														"x": "loopindex(\"i\")*tileSize + tileSize/2",
+														"y": "loopindex(\"j\")*tileSize + tileSize/2"
+													}
+												}
+											],
+											"sid": 300833979431492,
+											"children": [
+												{
+													"eventType": "comment",
+													"text": "Corner tiles that connect to halls"
+												},
+												{
+													"eventType": "variable",
+													"name": "count",
+													"type": "number",
+													"initialValue": "0",
+													"comment": "",
+													"isStatic": false,
+													"isConstant": false,
+													"sid": 658354795105262
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-width",
+															"objectClass": "Hall",
+															"sid": 470494812895202,
+															"parameters": {
+																"comparison": 4,
+																"width": "tileSize"
+															}
+														}
+													],
+													"actions": [],
+													"sid": 776898573759208,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "is-overlapping-at-offset",
+																	"objectClass": "TempTile",
+																	"sid": 151563517516872,
+																	"parameters": {
+																		"object": "Border",
+																		"offset-x": "0",
+																		"offset-y": "32"
+																	}
+																},
+																{
+																	"id": "is-overlapping-at-offset",
+																	"objectClass": "TempTile",
+																	"sid": 956117642837546,
+																	"parameters": {
+																		"object": "Room",
+																		"offset-x": "-32",
+																		"offset-y": "0"
+																	}
+																},
+																{
+																	"id": "is-overlapping-at-offset",
+																	"objectClass": "TempTile",
+																	"sid": 648452681885771,
+																	"parameters": {
+																		"object": "Room",
+																		"offset-x": "0",
+																		"offset-y": "0"
+																	},
+																	"isInverted": true
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-eventvar-value",
+																	"objectClass": "System",
+																	"sid": 578824416117143,
+																	"parameters": {
+																		"variable": "count",
+																		"value": "Border.PickedCount"
+																	}
+																}
+															],
+															"sid": 447805363512189,
+															"children": [
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "compare-eventvar",
+																			"objectClass": "System",
+																			"sid": 424994360752176,
+																			"parameters": {
+																				"variable": "count",
+																				"comparison": 0,
+																				"value": "2"
+																			}
+																		}
+																	],
+																	"actions": [
+																		{
+																			"id": "set-tile",
+																			"objectClass": "TilemapSolid",
+																			"sid": 877079603939498,
+																			"parameters": {
+																				"tile-x": "loopindex(\"i\")",
+																				"tile-y": "loopindex(\"j\")+1",
+																				"tile": "50",
+																				"state": "normal"
+																			}
+																		}
+																	],
+																	"sid": 357699203444595
+																}
+															]
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "is-overlapping-at-offset",
+																	"objectClass": "TempTile",
+																	"sid": 299271999155994,
+																	"parameters": {
+																		"object": "Border",
+																		"offset-x": "0",
+																		"offset-y": "32"
+																	}
+																},
+																{
+																	"id": "is-overlapping-at-offset",
+																	"objectClass": "TempTile",
+																	"sid": 892203166815971,
+																	"parameters": {
+																		"object": "Room",
+																		"offset-x": "32",
+																		"offset-y": "0"
+																	}
+																},
+																{
+																	"id": "is-overlapping-at-offset",
+																	"objectClass": "TempTile",
+																	"sid": 845142964758795,
+																	"parameters": {
+																		"object": "Room",
+																		"offset-x": "0",
+																		"offset-y": "0"
+																	},
+																	"isInverted": true
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-eventvar-value",
+																	"objectClass": "System",
+																	"sid": 566641977720544,
+																	"parameters": {
+																		"variable": "count",
+																		"value": "Border.PickedCount"
+																	}
+																}
+															],
+															"sid": 296900834261767,
+															"children": [
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "compare-eventvar",
+																			"objectClass": "System",
+																			"sid": 776688967270993,
+																			"parameters": {
+																				"variable": "count",
+																				"comparison": 0,
+																				"value": "2"
+																			}
+																		}
+																	],
+																	"actions": [
+																		{
+																			"id": "set-tile",
+																			"objectClass": "TilemapSolid",
+																			"sid": 131133139284131,
+																			"parameters": {
+																				"tile-x": "loopindex(\"i\")",
+																				"tile-y": "loopindex(\"j\")+1",
+																				"tile": "53",
+																				"state": "normal"
+																			}
+																		}
+																	],
+																	"sid": 135054379139257
+																}
+															]
+														}
+													]
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-height",
+															"objectClass": "Hall",
+															"sid": 928804102751537,
+															"parameters": {
+																"comparison": 4,
+																"height": "tileSize"
+															}
+														}
+													],
+													"actions": [],
+													"sid": 404950464844493,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "is-overlapping-at-offset",
+																	"objectClass": "TempTile",
+																	"sid": 114875690704820,
+																	"parameters": {
+																		"object": "Border",
+																		"offset-x": "32",
+																		"offset-y": "0"
+																	}
+																},
+																{
+																	"id": "is-overlapping-at-offset",
+																	"objectClass": "TempTile",
+																	"sid": 539914033663477,
+																	"parameters": {
+																		"object": "Room",
+																		"offset-x": "0",
+																		"offset-y": "-32"
+																	}
+																},
+																{
+																	"id": "is-overlapping-at-offset",
+																	"objectClass": "TempTile",
+																	"sid": 538429217674245,
+																	"parameters": {
+																		"object": "Room",
+																		"offset-x": "0",
+																		"offset-y": "0"
+																	},
+																	"isInverted": true
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-eventvar-value",
+																	"objectClass": "System",
+																	"sid": 223639837020988,
+																	"parameters": {
+																		"variable": "count",
+																		"value": "Border.PickedCount"
+																	}
+																}
+															],
+															"sid": 393220599660928,
+															"children": [
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "compare-eventvar",
+																			"objectClass": "System",
+																			"sid": 870688267529492,
+																			"parameters": {
+																				"variable": "count",
+																				"comparison": 4,
+																				"value": "1"
+																			}
+																		}
+																	],
+																	"actions": [
+																		{
+																			"id": "set-tile",
+																			"objectClass": "TilemapSolid",
+																			"sid": 662649383911566,
+																			"parameters": {
+																				"tile-x": "loopindex(\"i\")+1",
+																				"tile-y": "loopindex(\"j\")",
+																				"tile": "50",
+																				"state": "normal"
+																			}
+																		}
+																	],
+																	"sid": 194878120843717
+																}
+															]
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "is-overlapping-at-offset",
+																	"objectClass": "TempTile",
+																	"sid": 573665881851881,
+																	"parameters": {
+																		"object": "Border",
+																		"offset-x": "-32",
+																		"offset-y": "0"
+																	}
+																},
+																{
+																	"id": "is-overlapping-at-offset",
+																	"objectClass": "TempTile",
+																	"sid": 197706481786967,
+																	"parameters": {
+																		"object": "Room",
+																		"offset-x": "0",
+																		"offset-y": "-32"
+																	}
+																},
+																{
+																	"id": "is-overlapping-at-offset",
+																	"objectClass": "TempTile",
+																	"sid": 296491277951167,
+																	"parameters": {
+																		"object": "Room",
+																		"offset-x": "0",
+																		"offset-y": "0"
+																	},
+																	"isInverted": true
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-eventvar-value",
+																	"objectClass": "System",
+																	"sid": 288959559964102,
+																	"parameters": {
+																		"variable": "count",
+																		"value": "Border.PickedCount"
+																	}
+																}
+															],
+															"sid": 415148532889104,
+															"children": [
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "compare-eventvar",
+																			"objectClass": "System",
+																			"sid": 991493465077024,
+																			"parameters": {
+																				"variable": "count",
+																				"comparison": 4,
+																				"value": "1"
+																			}
+																		}
+																	],
+																	"actions": [
+																		{
+																			"id": "set-tile",
+																			"objectClass": "TilemapSolid",
+																			"sid": 842034500463171,
+																			"parameters": {
+																				"tile-x": "loopindex(\"i\")-1",
+																				"tile-y": "loopindex(\"j\")",
+																				"tile": "53",
+																				"state": "normal"
+																			}
+																		}
+																	],
+																	"sid": 210689211048956
+																}
+															]
+														}
+													]
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			],
+			"sid": 290232839635741
+		},
+		{
 			"eventType": "block",
 			"conditions": [
 				{
 					"id": "every-tick",
 					"objectClass": "System",
-					"sid": 370330191768206
+					"sid": 431935493299971
 				}
 			],
 			"actions": [
 				{
 					"id": "set-text",
 					"objectClass": "lifeCount",
-					"sid": 555721555166926,
+					"sid": 337674079256671,
 					"parameters": {
 						"text": "lives"
 					}
@@ -92,13 +1587,13 @@
 				{
 					"id": "set-text",
 					"objectClass": "goldCount",
-					"sid": 700542691015974,
+					"sid": 359112438248165,
 					"parameters": {
 						"text": "gold"
 					}
 				}
 			],
-			"sid": 312012340360019
+			"sid": 119744432430359
 		},
 		{
 			"eventType": "block",

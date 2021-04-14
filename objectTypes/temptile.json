@@ -1,0 +1,49 @@
+{
+	"name": "TempTile",
+	"plugin-id": "Sprite",
+	"sid": 268912124777767,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 32,
+						"height": 32,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 8851704,
+						"collisionPoly": {
+							"points": [
+								0.041666666666666664,
+								0.06041666666666666,
+								0.9437500000000001,
+								0.06041666666666666,
+								0.9500000000000002,
+								0.9625000000000001,
+								0.041666666666666664,
+								0.9625000000000001
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 352505375763496,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}
