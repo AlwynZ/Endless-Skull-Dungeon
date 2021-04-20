@@ -19,7 +19,7 @@
 					"behaviors": {},
 					"world": {
 						"x": -48,
-						"y": 272,
+						"y": 288,
 						"width": 32,
 						"height": 32,
 						"originX": 0.5,
@@ -67,7 +67,7 @@
 					},
 					"world": {
 						"x": -48,
-						"y": 224,
+						"y": 240,
 						"width": 32,
 						"height": 32,
 						"originX": 0.5,
@@ -114,7 +114,7 @@
 				{
 					"type": "Border",
 					"properties": {
-						"initially-visible": true,
+						"initially-visible": false,
 						"initial-animation": "Animation 1",
 						"initial-frame": 0,
 						"enable-collisions": true,
@@ -143,7 +143,7 @@
 				{
 					"type": "Hall",
 					"properties": {
-						"initially-visible": true,
+						"initially-visible": false,
 						"initial-animation": "Animation 1",
 						"initial-frame": 0,
 						"enable-collisions": true,
@@ -172,7 +172,7 @@
 				{
 					"type": "Room",
 					"properties": {
-						"initially-visible": true,
+						"initially-visible": false,
 						"initial-animation": "Animation 1",
 						"initial-frame": 0,
 						"enable-collisions": true,
@@ -203,7 +203,7 @@
 				{
 					"type": "RoomCenter",
 					"properties": {
-						"initially-visible": true,
+						"initially-visible": false,
 						"initial-animation": "Default",
 						"initial-frame": 0,
 						"enable-collisions": true,
@@ -234,7 +234,7 @@
 				{
 					"type": "TempTile",
 					"properties": {
-						"initially-visible": true,
+						"initially-visible": false,
 						"initial-animation": "Animation 1",
 						"initial-frame": 0,
 						"enable-collisions": true,
@@ -394,7 +394,7 @@
 					},
 					"world": {
 						"x": -48,
-						"y": 368,
+						"y": 336,
 						"width": 32,
 						"height": 32,
 						"originX": 0.5,
@@ -440,7 +440,7 @@
 					},
 					"world": {
 						"x": -48,
-						"y": 176,
+						"y": 192,
 						"width": 16,
 						"height": 16,
 						"originX": 0.5,
@@ -527,7 +527,7 @@
 					"behaviors": {},
 					"world": {
 						"x": -176,
-						"y": 384,
+						"y": 368,
 						"width": 40,
 						"height": 40,
 						"originX": 0.5,

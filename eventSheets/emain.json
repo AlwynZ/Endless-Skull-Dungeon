@@ -557,40 +557,7 @@
 							}
 						}
 					],
-					"actions": [
-						{
-							"id": "set-visible",
-							"objectClass": "Room",
-							"sid": 148974954719672,
-							"parameters": {
-								"visibility": "invisible"
-							}
-						},
-						{
-							"id": "set-visible",
-							"objectClass": "RoomCenter",
-							"sid": 967509646463288,
-							"parameters": {
-								"visibility": "invisible"
-							}
-						},
-						{
-							"id": "set-visible",
-							"objectClass": "Hall",
-							"sid": 421973341813511,
-							"parameters": {
-								"visibility": "invisible"
-							}
-						},
-						{
-							"id": "set-visible",
-							"objectClass": "Border",
-							"sid": 244624697230707,
-							"parameters": {
-								"visibility": "invisible"
-							}
-						}
-					],
+					"actions": [],
 					"sid": 789909186715960,
 					"children": [
 						{
@@ -619,6 +586,34 @@
 								}
 							],
 							"sid": 296104758130061
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-last-created",
+									"objectClass": "System",
+									"sid": 227428200139901,
+									"parameters": {
+										"object": "Room"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 665803291338810,
+									"parameters": {
+										"object-to-create": "TrapDoor",
+										"layer": "0",
+										"x": "Room.X",
+										"y": "Room.Y",
+										"create-hierarchy": false
+									}
+								}
+							],
+							"sid": 320337812223102
 						}
 					]
 				}
@@ -1949,6 +1944,58 @@
 						{
 							"id": "on-collision-with-another-object",
 							"objectClass": "Player",
+							"sid": 189596358978165,
+							"parameters": {
+								"object": "TrapDoor"
+							}
+						},
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 291181350772301,
+							"parameters": {
+								"variable": "hasKey"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 339176400281715,
+							"parameters": {
+								"audio-file": "door",
+								"loop": "not-looping",
+								"volume": "-10",
+								"tag-optional": "\"\""
+							}
+						},
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 457427652227811,
+							"parameters": {
+								"object-to-create": "Ladder",
+								"layer": "0",
+								"x": "TrapDoor.X",
+								"y": "TrapDoor.Y",
+								"create-hierarchy": false
+							}
+						},
+						{
+							"id": "destroy",
+							"objectClass": "TrapDoor",
+							"sid": 786159713127264
+						}
+					],
+					"sid": 461362569419112
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "Player",
 							"sid": 760462405810371,
 							"parameters": {
 								"object": "Ladder"
@@ -2045,46 +2092,6 @@
 						}
 					],
 					"isOrBlock": true
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-collision-with-another-object",
-							"objectClass": "Player",
-							"sid": 139789960202132,
-							"parameters": {
-								"object": "Door"
-							}
-						},
-						{
-							"id": "compare-boolean-eventvar",
-							"objectClass": "System",
-							"sid": 581014582924766,
-							"parameters": {
-								"variable": "hasKey"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "play",
-							"objectClass": "Audio",
-							"sid": 332610710599419,
-							"parameters": {
-								"audio-file": "door",
-								"loop": "not-looping",
-								"volume": "-10",
-								"tag-optional": "\"\""
-							}
-						},
-						{
-							"id": "destroy",
-							"objectClass": "Door",
-							"sid": 359468832720925
-						}
-					],
-					"sid": 139042438900808
 				},
 				{
 					"eventType": "block",
