@@ -1562,266 +1562,342 @@
 			"sid": 290232839635741
 		},
 		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "every-tick",
-					"objectClass": "System",
-					"sid": 431935493299971
-				}
-			],
-			"actions": [
-				{
-					"id": "set-text",
-					"objectClass": "lifeCount",
-					"sid": 337674079256671,
-					"parameters": {
-						"text": "lives"
-					}
-				},
-				{
-					"id": "set-text",
-					"objectClass": "goldCount",
-					"sid": 359112438248165,
-					"parameters": {
-						"text": "gold"
-					}
-				}
-			],
-			"sid": 119744432430359
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-start-of-layout",
-					"objectClass": "System",
-					"sid": 588112386464751
-				}
-			],
-			"actions": [
-				{
-					"id": "set-boolean-eventvar",
-					"objectClass": "System",
-					"sid": 623274515864705,
-					"parameters": {
-						"variable": "hasKey",
-						"value": "false"
-					}
-				},
-				{
-					"id": "set-text",
-					"objectClass": "levelCount",
-					"sid": 445522706845401,
-					"parameters": {
-						"text": "level"
-					}
-				},
-				{
-					"id": "set-size",
-					"objectClass": "upSlash",
-					"sid": 811787983883448,
-					"parameters": {
-						"width": "upSlash.Width+10*upgrade",
-						"height": "upSlash.Height+10*upgrade"
-					}
-				},
-				{
-					"id": "pin-to-object-imagepoint",
-					"objectClass": "direction",
-					"sid": 937340636678425,
-					"behaviorType": "固定",
-					"parameters": {
-						"pin-to": "Player",
-						"image-point": "0",
-						"angle": false,
-						"width-type": "no",
-						"height-type": "no",
-						"z": true
-					}
-				}
-			],
-			"sid": 646039266402763,
+			"eventType": "group",
+			"disabled": false,
+			"title": "Set layouts and other system conditions",
+			"description": "Call dungeon generation and set up each layout. Also check for lose condition",
+			"isActiveOnStart": true,
 			"children": [
 				{
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "compare-two-values",
+							"id": "every-tick",
 							"objectClass": "System",
-							"sid": 603064503953515,
-							"parameters": {
-								"first-value": "LayoutName",
-								"comparison": 0,
-								"second-value": "\"Dungeon\""
-							}
+							"sid": 579049936687902
 						}
 					],
 					"actions": [
 						{
-							"id": "set-eventvar-value",
-							"objectClass": "System",
-							"sid": 438411964887000,
+							"id": "set-text",
+							"objectClass": "lifeCount",
+							"sid": 374163857261974,
 							"parameters": {
-								"variable": "dungeonHeight",
-								"value": "LayoutHeight"
-							}
-						},
-						{
-							"id": "set-eventvar-value",
-							"objectClass": "System",
-							"sid": 927474032176047,
-							"parameters": {
-								"variable": "dungeonWidth",
-								"value": "LayoutWidth"
-							}
-						},
-						{
-							"callFunction": "GenerateDungeon",
-							"sid": 831993615917669
-						},
-						{
-							"id": "wait-for-signal",
-							"objectClass": "System",
-							"sid": 315324144540959,
-							"parameters": {
-								"tag": "\"DG Complete\""
-							}
-						},
-						{
-							"callFunction": "FillTilemap",
-							"sid": 542629763437566
-						},
-						{
-							"id": "create-object",
-							"objectClass": "System",
-							"sid": 387797017055480,
-							"parameters": {
-								"object-to-create": "phasingSkull",
-								"layer": "0",
-								"x": "choose(-40, 2000)",
-								"y": "random(100, 900)",
-								"create-hierarchy": false
-							}
-						},
-						{
-							"id": "create-object",
-							"objectClass": "System",
-							"sid": 582566398668566,
-							"parameters": {
-								"object-to-create": "phasingSkull",
-								"layer": "0",
-								"x": "choose(-40, 2000)",
-								"y": "random(100, 900)",
-								"create-hierarchy": false
-							}
-						},
-						{
-							"id": "create-object",
-							"objectClass": "System",
-							"sid": 977928347911435,
-							"parameters": {
-								"object-to-create": "phasingSkull",
-								"layer": "0",
-								"x": "choose(-40, 2000)",
-								"y": "random(100, 900)",
-								"create-hierarchy": false
-							}
-						},
-						{
-							"id": "create-object",
-							"objectClass": "System",
-							"sid": 238585321489408,
-							"parameters": {
-								"object-to-create": "phasingSkull",
-								"layer": "0",
-								"x": "choose(-40, 2000)",
-								"y": "random(100, 900)",
-								"create-hierarchy": false
-							}
-						},
-						{
-							"id": "create-object",
-							"objectClass": "System",
-							"sid": 137870838898322,
-							"parameters": {
-								"object-to-create": "bouncingSkull",
-								"layer": "0",
-								"x": "random(1464, 1800)",
-								"y": "random(376, 840)",
-								"create-hierarchy": false
-							}
-						},
-						{
-							"id": "set-speed",
-							"objectClass": "bouncingSkull",
-							"sid": 383638025309883,
-							"behaviorType": "Bullet",
-							"parameters": {
-								"speed": "230*(1+0.1*level)"
-							}
-						},
-						{
-							"id": "set-speed",
-							"objectClass": "phasingSkull",
-							"sid": 121413530057650,
-							"behaviorType": "Bullet",
-							"parameters": {
-								"speed": "230*(1+0.1*level)"
-							}
-						},
-						{
-							"id": "set-angle-of-motion",
-							"objectClass": "phasingSkull",
-							"sid": 449835619430574,
-							"behaviorType": "Bullet",
-							"parameters": {
-								"angle": "random(0,360)"
+								"text": "lives"
 							}
 						},
 						{
 							"id": "set-text",
-							"objectClass": "temAngleText",
-							"sid": 471296885856757,
+							"objectClass": "goldCount",
+							"sid": 368764584300143,
 							"parameters": {
-								"text": "attackAngle"
+								"text": "gold"
 							}
 						}
 					],
-					"sid": 525142999906582,
+					"sid": 767623960370591
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 740413570183520
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 616834412815379,
+							"parameters": {
+								"variable": "hasKey",
+								"value": "false"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "levelCount",
+							"sid": 869365221301234,
+							"parameters": {
+								"text": "level"
+							}
+						},
+						{
+							"id": "set-size",
+							"objectClass": "upSlash",
+							"sid": 839284564367350,
+							"parameters": {
+								"width": "upSlash.Width+10*upgrade",
+								"height": "upSlash.Height+10*upgrade"
+							}
+						},
+						{
+							"id": "pin-to-object-imagepoint",
+							"objectClass": "direction",
+							"sid": 913685061207424,
+							"behaviorType": "固定",
+							"parameters": {
+								"pin-to": "Player",
+								"image-point": "0",
+								"angle": false,
+								"width-type": "no",
+								"height-type": "no",
+								"z": true
+							}
+						}
+					],
+					"sid": 209738281706197,
 					"children": [
 						{
 							"eventType": "block",
 							"conditions": [
 								{
-									"id": "is-tag-playing",
-									"objectClass": "Audio",
-									"sid": 469379266594303,
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 899280800470495,
 									"parameters": {
-										"tag": "\"dungeon\""
-									},
-									"isInverted": true
+										"first-value": "LayoutName",
+										"comparison": 0,
+										"second-value": "\"Dungeon\""
+									}
 								}
 							],
 							"actions": [
 								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 726448597554314,
+									"parameters": {
+										"variable": "dungeonHeight",
+										"value": "LayoutHeight"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 391826899951988,
+									"parameters": {
+										"variable": "dungeonWidth",
+										"value": "LayoutWidth"
+									}
+								},
+								{
+									"callFunction": "GenerateDungeon",
+									"sid": 316726722239669
+								},
+								{
+									"id": "wait-for-signal",
+									"objectClass": "System",
+									"sid": 738531295519179,
+									"parameters": {
+										"tag": "\"DG Complete\""
+									}
+								},
+								{
+									"callFunction": "FillTilemap",
+									"sid": 586731986605123
+								},
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 675852468098614,
+									"parameters": {
+										"object-to-create": "phasingSkull",
+										"layer": "0",
+										"x": "choose(-40, 2000)",
+										"y": "random(100, 900)",
+										"create-hierarchy": false
+									}
+								},
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 566126649198931,
+									"parameters": {
+										"object-to-create": "phasingSkull",
+										"layer": "0",
+										"x": "choose(-40, 2000)",
+										"y": "random(100, 900)",
+										"create-hierarchy": false
+									}
+								},
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 927679812584903,
+									"parameters": {
+										"object-to-create": "phasingSkull",
+										"layer": "0",
+										"x": "choose(-40, 2000)",
+										"y": "random(100, 900)",
+										"create-hierarchy": false
+									}
+								},
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 375206337212580,
+									"parameters": {
+										"object-to-create": "phasingSkull",
+										"layer": "0",
+										"x": "choose(-40, 2000)",
+										"y": "random(100, 900)",
+										"create-hierarchy": false
+									}
+								},
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 581593848801766,
+									"parameters": {
+										"object-to-create": "bouncingSkull",
+										"layer": "0",
+										"x": "random(1464, 1800)",
+										"y": "random(376, 840)",
+										"create-hierarchy": false
+									}
+								},
+								{
+									"id": "set-speed",
+									"objectClass": "bouncingSkull",
+									"sid": 878199797559662,
+									"behaviorType": "Bullet",
+									"parameters": {
+										"speed": "230*(1+0.1*level)"
+									}
+								},
+								{
+									"id": "set-speed",
+									"objectClass": "phasingSkull",
+									"sid": 609157823084810,
+									"behaviorType": "Bullet",
+									"parameters": {
+										"speed": "230*(1+0.1*level)"
+									}
+								},
+								{
+									"id": "set-angle-of-motion",
+									"objectClass": "phasingSkull",
+									"sid": 485497892339167,
+									"behaviorType": "Bullet",
+									"parameters": {
+										"angle": "random(0,360)"
+									}
+								},
+								{
+									"id": "set-text",
+									"objectClass": "temAngleText",
+									"sid": 429932794171444,
+									"parameters": {
+										"text": "attackAngle"
+									}
+								}
+							],
+							"sid": 684018442952519,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-tag-playing",
+											"objectClass": "Audio",
+											"sid": 699846164195970,
+											"parameters": {
+												"tag": "\"dungeon\""
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "stop-all",
+											"objectClass": "Audio",
+											"sid": 815415423540379
+										},
+										{
+											"id": "play",
+											"objectClass": "Audio",
+											"sid": 996180015525616,
+											"parameters": {
+												"audio-file": "Dungeon",
+												"loop": "looping",
+												"volume": "-30",
+												"tag-optional": "\"dungeon\""
+											}
+										}
+									],
+									"sid": 375270769032502
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 918444430044956,
+									"parameters": {
+										"first-value": "LayoutName",
+										"comparison": 0,
+										"second-value": "\"Merchant Room\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 393574780959888,
+									"parameters": {
+										"layer": "\"Shop Menu\"",
+										"visibility": "invisible"
+									}
+								},
+								{
 									"id": "stop-all",
 									"objectClass": "Audio",
-									"sid": 375261934701209
+									"sid": 815135496284769
 								},
 								{
 									"id": "play",
 									"objectClass": "Audio",
-									"sid": 757833891591251,
+									"sid": 583551588243443,
 									"parameters": {
-										"audio-file": "Dungeon",
+										"audio-file": "Merchant",
 										"loop": "looping",
 										"volume": "-30",
-										"tag-optional": "\"dungeon\""
+										"tag-optional": "\"merchant\""
+									}
+								},
+								{
+									"id": "set-collisions-enabled",
+									"objectClass": "merchCol",
+									"sid": 589597934764634,
+									"parameters": {
+										"collisions": "enabled"
+									}
+								},
+								{
+									"id": "set-text",
+									"objectClass": "weaponPrice",
+									"sid": 527241450658527,
+									"parameters": {
+										"text": "5*(upgrade+1)&\"g\""
+									}
+								},
+								{
+									"id": "set-text",
+									"objectClass": "potionPrice",
+									"sid": 973258854348844,
+									"parameters": {
+										"text": "5&\"g\""
 									}
 								}
 							],
-							"sid": 258981416668942
+							"sid": 795345047156647
 						}
 					]
 				},
@@ -1829,137 +1905,81 @@
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "compare-two-values",
+							"id": "compare-eventvar",
 							"objectClass": "System",
-							"sid": 881711221389669,
+							"sid": 668928385444511,
 							"parameters": {
-								"first-value": "LayoutName",
+								"variable": "lives",
 								"comparison": 0,
-								"second-value": "\"Merchant Room\""
+								"value": "0"
 							}
 						}
 					],
 					"actions": [
 						{
-							"id": "set-layer-visible",
-							"objectClass": "System",
-							"sid": 758306532346182,
-							"parameters": {
-								"layer": "\"Shop Menu\"",
-								"visibility": "invisible"
-							}
-						},
-						{
 							"id": "stop-all",
 							"objectClass": "Audio",
-							"sid": 470881447996605
+							"sid": 308975420861611,
+							"disabled": true
 						},
 						{
-							"id": "play",
-							"objectClass": "Audio",
-							"sid": 199080519514915,
-							"parameters": {
-								"audio-file": "Merchant",
-								"loop": "looping",
-								"volume": "-30",
-								"tag-optional": "\"merchant\""
-							}
+							"id": "reset-global-variables",
+							"objectClass": "System",
+							"sid": 699906009525954
 						},
 						{
-							"id": "set-collisions-enabled",
-							"objectClass": "merchCol",
-							"sid": 501748320760045,
-							"parameters": {
-								"collisions": "enabled"
-							}
-						},
+							"id": "restart-layout",
+							"objectClass": "System",
+							"sid": 716083463624453
+						}
+					],
+					"sid": 128259444735128
+				}
+			],
+			"sid": 696096181159325
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Enemy Movement",
+			"description": "Note: skull bullet speed is set at layout start",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
 						{
-							"id": "set-text",
-							"objectClass": "weaponPrice",
-							"sid": 407816834785915,
+							"id": "has-los-to-object",
+							"objectClass": "Skeleton",
+							"sid": 562620054216760,
+							"behaviorType": "LineOfSight",
 							"parameters": {
-								"text": "5*(upgrade+1)&\"g\""
-							}
-						},
-						{
-							"id": "set-text",
-							"objectClass": "potionPrice",
-							"sid": 621818861449655,
-							"parameters": {
-								"text": "5&\"g\""
+								"object": "Player",
+								"image-point": "0"
 							}
 						}
 					],
-					"sid": 811342633628720
-				}
-			]
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "compare-eventvar",
-					"objectClass": "System",
-					"sid": 420028456105146,
-					"parameters": {
-						"variable": "lives",
-						"comparison": 0,
-						"value": "0"
-					}
+					"actions": [
+						{
+							"id": "move-at-angle",
+							"objectClass": "Skeleton",
+							"sid": 201580665374838,
+							"parameters": {
+								"angle": "angle(Skeleton.X, Skeleton.Y, Player.X, Player.Y)",
+								"distance": "1.0+(level*0.1)"
+							}
+						}
+					],
+					"sid": 768860882957963
 				}
 			],
-			"actions": [
-				{
-					"id": "stop-all",
-					"objectClass": "Audio",
-					"sid": 619688529895122,
-					"disabled": true
-				},
-				{
-					"id": "reset-global-variables",
-					"objectClass": "System",
-					"sid": 498381166382774
-				},
-				{
-					"id": "restart-layout",
-					"objectClass": "System",
-					"sid": 112818015958889
-				}
-			],
-			"sid": 313317987111413
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "has-los-to-object",
-					"objectClass": "Skeleton",
-					"sid": 682872095486408,
-					"behaviorType": "LineOfSight",
-					"parameters": {
-						"object": "Player",
-						"image-point": "0"
-					}
-				}
-			],
-			"actions": [
-				{
-					"id": "move-at-angle",
-					"objectClass": "Skeleton",
-					"sid": 415106231745786,
-					"parameters": {
-						"angle": "angle(Skeleton.X, Skeleton.Y, Player.X, Player.Y)",
-						"distance": "1.0+(level*0.1)"
-					}
-				}
-			],
-			"sid": 737404791173007
+			"sid": 277427262874824
 		},
 		{
 			"eventType": "group",
 			"disabled": false,
 			"title": "Collisions",
-			"description": "",
+			"description": "With enemies and objects",
 			"isActiveOnStart": true,
 			"children": [
 				{
