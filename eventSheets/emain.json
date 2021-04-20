@@ -162,10 +162,10 @@
 								{
 									"id": "create-object",
 									"objectClass": "System",
-									"sid": 166748648532135,
+									"sid": 856600158226023,
 									"parameters": {
 										"object-to-create": "Room",
-										"layer": "1",
+										"layer": "0",
 										"x": "0",
 										"y": "0",
 										"create-hierarchy": false
@@ -201,10 +201,10 @@
 								{
 									"id": "spawn-another-object",
 									"objectClass": "Room",
-									"sid": 583469785344544,
+									"sid": 748884293527903,
 									"parameters": {
 										"object": "RoomCenter",
-										"layer": "1",
+										"layer": "0",
 										"image-point": "0",
 										"create-hierarchy": false
 									}
@@ -288,10 +288,10 @@
 								{
 									"id": "spawn-another-object",
 									"objectClass": "Room",
-									"sid": 905819833777513,
+									"sid": 631181277633145,
 									"parameters": {
 										"object": "Hall",
-										"layer": "1",
+										"layer": "0",
 										"image-point": "0",
 										"create-hierarchy": false
 									}
@@ -357,10 +357,10 @@
 								{
 									"id": "spawn-another-object",
 									"objectClass": "Room",
-									"sid": 481167499888468,
+									"sid": 538604310201536,
 									"parameters": {
 										"object": "Hall",
-										"layer": "1",
+										"layer": "0",
 										"image-point": "0",
 										"create-hierarchy": false
 									}
@@ -440,10 +440,10 @@
 								{
 									"id": "spawn-another-object",
 									"objectClass": "Room",
-									"sid": 865209305877220,
+									"sid": 777926125348609,
 									"parameters": {
 										"object": "Border",
-										"layer": "1",
+										"layer": "0",
 										"image-point": "0",
 										"create-hierarchy": false
 									}
@@ -480,10 +480,10 @@
 								{
 									"id": "spawn-another-object",
 									"objectClass": "Hall",
-									"sid": 251627630850597,
+									"sid": 480253951965402,
 									"parameters": {
 										"object": "Border",
-										"layer": "1",
+										"layer": "0",
 										"image-point": "0",
 										"create-hierarchy": false
 									}
@@ -2232,10 +2232,10 @@
 						{
 							"id": "spawn-another-object",
 							"objectClass": "EnemyFam",
-							"sid": 379707112652200,
+							"sid": 573125110642104,
 							"parameters": {
 								"object": "Coin",
-								"layer": "0",
+								"layer": "1",
 								"image-point": "0",
 								"create-hierarchy": false
 							}
@@ -2291,10 +2291,10 @@
 										{
 											"id": "spawn-another-object",
 											"objectClass": "EnemyFam",
-											"sid": 862672490419083,
+											"sid": 824650502536248,
 											"parameters": {
 												"object": "Key",
-												"layer": "0",
+												"layer": "1",
 												"image-point": "0",
 												"create-hierarchy": false
 											}
@@ -2355,10 +2355,10 @@
 												{
 													"id": "spawn-another-object",
 													"objectClass": "EnemyFam",
-													"sid": 761355460079298,
+													"sid": 526616876790885,
 													"parameters": {
 														"object": "Key",
-														"layer": "0",
+														"layer": "1",
 														"image-point": "0",
 														"create-hierarchy": false
 													}
@@ -2516,10 +2516,10 @@
 						{
 							"id": "create-object",
 							"objectClass": "System",
-							"sid": 552483994150419,
+							"sid": 701030037671625,
 							"parameters": {
 								"object-to-create": "upSlash",
-								"layer": "0",
+								"layer": "1",
 								"x": "Player.X",
 								"y": "Player.Y-25",
 								"create-hierarchy": false
@@ -2614,10 +2614,10 @@
 						{
 							"id": "create-object",
 							"objectClass": "System",
-							"sid": 406697747711602,
+							"sid": 319368734406070,
 							"parameters": {
 								"object-to-create": "leftSlash",
-								"layer": "0",
+								"layer": "1",
 								"x": "Player.X-25",
 								"y": "Player.Y",
 								"create-hierarchy": false
@@ -2712,10 +2712,10 @@
 						{
 							"id": "create-object",
 							"objectClass": "System",
-							"sid": 865107814620542,
+							"sid": 921876937989623,
 							"parameters": {
 								"object-to-create": "downSlash",
-								"layer": "0",
+								"layer": "1",
 								"x": "Player.X",
 								"y": "Player.Y+25",
 								"create-hierarchy": false
@@ -2810,10 +2810,10 @@
 						{
 							"id": "create-object",
 							"objectClass": "System",
-							"sid": 236441744356493,
+							"sid": 832151175148952,
 							"parameters": {
 								"object-to-create": "rightSlash",
-								"layer": "0",
+								"layer": "1",
 								"x": "Player.X+25",
 								"y": "Player.Y",
 								"create-hierarchy": false
@@ -2954,10 +2954,10 @@
 								{
 									"id": "create-object",
 									"objectClass": "System",
-									"sid": 444346555112625,
+									"sid": 546661678687151,
 									"parameters": {
 										"object-to-create": "rightSlash",
-										"layer": "0",
+										"layer": "1",
 										"x": "Player.X+25",
 										"y": "Player.Y",
 										"create-hierarchy": false
@@ -3045,10 +3045,10 @@
 								{
 									"id": "create-object",
 									"objectClass": "System",
-									"sid": 928334441927878,
+									"sid": 569243672959557,
 									"parameters": {
 										"object-to-create": "downSlash",
-										"layer": "0",
+										"layer": "1",
 										"x": "Player.X",
 										"y": "Player.Y+25",
 										"create-hierarchy": false
@@ -3136,10 +3136,10 @@
 								{
 									"id": "create-object",
 									"objectClass": "System",
-									"sid": 491059079328311,
+									"sid": 306950872530525,
 									"parameters": {
 										"object-to-create": "leftSlash",
-										"layer": "0",
+										"layer": "1",
 										"x": "Player.X-25",
 										"y": "Player.Y",
 										"create-hierarchy": false
@@ -3228,10 +3228,10 @@
 								{
 									"id": "create-object",
 									"objectClass": "System",
-									"sid": 435662656804016,
+									"sid": 674552898588784,
 									"parameters": {
 										"object-to-create": "upSlash",
-										"layer": "0",
+										"layer": "1",
 										"x": "Player.X",
 										"y": "Player.Y-25",
 										"create-hierarchy": false
