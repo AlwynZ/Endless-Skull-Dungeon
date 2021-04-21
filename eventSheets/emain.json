@@ -132,6 +132,16 @@
 			"sid": 635947840900529
 		},
 		{
+			"eventType": "variable",
+			"name": "playerAttackDamage",
+			"type": "number",
+			"initialValue": "10",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 745505678995156
+		},
+		{
 			"eventType": "group",
 			"disabled": false,
 			"title": "Generate Dungeon",
@@ -1869,6 +1879,33 @@
 							}
 						},
 						{
+							"id": "set-size",
+							"objectClass": "leftSlash",
+							"sid": 639732502643357,
+							"parameters": {
+								"width": "leftSlash.Width+10*upgrade",
+								"height": "leftSlash.Height+10*upgrade"
+							}
+						},
+						{
+							"id": "set-size",
+							"objectClass": "downSlash",
+							"sid": 263996595588610,
+							"parameters": {
+								"width": "downSlash.Width+10*upgrade",
+								"height": "downSlash.Height+10*upgrade"
+							}
+						},
+						{
+							"id": "set-size",
+							"objectClass": "rightSlash",
+							"sid": 282351800000292,
+							"parameters": {
+								"width": "rightSlash.Width+10*upgrade",
+								"height": "rightSlash.Height+10*upgrade"
+							}
+						},
+						{
 							"id": "pin-to-object-imagepoint",
 							"objectClass": "direction",
 							"sid": 913685061207424,
@@ -1985,10 +2022,10 @@
 								{
 									"id": "set-speed",
 									"objectClass": "phasingSkull",
-									"sid": 609157823084810,
+									"sid": 323486424285125,
 									"behaviorType": "Bullet",
 									"parameters": {
-										"speed": "230*(1+0.1*level)"
+										"speed": "230*(1+0.01*level)"
 									}
 								},
 								{
@@ -2677,6 +2714,14 @@
 								"variable": "hasKey",
 								"value": "true"
 							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "keyYesNo",
+							"sid": 442729131688070,
+							"parameters": {
+								"text": "\"YES\""
+							}
 						}
 					],
 					"sid": 849168132407838,
@@ -2739,7 +2784,7 @@
 			"eventType": "group",
 			"disabled": false,
 			"title": "playerAttacks",
-			"description": "wasd slashes",
+			"description": "ijkl slashes :O",
 			"isActiveOnStart": true,
 			"children": [
 				{

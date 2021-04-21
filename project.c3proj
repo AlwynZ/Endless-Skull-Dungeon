@@ -222,7 +222,10 @@
 					"levelCount",
 					"weaponPrice",
 					"potionPrice",
-					"temAngleText"
+					"temAngleText",
+					"Text",
+					"keyText",
+					"keyYesNo"
 				],
 				"subfolders": [],
 				"name": "Text"

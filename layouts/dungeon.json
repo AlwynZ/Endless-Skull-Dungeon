@@ -299,8 +299,8 @@
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
-						"x": -176,
-						"y": 304,
+						"x": -768,
+						"y": 832,
 						"width": 40,
 						"height": 40,
 						"originX": 0.5,
@@ -311,7 +311,7 @@
 							1,
 							1
 						],
-						"angle": 6.278523571948757,
+						"angle": 0.00761157807468571,
 						"zElevation": 0
 					}
 				},
@@ -328,8 +328,8 @@
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
-						"x": -176,
-						"y": 368,
+						"x": -768,
+						"y": 896,
 						"width": 40,
 						"height": 40,
 						"originX": 0.5,
@@ -340,7 +340,7 @@
 							1,
 							1
 						],
-						"angle": 6.278523571948757,
+						"angle": 0.00761157807468571,
 						"zElevation": 0
 					}
 				},
@@ -357,8 +357,8 @@
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
-						"x": -208,
-						"y": 336,
+						"x": -800,
+						"y": 864,
 						"width": 40,
 						"height": 40,
 						"originX": 0.5,
@@ -369,7 +369,7 @@
 							1,
 							1
 						],
-						"angle": 0,
+						"angle": 0.01227331330551562,
 						"zElevation": 0
 					}
 				},
@@ -386,8 +386,8 @@
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
-						"x": -144,
-						"y": 336,
+						"x": -736,
+						"y": 864,
 						"width": 40,
 						"height": 40,
 						"originX": 0.5,
@@ -398,7 +398,7 @@
 							1,
 							1
 						],
-						"angle": 6.278523571948757,
+						"angle": 0.00761157807468571,
 						"zElevation": 0
 					}
 				},
@@ -413,7 +413,7 @@
 					},
 					"uid": 57,
 					"instanceVariables": {
-						"Strength": 0
+						"Health": 100
 					},
 					"behaviors": {
 						"Bullet": {
@@ -528,7 +528,7 @@
 				{
 					"type": "direction",
 					"properties": {
-						"initially-visible": true,
+						"initially-visible": false,
 						"initial-animation": "Animation 1",
 						"initial-frame": 0,
 						"enable-collisions": true,
@@ -905,7 +905,7 @@
 						"horizontal-alignment": "left",
 						"vertical-alignment": "top",
 						"wrapping": "word",
-						"initially-visible": true,
+						"initially-visible": false,
 						"origin": "top-left"
 					},
 					"uid": 17,
@@ -939,7 +939,7 @@
 					},
 					"uid": 18,
 					"instanceVariables": {
-						"Strength": 0
+						"Health": 100
 					},
 					"behaviors": {
 						"Bullet": {
@@ -968,6 +968,82 @@
 							1,
 							1,
 							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "keyText",
+					"properties": {
+						"text": "KEY:",
+						"enable-bbcode": true,
+						"character-width": 16,
+						"character-height": 16,
+						"character-set": "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.,;:?!-_~#\"'&()[]|`\\/@°+=*$£€<>",
+						"spacing-data": "",
+						"scale": 1,
+						"character-spacing": 0,
+						"line-height": 0,
+						"horizontal-alignment": "left",
+						"vertical-alignment": "top",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "top-left"
+					},
+					"uid": 23,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 400,
+						"y": 40,
+						"width": 80,
+						"height": 16,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							0.7843137254901961,
+							0,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "keyYesNo",
+					"properties": {
+						"text": "NO",
+						"enable-bbcode": true,
+						"character-width": 16,
+						"character-height": 16,
+						"character-set": "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.,;:?!-_~#\"'&()[]|`\\/@°+=*$£€<>",
+						"spacing-data": "",
+						"scale": 1,
+						"character-spacing": 0,
+						"line-height": 0,
+						"horizontal-alignment": "left",
+						"vertical-alignment": "top",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "top-left"
+					},
+					"uid": 24,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 464,
+						"y": 40,
+						"width": 80,
+						"height": 16,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							0.7843137254901961,
+							0,
 							1
 						],
 						"angle": 0,

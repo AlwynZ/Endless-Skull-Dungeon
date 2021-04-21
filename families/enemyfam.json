@@ -4,7 +4,7 @@
 	"sid": 180820572234053,
 	"instanceVariables": [
 		{
-			"name": "Strength",
+			"name": "Health",
 			"type": "number",
 			"desc": "",
 			"sid": 427024506043183
