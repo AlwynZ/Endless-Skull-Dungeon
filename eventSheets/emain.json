@@ -2491,8 +2491,8 @@
 					"conditions": [
 						{
 							"id": "on-collision-with-another-object",
-							"objectClass": "upSlash",
-							"sid": 260347901810377,
+							"objectClass": "SlashFam",
+							"sid": 169064211232411,
 							"parameters": {
 								"object": "EnemyFam"
 							}
