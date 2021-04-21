@@ -153,7 +153,9 @@
 					"Ladder",
 					"TilemapSolid",
 					"CandleStick",
-					"TrapDoor"
+					"TrapDoor",
+					"BossTilemap",
+					"BossTilemapSolid"
 				],
 				"subfolders": [],
 				"name": "Background"

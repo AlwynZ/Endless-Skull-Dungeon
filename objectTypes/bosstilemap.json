@@ -1,0 +1,33 @@
+{
+	"name": "BossTilemap",
+	"plugin-id": "Tilemap",
+	"sid": 436954032573780,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"image": {
+		"width": 324,
+		"height": 324,
+		"originX": 0.5,
+		"originY": 0.5,
+		"originalSource": "",
+		"exportFormat": "png",
+		"exportQuality": 0.8,
+		"imageSpriteId": 4839451,
+		"collisionPoly": {
+			"points": [
+				0.006172839506172839,
+				0.006172839506172839,
+				0.9938271604938271,
+				0.006172839506172839,
+				0.9938271604938271,
+				0.9938271604938271,
+				0.006172839506172839,
+				0.9938271604938271
+			]
+		},
+		"useCollisionPoly": true
+	},
+	"tile-collision-polys": {}
+}
