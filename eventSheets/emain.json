@@ -105,11 +105,21 @@
 			"eventType": "variable",
 			"name": "numEnemies",
 			"type": "number",
-			"initialValue": "13",
+			"initialValue": "0",
 			"comment": "",
 			"isStatic": false,
 			"isConstant": false,
 			"sid": 872612591949011
+		},
+		{
+			"eventType": "variable",
+			"name": "maxEnemies",
+			"type": "number",
+			"initialValue": "8",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 207874646804102
 		},
 		{
 			"eventType": "variable",
@@ -559,28 +569,44 @@
 							"eventType": "block",
 							"conditions": [
 								{
-									"id": "compare-instance-variable",
-									"objectClass": "Room",
-									"sid": 569790524876626,
+									"id": "pick-all",
+									"objectClass": "System",
+									"sid": 518162884560385,
 									"parameters": {
-										"instance-variable": "ID",
-										"comparison": 0,
-										"value": "1"
+										"object": "Room"
 									}
 								}
 							],
-							"actions": [
+							"actions": [],
+							"sid": 331893833904425,
+							"children": [
 								{
-									"id": "set-position",
-									"objectClass": "Player",
-									"sid": 604502352172092,
-									"parameters": {
-										"x": "Room.X - 48",
-										"y": "Room.Y"
-									}
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-nth-instance",
+											"objectClass": "System",
+											"sid": 981841025611552,
+											"parameters": {
+												"object": "Room",
+												"instance": "1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-position",
+											"objectClass": "Player",
+											"sid": 451647051005556,
+											"parameters": {
+												"x": "Room.X - 48",
+												"y": "Room.Y"
+											}
+										}
+									],
+									"sid": 625287225801281
 								}
-							],
-							"sid": 218591359270198
+							]
 						},
 						{
 							"eventType": "block",
@@ -609,6 +635,215 @@
 								}
 							],
 							"sid": 934098695541806
+						}
+					]
+				},
+				{
+					"functionName": "SpawnEnemy",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 939145798127467,
+					"children": [
+						{
+							"eventType": "variable",
+							"name": "r",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 102698498219984
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-all",
+									"objectClass": "System",
+									"sid": 331586206369292,
+									"parameters": {
+										"object": "Room"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 267731576485926,
+									"parameters": {
+										"variable": "r",
+										"value": "choose(1,2)"
+									}
+								}
+							],
+							"sid": 962745255111993,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-nth-instance",
+											"objectClass": "System",
+											"sid": 445277839874119,
+											"parameters": {
+												"object": "Room",
+												"instance": "int(random(2, numRooms-1))"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-position",
+											"objectClass": "TempTile",
+											"sid": 593897937924960,
+											"parameters": {
+												"x": "random(Room.X-Room.Width/2+32, Room.X+Room.Width/2-32)",
+												"y": "random(Room.Y-Room.Height/2+32, Room.Y+Room.Height/2-32)"
+											}
+										}
+									],
+									"sid": 474734489576836,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 792871811358930,
+													"parameters": {
+														"first-value": "r",
+														"comparison": 0,
+														"second-value": "1"
+													}
+												},
+												{
+													"id": "is-overlapping-another-object",
+													"objectClass": "TempTile",
+													"sid": 802092922195703,
+													"parameters": {
+														"object": "EnemyFam"
+													},
+													"isInverted": true
+												}
+											],
+											"actions": [
+												{
+													"id": "create-object",
+													"objectClass": "System",
+													"sid": 780196507727103,
+													"parameters": {
+														"object-to-create": "bouncingSkull",
+														"layer": "1",
+														"x": "TempTile.X",
+														"y": "TempTile.Y",
+														"create-hierarchy": false
+													}
+												},
+												{
+													"id": "set-speed",
+													"objectClass": "bouncingSkull",
+													"sid": 826044720035824,
+													"behaviorType": "Bullet",
+													"parameters": {
+														"speed": "100*(1+0.1*level)"
+													}
+												},
+												{
+													"id": "set-angle-of-motion",
+													"objectClass": "bouncingSkull",
+													"sid": 604567781687159,
+													"behaviorType": "Bullet",
+													"parameters": {
+														"angle": "random(0,360)"
+													}
+												},
+												{
+													"id": "add-to-eventvar",
+													"objectClass": "System",
+													"sid": 325112498813365,
+													"parameters": {
+														"variable": "numEnemies",
+														"value": "1"
+													}
+												},
+												{
+													"id": "signal",
+													"objectClass": "System",
+													"sid": 875203983680800,
+													"parameters": {
+														"tag": "\"Spawn Done\""
+													}
+												}
+											],
+											"sid": 165257156787342
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 321665749268864,
+													"parameters": {
+														"first-value": "r",
+														"comparison": 0,
+														"second-value": "2"
+													}
+												},
+												{
+													"id": "is-overlapping-another-object",
+													"objectClass": "TempTile",
+													"sid": 120523585794880,
+													"parameters": {
+														"object": "EnemyFam"
+													},
+													"isInverted": true
+												}
+											],
+											"actions": [
+												{
+													"id": "create-object",
+													"objectClass": "System",
+													"sid": 352891493763118,
+													"parameters": {
+														"object-to-create": "Skeleton",
+														"layer": "1",
+														"x": "TempTile.X",
+														"y": "TempTile.Y",
+														"create-hierarchy": false
+													}
+												},
+												{
+													"id": "add-to-eventvar",
+													"objectClass": "System",
+													"sid": 213593198756371,
+													"parameters": {
+														"variable": "numEnemies",
+														"value": "1"
+													}
+												},
+												{
+													"id": "signal",
+													"objectClass": "System",
+													"sid": 960400166095545,
+													"parameters": {
+														"tag": "\"Spawn Done\""
+													}
+												}
+											],
+											"sid": 633905234965963
+										}
+									]
+								}
+							]
 						}
 					]
 				}
@@ -1748,27 +1983,6 @@
 									}
 								},
 								{
-									"id": "create-object",
-									"objectClass": "System",
-									"sid": 581593848801766,
-									"parameters": {
-										"object-to-create": "bouncingSkull",
-										"layer": "0",
-										"x": "random(1464, 1800)",
-										"y": "random(376, 840)",
-										"create-hierarchy": false
-									}
-								},
-								{
-									"id": "set-speed",
-									"objectClass": "bouncingSkull",
-									"sid": 878199797559662,
-									"behaviorType": "Bullet",
-									"parameters": {
-										"speed": "230*(1+0.1*level)"
-									}
-								},
-								{
 									"id": "set-speed",
 									"objectClass": "phasingSkull",
 									"sid": 609157823084810,
@@ -1797,6 +2011,62 @@
 							],
 							"sid": 684018442952519,
 							"children": [
+								{
+									"eventType": "comment",
+									"text": "Spawn Enemies"
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "while",
+											"objectClass": "System",
+											"sid": 971221303661800
+										},
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 851445437803703,
+											"parameters": {
+												"first-value": "numEnemies",
+												"comparison": 2,
+												"second-value": "maxEnemies"
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "SpawnEnemy",
+											"sid": 852015210480311
+										},
+										{
+											"id": "wait-for-signal",
+											"objectClass": "System",
+											"sid": 977707677789830,
+											"parameters": {
+												"tag": "\"Spawn Done\""
+											}
+										}
+									],
+									"sid": 174315248701577
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-between-angles",
+											"objectClass": "System",
+											"sid": 112373526922605,
+											"parameters": {
+												"angle": "0",
+												"first-angle": "0",
+												"second-angle": "45"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 705565809624063
+								},
 								{
 									"eventType": "block",
 									"conditions": [

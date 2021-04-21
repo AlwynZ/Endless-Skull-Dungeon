@@ -6,11 +6,6 @@
 	"instanceVariables": [],
 	"behaviorTypes": [
 		{
-			"behaviorId": "TileMovement",
-			"name": "TileMovement",
-			"sid": 438607029954774
-		},
-		{
 			"behaviorId": "LOS",
 			"name": "LineOfSight",
 			"sid": 947043927584484

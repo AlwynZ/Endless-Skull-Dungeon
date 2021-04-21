@@ -80,16 +80,8 @@
 		},
 		{
 			"type": "behavior",
-			"id": "wrap",
-			"name": "Wrap",
-			"author": "Scirra",
-			"version": "r241",
-			"bundled": false
-		},
-		{
-			"type": "behavior",
-			"id": "TileMovement",
-			"name": "Tile movement",
+			"id": "destroy",
+			"name": "Destroy outside layout",
 			"author": "Scirra",
 			"version": "r241",
 			"bundled": false
@@ -106,6 +98,14 @@
 			"type": "behavior",
 			"id": "Pathfinding",
 			"name": "Pathfinding",
+			"author": "Scirra",
+			"version": "r241",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "wrap",
+			"name": "Wrap",
 			"author": "Scirra",
 			"version": "r241",
 			"bundled": false
@@ -399,7 +399,7 @@
 		"enhancedAccelerationPrecision": true,
 		"cordovaiOSScheme": "app"
 	},
-	"viewportWidth": 550,
-	"viewportHeight": 400,
+	"viewportWidth": 1920,
+	"viewportHeight": 1600,
 	"firstLayout": "Dungeon"
 }

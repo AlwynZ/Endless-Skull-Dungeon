@@ -11,9 +11,9 @@
 			"sid": 365084842245692
 		},
 		{
-			"behaviorId": "wrap",
-			"name": "Wrap",
-			"sid": 530637060203759
+			"behaviorId": "destroy",
+			"name": "DestroyOutsideLayout",
+			"sid": 440659545400478
 		}
 	],
 	"effectTypes": [],
