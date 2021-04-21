@@ -65,7 +65,7 @@
 			"eventType": "variable",
 			"name": "gold",
 			"type": "number",
-			"initialValue": "0",
+			"initialValue": "10",
 			"comment": "gold obtained from monsters ",
 			"isStatic": false,
 			"isConstant": false,
@@ -73,7 +73,7 @@
 		},
 		{
 			"eventType": "variable",
-			"name": "upgrade",
+			"name": "weaponupgrade",
 			"type": "number",
 			"initialValue": "0",
 			"comment": "number of weapon upgrades purchased by player",
@@ -140,6 +140,36 @@
 			"isStatic": false,
 			"isConstant": false,
 			"sid": 745505678995156
+		},
+		{
+			"eventType": "variable",
+			"name": "speedupgrade",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 856352013195307
+		},
+		{
+			"eventType": "variable",
+			"name": "rangednum",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "number left to use a ranged weapon",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 175554129401256
+		},
+		{
+			"eventType": "variable",
+			"name": "weaponMode",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 965995107706723
 		},
 		{
 			"eventType": "group",
@@ -1838,6 +1868,14 @@
 							"parameters": {
 								"text": "gold"
 							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "modeIndi",
+							"sid": 272816336586122,
+							"parameters": {
+								"text": "weaponMode"
+							}
 						}
 					],
 					"sid": 767623960370591
@@ -1874,8 +1912,8 @@
 							"objectClass": "upSlash",
 							"sid": 839284564367350,
 							"parameters": {
-								"width": "upSlash.Width+10*upgrade",
-								"height": "upSlash.Height+10*upgrade"
+								"width": "upSlash.Width+10*weaponupgrade",
+								"height": "upSlash.Height+10*weaponupgrade"
 							}
 						},
 						{
@@ -1883,8 +1921,8 @@
 							"objectClass": "leftSlash",
 							"sid": 639732502643357,
 							"parameters": {
-								"width": "leftSlash.Width+10*upgrade",
-								"height": "leftSlash.Height+10*upgrade"
+								"width": "leftSlash.Width+10*weaponupgrade",
+								"height": "leftSlash.Height+10*weaponupgrade"
 							}
 						},
 						{
@@ -1892,8 +1930,8 @@
 							"objectClass": "downSlash",
 							"sid": 263996595588610,
 							"parameters": {
-								"width": "downSlash.Width+10*upgrade",
-								"height": "downSlash.Height+10*upgrade"
+								"width": "downSlash.Width+10*weaponupgrade",
+								"height": "downSlash.Height+10*weaponupgrade"
 							}
 						},
 						{
@@ -1901,8 +1939,8 @@
 							"objectClass": "rightSlash",
 							"sid": 282351800000292,
 							"parameters": {
-								"width": "rightSlash.Width+10*upgrade",
-								"height": "rightSlash.Height+10*upgrade"
+								"width": "rightSlash.Width+10*weaponupgrade",
+								"height": "rightSlash.Height+10*weaponupgrade"
 							}
 						},
 						{
@@ -2192,7 +2230,15 @@
 									"objectClass": "weaponPrice",
 									"sid": 527241450658527,
 									"parameters": {
-										"text": "5*(upgrade+1)&\"g\""
+										"text": "5*(weaponupgrade+1)&\"g\""
+									}
+								},
+								{
+									"id": "set-text",
+									"objectClass": "speedPrice",
+									"sid": 250395153791065,
+									"parameters": {
+										"text": "5*(speedupgrade+1)&\"g\""
 									}
 								},
 								{
@@ -3256,72 +3302,195 @@
 									}
 								}
 							],
-							"actions": [
+							"actions": [],
+							"sid": 492688118866028,
+							"children": [
 								{
-									"id": "set-boolean-eventvar",
-									"objectClass": "System",
-									"sid": 911349785160824,
-									"parameters": {
-										"variable": "midAttack",
-										"value": "true"
-									}
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 418273344111777,
+											"parameters": {
+												"variable": "weaponMode",
+												"comparison": 0,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 455864620261599,
+											"parameters": {
+												"variable": "midAttack",
+												"value": "true"
+											}
+										},
+										{
+											"id": "create-object",
+											"objectClass": "System",
+											"sid": 559487327945550,
+											"parameters": {
+												"object-to-create": "rightSlash",
+												"layer": "1",
+												"x": "Player.X+25",
+												"y": "Player.Y",
+												"create-hierarchy": false
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 646792326310718,
+											"parameters": {
+												"seconds": "0.1"
+											}
+										},
+										{
+											"id": "play-by-name",
+											"objectClass": "Audio",
+											"sid": 560698960013474,
+											"parameters": {
+												"folder": "sounds",
+												"audio-file-name": "\"slash_\"&choose(1,2)",
+												"loop": "not-looping",
+												"volume": "0",
+												"tag-optional": "\"\""
+											}
+										},
+										{
+											"id": "destroy",
+											"objectClass": "rightSlash",
+											"sid": 243771506714591
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 449109428127104,
+											"parameters": {
+												"seconds": "0.3"
+											}
+										},
+										{
+											"id": "set-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 274977376153400,
+											"parameters": {
+												"variable": "midAttack",
+												"value": "false"
+											}
+										}
+									],
+									"sid": 321713967006237
 								},
 								{
-									"id": "create-object",
-									"objectClass": "System",
-									"sid": 546661678687151,
-									"parameters": {
-										"object-to-create": "rightSlash",
-										"layer": "1",
-										"x": "Player.X+25",
-										"y": "Player.Y",
-										"create-hierarchy": false
-									}
-								},
-								{
-									"id": "wait",
-									"objectClass": "System",
-									"sid": 812602465262171,
-									"parameters": {
-										"seconds": "0.1"
-									}
-								},
-								{
-									"id": "play-by-name",
-									"objectClass": "Audio",
-									"sid": 709305247828979,
-									"parameters": {
-										"folder": "sounds",
-										"audio-file-name": "\"slash_\"&choose(1,2)",
-										"loop": "not-looping",
-										"volume": "0",
-										"tag-optional": "\"\""
-									}
-								},
-								{
-									"id": "destroy",
-									"objectClass": "rightSlash",
-									"sid": 770806122876024
-								},
-								{
-									"id": "wait",
-									"objectClass": "System",
-									"sid": 920655277240984,
-									"parameters": {
-										"seconds": "0.3"
-									}
-								},
-								{
-									"id": "set-boolean-eventvar",
-									"objectClass": "System",
-									"sid": 510943203061753,
-									"parameters": {
-										"variable": "midAttack",
-										"value": "false"
-									}
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 930483103013515,
+											"parameters": {
+												"variable": "weaponMode",
+												"comparison": 0,
+												"value": "1"
+											}
+										},
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 527347033777498,
+											"parameters": {
+												"variable": "rangednum",
+												"comparison": 4,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 259734506081550,
+											"parameters": {
+												"variable": "midAttack",
+												"value": "true"
+											}
+										},
+										{
+											"id": "create-object",
+											"objectClass": "System",
+											"sid": 869665698711332,
+											"parameters": {
+												"object-to-create": "rightArrow",
+												"layer": "1",
+												"x": "Player.X+25",
+												"y": "Player.Y",
+												"create-hierarchy": false
+											}
+										},
+										{
+											"id": "subtract-from-eventvar",
+											"objectClass": "System",
+											"sid": 562663284887369,
+											"parameters": {
+												"variable": "rangednum",
+												"value": "1"
+											}
+										},
+										{
+											"id": "set-angle-of-motion",
+											"objectClass": "rightArrow",
+											"sid": 847558391952939,
+											"behaviorType": "子弹",
+											"parameters": {
+												"angle": "0"
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 510518010905701,
+											"parameters": {
+												"seconds": "0.1"
+											}
+										},
+										{
+											"id": "play-by-name",
+											"objectClass": "Audio",
+											"sid": 173875935663942,
+											"parameters": {
+												"folder": "sounds",
+												"audio-file-name": "\"slash_\"&choose(1,2)",
+												"loop": "not-looping",
+												"volume": "0",
+												"tag-optional": "\"\""
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 179340249150875,
+											"parameters": {
+												"seconds": "0.3"
+											}
+										},
+										{
+											"id": "set-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 711374699770291,
+											"parameters": {
+												"variable": "midAttack",
+												"value": "false"
+											}
+										}
+									],
+									"sid": 363838414723488
 								}
-							],
-							"sid": 492688118866028
+							]
 						},
 						{
 							"eventType": "block",
@@ -3596,6 +3765,72 @@
 								}
 							],
 							"sid": 457753945718859
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 130353458909177,
+							"parameters": {
+								"key": 81
+							}
+						}
+					],
+					"actions": [],
+					"sid": 954512021823122,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 319290713562904,
+									"parameters": {
+										"variable": "weaponMode",
+										"comparison": 0,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 516475851491698,
+									"parameters": {
+										"variable": "weaponMode",
+										"value": "1"
+									}
+								}
+							],
+							"sid": 110339584732132
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 190242385938084
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 801012260217003,
+									"parameters": {
+										"variable": "weaponMode",
+										"value": "0"
+									}
+								}
+							],
+							"sid": 218851953541332
 						}
 					]
 				}
@@ -4031,6 +4266,70 @@
 								{
 									"id": "compare-text",
 									"objectClass": "merchantText",
+									"sid": 307722170476265,
+									"parameters": {
+										"text-to-compare": "\"arrow\"",
+										"case-sensitivity": "ignore-case"
+									}
+								},
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 390707894266430,
+									"parameters": {
+										"variable": "gold",
+										"comparison": 5,
+										"value": "2"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "play",
+									"objectClass": "Audio",
+									"sid": 146316027623284,
+									"parameters": {
+										"audio-file": "gold",
+										"loop": "not-looping",
+										"volume": "0",
+										"tag-optional": "\"\""
+									}
+								},
+								{
+									"id": "subtract-from-eventvar",
+									"objectClass": "System",
+									"sid": 957155415382896,
+									"parameters": {
+										"variable": "gold",
+										"value": "2"
+									}
+								},
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 771377371060343,
+									"parameters": {
+										"variable": "rangednum",
+										"value": "1"
+									}
+								},
+								{
+									"id": "set-text",
+									"objectClass": "goldCount",
+									"sid": 474470511273985,
+									"parameters": {
+										"text": "gold"
+									}
+								}
+							],
+							"sid": 527044257195584
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-text",
+									"objectClass": "merchantText",
 									"sid": 163047918129159,
 									"parameters": {
 										"text-to-compare": "\"weapon upgrade\"",
@@ -4044,7 +4343,7 @@
 									"parameters": {
 										"variable": "gold",
 										"comparison": 5,
-										"value": "5*(upgrade+1)"
+										"value": "5*(weaponupgrade+1)"
 									}
 								}
 							],
@@ -4066,7 +4365,7 @@
 									"sid": 738571600981489,
 									"parameters": {
 										"variable": "gold",
-										"value": "5*(upgrade+1)"
+										"value": "5*(weaponupgrade+1)"
 									}
 								},
 								{
@@ -4074,7 +4373,7 @@
 									"objectClass": "System",
 									"sid": 876762735014212,
 									"parameters": {
-										"variable": "upgrade",
+										"variable": "weaponupgrade",
 										"value": "1"
 									}
 								},
@@ -4083,7 +4382,7 @@
 									"objectClass": "weaponPrice",
 									"sid": 565342406233834,
 									"parameters": {
-										"text": "5*(upgrade+1)&\"g\""
+										"text": "5*(weaponupgrade+1)&\"g\""
 									}
 								},
 								{
@@ -4099,12 +4398,120 @@
 									"objectClass": "upSlash",
 									"sid": 734808690210768,
 									"parameters": {
-										"width": "upSlash.Width+10*upgrade",
-										"height": "upSlash.Height+10*upgrade"
+										"width": "upSlash.Width+10*weaponupgrade",
+										"height": "upSlash.Height+10*weaponupgrade"
+									}
+								},
+								{
+									"id": "set-size",
+									"objectClass": "downSlash",
+									"sid": 951640120770498,
+									"parameters": {
+										"width": "downSlash.Width+10*weaponupgrade",
+										"height": "downSlash.Height+10*weaponupgrade"
+									}
+								},
+								{
+									"id": "set-size",
+									"objectClass": "leftSlash",
+									"sid": 337511646148763,
+									"parameters": {
+										"width": "leftSlash.Width+10*weaponupgrade",
+										"height": "leftSlash.Height+10*weaponupgrade"
+									}
+								},
+								{
+									"id": "set-size",
+									"objectClass": "rightSlash",
+									"sid": 651769018314400,
+									"parameters": {
+										"width": "rightSlash.Width+10*weaponupgrade",
+										"height": "rightSlash.Height+10*weaponupgrade"
 									}
 								}
 							],
 							"sid": 588071538012162
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-text",
+									"objectClass": "merchantText",
+									"sid": 157407949262707,
+									"parameters": {
+										"text-to-compare": "\"speed upgrade\"",
+										"case-sensitivity": "ignore-case"
+									}
+								},
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 342052533351509,
+									"parameters": {
+										"variable": "gold",
+										"comparison": 5,
+										"value": "5*(speedupgrade+1)"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "play",
+									"objectClass": "Audio",
+									"sid": 983750061720614,
+									"parameters": {
+										"audio-file": "gold",
+										"loop": "not-looping",
+										"volume": "0",
+										"tag-optional": "\"\""
+									}
+								},
+								{
+									"id": "subtract-from-eventvar",
+									"objectClass": "System",
+									"sid": 234451914309650,
+									"parameters": {
+										"variable": "gold",
+										"value": "5*(speedupgrade+1)"
+									}
+								},
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 563092236579430,
+									"parameters": {
+										"variable": "speedupgrade",
+										"value": "1"
+									}
+								},
+								{
+									"id": "set-text",
+									"objectClass": "speedPrice",
+									"sid": 609642409437379,
+									"parameters": {
+										"text": "5*(speedupgrade+1)&\"g\""
+									}
+								},
+								{
+									"id": "set-text",
+									"objectClass": "goldCount",
+									"sid": 123119699100744,
+									"parameters": {
+										"text": "gold"
+									}
+								},
+								{
+									"id": "set-max-speed",
+									"objectClass": "Player",
+									"sid": 335086736953582,
+									"behaviorType": "8Direction",
+									"parameters": {
+										"max-speed": "Player.8Direction.MaxSpeed+50"
+									}
+								}
+							],
+							"sid": 615595360102698
 						}
 					]
 				},
