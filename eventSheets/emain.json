@@ -1871,10 +1871,10 @@
 						},
 						{
 							"id": "set-text",
-							"objectClass": "modeIndi",
-							"sid": 272816336586122,
+							"objectClass": "arrowNum",
+							"sid": 617793811735725,
 							"parameters": {
-								"text": "weaponMode"
+								"text": "rangednum"
 							}
 						}
 					],
@@ -2076,11 +2076,28 @@
 									}
 								},
 								{
-									"id": "set-text",
-									"objectClass": "temAngleText",
-									"sid": 429932794171444,
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 753705697394068,
 									"parameters": {
-										"text": "attackAngle"
+										"variable": "weaponMode",
+										"value": "0"
+									}
+								},
+								{
+									"id": "set-default-color",
+									"objectClass": "arrowText",
+									"sid": 119729581728411,
+									"parameters": {
+										"color": "rgbEx(192, 192, 192)"
+									}
+								},
+								{
+									"id": "set-default-color",
+									"objectClass": "arrowNum",
+									"sid": 842600084883191,
+									"parameters": {
+										"color": "rgbEx(192, 192, 192)"
 									}
 								}
 							],
@@ -2822,6 +2839,69 @@
 					],
 					"sid": 791257277244910,
 					"isOrBlock": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "movingArrow",
+							"sid": 629888191132480,
+							"parameters": {
+								"object": "TilemapSolid"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-collisions-enabled",
+							"objectClass": "movingArrow",
+							"sid": 125866150482106,
+							"parameters": {
+								"collisions": "disabled"
+							}
+						},
+						{
+							"id": "set-speed",
+							"objectClass": "movingArrow",
+							"sid": 250729366183717,
+							"behaviorType": "子弹",
+							"parameters": {
+								"speed": "100"
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 314326698678138,
+							"parameters": {
+								"seconds": "0.1"
+							}
+						},
+						{
+							"id": "set-speed",
+							"objectClass": "movingArrow",
+							"sid": 212548813276854,
+							"behaviorType": "子弹",
+							"parameters": {
+								"speed": "0"
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 819381132039666,
+							"parameters": {
+								"seconds": "0.5"
+							}
+						},
+						{
+							"id": "destroy",
+							"objectClass": "movingArrow",
+							"sid": 249911072529465
+						}
+					],
+					"sid": 383949361708905
 				}
 			],
 			"sid": 561616468574223
@@ -3266,14 +3346,6 @@
 								"variable": "attackAngle",
 								"value": "angle(Player.ImagePointX(0), Player.ImagePointY(0), Mouse.X, Mouse.Y)"
 							}
-						},
-						{
-							"id": "set-text",
-							"objectClass": "temAngleText",
-							"sid": 228734404681222,
-							"parameters": {
-								"text": "attackAngle"
-							}
 						}
 					],
 					"sid": 127040118572133,
@@ -3425,7 +3497,7 @@
 											"objectClass": "System",
 											"sid": 869665698711332,
 											"parameters": {
-												"object-to-create": "rightArrow",
+												"object-to-create": "movingArrow",
 												"layer": "1",
 												"x": "Player.X+25",
 												"y": "Player.Y",
@@ -3443,7 +3515,7 @@
 										},
 										{
 											"id": "set-angle-of-motion",
-											"objectClass": "rightArrow",
+											"objectClass": "movingArrow",
 											"sid": 847558391952939,
 											"behaviorType": "子弹",
 											"parameters": {
@@ -3498,7 +3570,7 @@
 								{
 									"id": "compare-eventvar",
 									"objectClass": "System",
-									"sid": 572907302870374,
+									"sid": 776730294128995,
 									"parameters": {
 										"variable": "attackAngle",
 										"comparison": 3,
@@ -3508,7 +3580,7 @@
 								{
 									"id": "compare-eventvar",
 									"objectClass": "System",
-									"sid": 775627037642159,
+									"sid": 701019989987813,
 									"parameters": {
 										"variable": "attackAngle",
 										"comparison": 4,
@@ -3516,72 +3588,195 @@
 									}
 								}
 							],
-							"actions": [
+							"actions": [],
+							"sid": 868650742752889,
+							"children": [
 								{
-									"id": "set-boolean-eventvar",
-									"objectClass": "System",
-									"sid": 674013709503378,
-									"parameters": {
-										"variable": "midAttack",
-										"value": "true"
-									}
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 496429719595330,
+											"parameters": {
+												"variable": "weaponMode",
+												"comparison": 0,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 774701154584999,
+											"parameters": {
+												"variable": "midAttack",
+												"value": "true"
+											}
+										},
+										{
+											"id": "create-object",
+											"objectClass": "System",
+											"sid": 100395524569148,
+											"parameters": {
+												"object-to-create": "downSlash",
+												"layer": "1",
+												"x": "Player.X",
+												"y": "Player.Y+25",
+												"create-hierarchy": false
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 273347266277992,
+											"parameters": {
+												"seconds": "0.1"
+											}
+										},
+										{
+											"id": "play-by-name",
+											"objectClass": "Audio",
+											"sid": 593683280531505,
+											"parameters": {
+												"folder": "sounds",
+												"audio-file-name": "\"slash_\"&choose(1,2)",
+												"loop": "not-looping",
+												"volume": "0",
+												"tag-optional": "\"\""
+											}
+										},
+										{
+											"id": "destroy",
+											"objectClass": "downSlash",
+											"sid": 451874264082592
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 403167225812126,
+											"parameters": {
+												"seconds": "0.3"
+											}
+										},
+										{
+											"id": "set-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 493970823341616,
+											"parameters": {
+												"variable": "midAttack",
+												"value": "false"
+											}
+										}
+									],
+									"sid": 982403682850195
 								},
 								{
-									"id": "create-object",
-									"objectClass": "System",
-									"sid": 569243672959557,
-									"parameters": {
-										"object-to-create": "downSlash",
-										"layer": "1",
-										"x": "Player.X",
-										"y": "Player.Y+25",
-										"create-hierarchy": false
-									}
-								},
-								{
-									"id": "wait",
-									"objectClass": "System",
-									"sid": 216138806504246,
-									"parameters": {
-										"seconds": "0.1"
-									}
-								},
-								{
-									"id": "play-by-name",
-									"objectClass": "Audio",
-									"sid": 651488782909681,
-									"parameters": {
-										"folder": "sounds",
-										"audio-file-name": "\"slash_\"&choose(1,2)",
-										"loop": "not-looping",
-										"volume": "0",
-										"tag-optional": "\"\""
-									}
-								},
-								{
-									"id": "destroy",
-									"objectClass": "downSlash",
-									"sid": 265886697775904
-								},
-								{
-									"id": "wait",
-									"objectClass": "System",
-									"sid": 418849840254933,
-									"parameters": {
-										"seconds": "0.3"
-									}
-								},
-								{
-									"id": "set-boolean-eventvar",
-									"objectClass": "System",
-									"sid": 280258460098476,
-									"parameters": {
-										"variable": "midAttack",
-										"value": "false"
-									}
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 907007371667122,
+											"parameters": {
+												"variable": "weaponMode",
+												"comparison": 0,
+												"value": "1"
+											}
+										},
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 576058174601322,
+											"parameters": {
+												"variable": "rangednum",
+												"comparison": 4,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 827656997250927,
+											"parameters": {
+												"variable": "midAttack",
+												"value": "true"
+											}
+										},
+										{
+											"id": "create-object",
+											"objectClass": "System",
+											"sid": 296178112943791,
+											"parameters": {
+												"object-to-create": "movingArrow",
+												"layer": "1",
+												"x": "Player.X",
+												"y": "Player.Y+25",
+												"create-hierarchy": false
+											}
+										},
+										{
+											"id": "subtract-from-eventvar",
+											"objectClass": "System",
+											"sid": 347339154841019,
+											"parameters": {
+												"variable": "rangednum",
+												"value": "1"
+											}
+										},
+										{
+											"id": "set-angle-of-motion",
+											"objectClass": "movingArrow",
+											"sid": 178038231915570,
+											"behaviorType": "子弹",
+											"parameters": {
+												"angle": "90"
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 286156290946774,
+											"parameters": {
+												"seconds": "0.1"
+											}
+										},
+										{
+											"id": "play-by-name",
+											"objectClass": "Audio",
+											"sid": 936336076046004,
+											"parameters": {
+												"folder": "sounds",
+												"audio-file-name": "\"slash_\"&choose(1,2)",
+												"loop": "not-looping",
+												"volume": "0",
+												"tag-optional": "\"\""
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 607978897351384,
+											"parameters": {
+												"seconds": "0.3"
+											}
+										},
+										{
+											"id": "set-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 891529090656115,
+											"parameters": {
+												"variable": "midAttack",
+												"value": "false"
+											}
+										}
+									],
+									"sid": 117651379751180
 								}
-							],
-							"sid": 249068698376804
+							]
 						},
 						{
 							"eventType": "block",
@@ -3589,99 +3784,7 @@
 								{
 									"id": "compare-eventvar",
 									"objectClass": "System",
-									"sid": 937095993921050,
-									"parameters": {
-										"variable": "attackAngle",
-										"comparison": 3,
-										"value": "-135"
-									}
-								},
-								{
-									"id": "compare-eventvar",
-									"objectClass": "System",
-									"sid": 726997059987962,
-									"parameters": {
-										"variable": "attackAngle",
-										"comparison": 4,
-										"value": "135"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-boolean-eventvar",
-									"objectClass": "System",
-									"sid": 144272385755416,
-									"parameters": {
-										"variable": "midAttack",
-										"value": "true"
-									}
-								},
-								{
-									"id": "create-object",
-									"objectClass": "System",
-									"sid": 306950872530525,
-									"parameters": {
-										"object-to-create": "leftSlash",
-										"layer": "1",
-										"x": "Player.X-25",
-										"y": "Player.Y",
-										"create-hierarchy": false
-									}
-								},
-								{
-									"id": "wait",
-									"objectClass": "System",
-									"sid": 195796756579923,
-									"parameters": {
-										"seconds": "0.1"
-									}
-								},
-								{
-									"id": "play-by-name",
-									"objectClass": "Audio",
-									"sid": 544128699548193,
-									"parameters": {
-										"folder": "sounds",
-										"audio-file-name": "\"slash_\"&choose(1,2)",
-										"loop": "not-looping",
-										"volume": "0",
-										"tag-optional": "\"\""
-									}
-								},
-								{
-									"id": "destroy",
-									"objectClass": "leftSlash",
-									"sid": 994821616033692
-								},
-								{
-									"id": "wait",
-									"objectClass": "System",
-									"sid": 643719418393420,
-									"parameters": {
-										"seconds": "0.3"
-									}
-								},
-								{
-									"id": "set-boolean-eventvar",
-									"objectClass": "System",
-									"sid": 355654755254081,
-									"parameters": {
-										"variable": "midAttack",
-										"value": "false"
-									}
-								}
-							],
-							"sid": 814250556331296,
-							"isOrBlock": true
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-eventvar",
-									"objectClass": "System",
-									"sid": 312092014935023,
+									"sid": 859320876553652,
 									"parameters": {
 										"variable": "attackAngle",
 										"comparison": 3,
@@ -3691,7 +3794,7 @@
 								{
 									"id": "compare-eventvar",
 									"objectClass": "System",
-									"sid": 618119923432354,
+									"sid": 320655404256232,
 									"parameters": {
 										"variable": "attackAngle",
 										"comparison": 4,
@@ -3699,72 +3802,410 @@
 									}
 								}
 							],
-							"actions": [
+							"actions": [],
+							"sid": 753964364562208,
+							"children": [
 								{
-									"id": "set-boolean-eventvar",
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 887262757807197,
+											"parameters": {
+												"variable": "weaponMode",
+												"comparison": 0,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 374276033854807,
+											"parameters": {
+												"variable": "midAttack",
+												"value": "true"
+											}
+										},
+										{
+											"id": "create-object",
+											"objectClass": "System",
+											"sid": 452988295560661,
+											"parameters": {
+												"object-to-create": "upSlash",
+												"layer": "1",
+												"x": "Player.X",
+												"y": "Player.Y-25",
+												"create-hierarchy": false
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 989682364356135,
+											"parameters": {
+												"seconds": "0.1"
+											}
+										},
+										{
+											"id": "play-by-name",
+											"objectClass": "Audio",
+											"sid": 815551998336274,
+											"parameters": {
+												"folder": "sounds",
+												"audio-file-name": "\"slash_\"&choose(1,2)",
+												"loop": "not-looping",
+												"volume": "0",
+												"tag-optional": "\"\""
+											}
+										},
+										{
+											"id": "destroy",
+											"objectClass": "upSlash",
+											"sid": 763719186624803
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 198422635575551,
+											"parameters": {
+												"seconds": "0.3"
+											}
+										},
+										{
+											"id": "set-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 642704318919859,
+											"parameters": {
+												"variable": "midAttack",
+												"value": "false"
+											}
+										}
+									],
+									"sid": 538203037579134
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 131634181158950,
+											"parameters": {
+												"variable": "weaponMode",
+												"comparison": 0,
+												"value": "1"
+											}
+										},
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 335818278064266,
+											"parameters": {
+												"variable": "rangednum",
+												"comparison": 4,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 797772141793489,
+											"parameters": {
+												"variable": "midAttack",
+												"value": "true"
+											}
+										},
+										{
+											"id": "create-object",
+											"objectClass": "System",
+											"sid": 330597953613429,
+											"parameters": {
+												"object-to-create": "movingArrow",
+												"layer": "1",
+												"x": "Player.X",
+												"y": "Player.Y-25",
+												"create-hierarchy": false
+											}
+										},
+										{
+											"id": "subtract-from-eventvar",
+											"objectClass": "System",
+											"sid": 614052738069635,
+											"parameters": {
+												"variable": "rangednum",
+												"value": "1"
+											}
+										},
+										{
+											"id": "set-angle-of-motion",
+											"objectClass": "movingArrow",
+											"sid": 915530263612698,
+											"behaviorType": "子弹",
+											"parameters": {
+												"angle": "-90"
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 188529170932413,
+											"parameters": {
+												"seconds": "0.1"
+											}
+										},
+										{
+											"id": "play-by-name",
+											"objectClass": "Audio",
+											"sid": 744612018374180,
+											"parameters": {
+												"folder": "sounds",
+												"audio-file-name": "\"slash_\"&choose(1,2)",
+												"loop": "not-looping",
+												"volume": "0",
+												"tag-optional": "\"\""
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 148838713468273,
+											"parameters": {
+												"seconds": "0.3"
+											}
+										},
+										{
+											"id": "set-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 368711931536417,
+											"parameters": {
+												"variable": "midAttack",
+												"value": "false"
+											}
+										}
+									],
+									"sid": 149494377799672
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
 									"objectClass": "System",
-									"sid": 346193774974689,
+									"sid": 334828259726110,
 									"parameters": {
-										"variable": "midAttack",
-										"value": "true"
+										"variable": "attackAngle",
+										"comparison": 3,
+										"value": "-135"
 									}
 								},
 								{
-									"id": "create-object",
+									"id": "compare-eventvar",
 									"objectClass": "System",
-									"sid": 674552898588784,
+									"sid": 693112167142274,
 									"parameters": {
-										"object-to-create": "upSlash",
-										"layer": "1",
-										"x": "Player.X",
-										"y": "Player.Y-25",
-										"create-hierarchy": false
-									}
-								},
-								{
-									"id": "wait",
-									"objectClass": "System",
-									"sid": 907983192731251,
-									"parameters": {
-										"seconds": "0.1"
-									}
-								},
-								{
-									"id": "play-by-name",
-									"objectClass": "Audio",
-									"sid": 136200001145666,
-									"parameters": {
-										"folder": "sounds",
-										"audio-file-name": "\"slash_\"&choose(1,2)",
-										"loop": "not-looping",
-										"volume": "0",
-										"tag-optional": "\"\""
-									}
-								},
-								{
-									"id": "destroy",
-									"objectClass": "upSlash",
-									"sid": 917534757160942
-								},
-								{
-									"id": "wait",
-									"objectClass": "System",
-									"sid": 828869150818041,
-									"parameters": {
-										"seconds": "0.3"
-									}
-								},
-								{
-									"id": "set-boolean-eventvar",
-									"objectClass": "System",
-									"sid": 840064612709591,
-									"parameters": {
-										"variable": "midAttack",
-										"value": "false"
+										"variable": "attackAngle",
+										"comparison": 4,
+										"value": "135"
 									}
 								}
 							],
-							"sid": 457753945718859
+							"actions": [],
+							"sid": 859956546216219,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 805383625549634,
+											"parameters": {
+												"variable": "weaponMode",
+												"comparison": 0,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 839470566624489,
+											"parameters": {
+												"variable": "midAttack",
+												"value": "true"
+											}
+										},
+										{
+											"id": "create-object",
+											"objectClass": "System",
+											"sid": 992583989573687,
+											"parameters": {
+												"object-to-create": "leftSlash",
+												"layer": "1",
+												"x": "Player.X-25",
+												"y": "Player.Y",
+												"create-hierarchy": false
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 829773163367968,
+											"parameters": {
+												"seconds": "0.1"
+											}
+										},
+										{
+											"id": "play-by-name",
+											"objectClass": "Audio",
+											"sid": 862589423787785,
+											"parameters": {
+												"folder": "sounds",
+												"audio-file-name": "\"slash_\"&choose(1,2)",
+												"loop": "not-looping",
+												"volume": "0",
+												"tag-optional": "\"\""
+											}
+										},
+										{
+											"id": "destroy",
+											"objectClass": "leftSlash",
+											"sid": 901831453218319
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 491573026616931,
+											"parameters": {
+												"seconds": "0.3"
+											}
+										},
+										{
+											"id": "set-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 468467057726285,
+											"parameters": {
+												"variable": "midAttack",
+												"value": "false"
+											}
+										}
+									],
+									"sid": 585804569155662
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 436907429711217,
+											"parameters": {
+												"variable": "weaponMode",
+												"comparison": 0,
+												"value": "1"
+											}
+										},
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 557414353670887,
+											"parameters": {
+												"variable": "rangednum",
+												"comparison": 4,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 670280277482750,
+											"parameters": {
+												"variable": "midAttack",
+												"value": "true"
+											}
+										},
+										{
+											"id": "create-object",
+											"objectClass": "System",
+											"sid": 460204331041968,
+											"parameters": {
+												"object-to-create": "movingArrow",
+												"layer": "1",
+												"x": "Player.X-25",
+												"y": "Player.Y",
+												"create-hierarchy": false
+											}
+										},
+										{
+											"id": "subtract-from-eventvar",
+											"objectClass": "System",
+											"sid": 749575465167434,
+											"parameters": {
+												"variable": "rangednum",
+												"value": "1"
+											}
+										},
+										{
+											"id": "set-angle-of-motion",
+											"objectClass": "movingArrow",
+											"sid": 501380394908692,
+											"behaviorType": "子弹",
+											"parameters": {
+												"angle": "180"
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 914135344015143,
+											"parameters": {
+												"seconds": "0.1"
+											}
+										},
+										{
+											"id": "play-by-name",
+											"objectClass": "Audio",
+											"sid": 234811670966844,
+											"parameters": {
+												"folder": "sounds",
+												"audio-file-name": "\"slash_\"&choose(1,2)",
+												"loop": "not-looping",
+												"volume": "0",
+												"tag-optional": "\"\""
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 656345655918843,
+											"parameters": {
+												"seconds": "0.3"
+											}
+										},
+										{
+											"id": "set-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 105222086635033,
+											"parameters": {
+												"variable": "midAttack",
+												"value": "false"
+											}
+										}
+									],
+									"sid": 695481990980043
+								}
+							],
+							"isOrBlock": true
 						}
 					]
 				},
@@ -3806,6 +4247,22 @@
 										"variable": "weaponMode",
 										"value": "1"
 									}
+								},
+								{
+									"id": "set-default-color",
+									"objectClass": "arrowNum",
+									"sid": 987197119855405,
+									"parameters": {
+										"color": "rgb(255, 200, 0)"
+									}
+								},
+								{
+									"id": "set-default-color",
+									"objectClass": "arrowText",
+									"sid": 966335425302836,
+									"parameters": {
+										"color": "rgb(255, 200, 0)"
+									}
 								}
 							],
 							"sid": 110339584732132
@@ -3827,6 +4284,22 @@
 									"parameters": {
 										"variable": "weaponMode",
 										"value": "0"
+									}
+								},
+								{
+									"id": "set-default-color",
+									"objectClass": "arrowText",
+									"sid": 292247991599769,
+									"parameters": {
+										"color": "rgbEx(192, 192, 192)"
+									}
+								},
+								{
+									"id": "set-default-color",
+									"objectClass": "arrowNum",
+									"sid": 572784439750972,
+									"parameters": {
+										"color": "rgbEx(192, 192, 192)"
 									}
 								}
 							],

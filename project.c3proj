@@ -196,7 +196,7 @@
 							"rightSlash",
 							"leftSlash",
 							"upSlash",
-							"rightArrow"
+							"movingArrow"
 						],
 						"subfolders": [],
 						"name": "slashes"
@@ -224,13 +224,13 @@
 					"levelCount",
 					"weaponPrice",
 					"potionPrice",
-					"temAngleText",
 					"Text",
 					"keyText",
 					"keyYesNo",
 					"speedPrice",
 					"arrowPrice",
-					"modeIndi"
+					"arrowNum",
+					"arrowText"
 				],
 				"subfolders": [],
 				"name": "Text"

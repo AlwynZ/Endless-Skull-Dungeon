@@ -1,5 +1,5 @@
 {
-	"name": "rightArrow",
+	"name": "movingArrow",
 	"plugin-id": "Sprite",
 	"sid": 294797184854257,
 	"isGlobal": false,
@@ -22,31 +22,31 @@
 			{
 				"frames": [
 					{
-						"width": 32,
-						"height": 32,
-						"originX": 0.5,
-						"originY": 0.5,
+						"width": 24,
+						"height": 16,
+						"originX": 0.4583333333333333,
+						"originY": 0.4375,
 						"originalSource": "",
 						"exportFormat": "png",
 						"exportQuality": 0.8,
-						"imageSpriteId": 4859598,
+						"imageSpriteId": 1326894,
 						"collisionPoly": {
 							"points": [
 								0,
 								1,
 								0,
-								0.8013291855203617,
+								1,
 								0,
 								0,
-								0.6122737556561082,
+								0.6080316742081443,
 								0,
 								1,
 								0,
 								1,
-								0.4244909502262444,
+								0.2864819004524888,
 								1,
-								0.9908088235294118,
-								0.4574377828054299,
+								1,
+								0.4015837104072399,
 								1
 							]
 						},
