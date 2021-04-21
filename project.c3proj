@@ -399,7 +399,7 @@
 		"enhancedAccelerationPrecision": true,
 		"cordovaiOSScheme": "app"
 	},
-	"viewportWidth": 1920,
-	"viewportHeight": 1600,
+	"viewportWidth": 550,
+	"viewportHeight": 400,
 	"firstLayout": "Dungeon"
 }
