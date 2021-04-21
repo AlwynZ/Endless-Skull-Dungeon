@@ -2333,10 +2333,10 @@
 						{
 							"id": "move-at-angle",
 							"objectClass": "Skeleton",
-							"sid": 201580665374838,
+							"sid": 948575853623392,
 							"parameters": {
 								"angle": "angle(Skeleton.X, Skeleton.Y, Player.X, Player.Y)",
-								"distance": "1.0+(level*0.1)"
+								"distance": "1.0+(level*0.01)"
 							}
 						}
 					],
