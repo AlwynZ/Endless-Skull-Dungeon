@@ -45,7 +45,7 @@
 			"eventType": "variable",
 			"name": "lives",
 			"type": "number",
-			"initialValue": "300",
+			"initialValue": "5",
 			"comment": "",
 			"isStatic": false,
 			"isConstant": false,
@@ -1015,6 +1015,15 @@
 															"parameters": {
 																"instance-variable": "Health",
 																"value": "6+level"
+															}
+														},
+														{
+															"id": "set-max-speed",
+															"objectClass": "whiteSkeleton",
+															"sid": 272612211631854,
+															"behaviorType": "Pathfinding",
+															"parameters": {
+																"speed": "60"
 															}
 														},
 														{
@@ -2563,14 +2572,79 @@
 						{
 							"id": "move-at-angle",
 							"objectClass": "whiteSkeleton",
-							"sid": 328008451137268,
+							"sid": 283104966903769,
 							"parameters": {
-								"angle": "angle(Skeleton.X, Skeleton.Y, Player.X, Player.Y)",
+								"angle": "angle(whiteSkeleton.X, whiteSkeleton.Y, Player.X, Player.Y)",
 								"distance": "1.0+(level*0.01)"
 							}
 						}
 					],
 					"sid": 479259822558215
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "has-los-to-object",
+							"objectClass": "whiteSkeleton",
+							"sid": 999145714926355,
+							"behaviorType": "LineOfSight",
+							"parameters": {
+								"object": "Player",
+								"image-point": "0"
+							}
+						},
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 316655266756830,
+							"parameters": {
+								"first-value": "abs(whiteSkeleton.X-Player.X) + abs(whiteSkeleton.Y-Player.Y)",
+								"comparison": 3,
+								"second-value": "400"
+							}
+						},
+						{
+							"id": "every-x-seconds",
+							"objectClass": "System",
+							"sid": 737889212116500,
+							"parameters": {
+								"interval-seconds": "2.5"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "spawn-another-object",
+							"objectClass": "whiteSkeleton",
+							"sid": 189550399180292,
+							"parameters": {
+								"object": "bone",
+								"layer": "0",
+								"image-point": "0",
+								"create-hierarchy": false
+							}
+						},
+						{
+							"id": "set-speed",
+							"objectClass": "bone",
+							"sid": 515702686520093,
+							"behaviorType": "子弹",
+							"parameters": {
+								"speed": "300"
+							}
+						},
+						{
+							"id": "set-angle-of-motion",
+							"objectClass": "bone",
+							"sid": 440385198778298,
+							"behaviorType": "子弹",
+							"parameters": {
+								"angle": "angle(whiteSkeleton.X, whiteSkeleton.Y, Player.X, Player.Y)"
+							}
+						}
+					],
+					"sid": 741721864836851
 				}
 			],
 			"sid": 277427262874824
@@ -2815,6 +2889,90 @@
 						}
 					],
 					"sid": 972828490749819
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "Player",
+							"sid": 514244314938082,
+							"parameters": {
+								"object": "bone"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "bone",
+							"sid": 901387182968431
+						},
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 959841316653871,
+							"parameters": {
+								"audio-file": "hit",
+								"loop": "not-looping",
+								"volume": "-29",
+								"tag-optional": "\"\""
+							}
+						},
+						{
+							"id": "subtract-from-eventvar",
+							"objectClass": "System",
+							"sid": 907194184893132,
+							"parameters": {
+								"variable": "lives",
+								"value": "1"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "lifeCount",
+							"sid": 183618292109045,
+							"parameters": {
+								"text": "lives"
+							}
+						},
+						{
+							"id": "shake",
+							"objectClass": "Player",
+							"sid": 158644830006632,
+							"behaviorType": "ScrollTo",
+							"parameters": {
+								"magnitude": "10",
+								"duration": "0.2",
+								"mode": "reducing-magnitude"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "damageFlash",
+							"sid": 932905607837078,
+							"parameters": {
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 385661882712335,
+							"parameters": {
+								"seconds": "0.15"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "damageFlash",
+							"sid": 488708275830847,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						}
+					],
+					"sid": 892743952966344
 				},
 				{
 					"eventType": "block",
@@ -3159,6 +3317,48 @@
 						}
 					],
 					"sid": 383949361708905
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "bone",
+							"sid": 830780953817903,
+							"parameters": {
+								"object": "TilemapSolid"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "bone",
+							"sid": 963018533988283
+						}
+					],
+					"sid": 587721652236585
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "SlashFam",
+							"sid": 858021843433384,
+							"parameters": {
+								"object": "bone"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "bone",
+							"sid": 262141214863659
+						}
+					],
+					"sid": 944468231073550
 				}
 			],
 			"sid": 561616468574223
@@ -4933,11 +5133,11 @@
 								{
 									"id": "compare-eventvar",
 									"objectClass": "System",
-									"sid": 640276582658271,
+									"sid": 934710145470355,
 									"parameters": {
 										"variable": "lives",
 										"comparison": 2,
-										"value": "3"
+										"value": "5"
 									}
 								}
 							],
