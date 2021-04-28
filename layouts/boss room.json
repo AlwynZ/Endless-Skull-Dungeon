@@ -309,11 +309,13 @@
 						"live-preview": false
 					},
 					"uid": 11,
-					"instanceVariables": {},
+					"instanceVariables": {
+						"Health": 100
+					},
 					"behaviors": {},
 					"world": {
-						"x": 285.74920011927287,
-						"y": 155.20240794697386,
+						"x": -105.27728597252911,
+						"y": 70.22342356796801,
 						"width": 200,
 						"height": 200,
 						"originX": 0.5,
@@ -354,7 +356,7 @@
 			"global": false
 		},
 		{
-			"name": "UI",
+			"name": "HUD",
 			"overriden": 0,
 			"instances": [
 				{
@@ -584,8 +586,8 @@
 				1
 			],
 			"isTransparent": true,
-			"parallaxX": 1,
-			"parallaxY": 1,
+			"parallaxX": 0,
+			"parallaxY": 0,
 			"scaleRate": 1,
 			"forceOwnTexture": false,
 			"useRenderCells": false,

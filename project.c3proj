@@ -187,7 +187,8 @@
 					"Coin",
 					"RedPotion",
 					"BluePotion",
-					"YellowPotion"
+					"YellowPotion",
+					"bone"
 				],
 				"subfolders": [
 					{
