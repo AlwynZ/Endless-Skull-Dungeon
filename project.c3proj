@@ -139,7 +139,9 @@
 	"objectTypes": {
 		"items": [
 			"damageFlash",
-			"merchCol"
+			"merchCol",
+			"bossBlackout",
+			"bossTriggerLine"
 		],
 		"subfolders": [
 			{
