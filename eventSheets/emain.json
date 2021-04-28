@@ -3075,17 +3075,12 @@
 							}
 						},
 						{
-							"id": "destroy",
+							"id": "subtract-from-instvar",
 							"objectClass": "EnemyFam",
-							"sid": 531168301458201
-						},
-						{
-							"id": "subtract-from-eventvar",
-							"objectClass": "System",
-							"sid": 980575962820601,
+							"sid": 880666884501430,
 							"parameters": {
-								"variable": "numEnemies",
-								"value": "1"
+								"instance-variable": "Health",
+								"value": "playerAttackDamage"
 							}
 						}
 					],
@@ -3113,10 +3108,10 @@
 										{
 											"id": "compare-two-values",
 											"objectClass": "System",
-											"sid": 470609231822727,
+											"sid": 874198647610140,
 											"parameters": {
 												"first-value": "numEnemies",
-												"comparison": 0,
+												"comparison": 3,
 												"second-value": "1"
 											}
 										}
@@ -3214,6 +3209,38 @@
 							]
 						}
 					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "EnemyFam",
+							"sid": 306296691649818,
+							"parameters": {
+								"instance-variable": "Health",
+								"comparison": 3,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "subtract-from-eventvar",
+							"objectClass": "System",
+							"sid": 132461878502758,
+							"parameters": {
+								"variable": "numEnemies",
+								"value": "1"
+							}
+						},
+						{
+							"id": "destroy",
+							"objectClass": "EnemyFam",
+							"sid": 718559532407072
+						}
+					],
+					"sid": 173407782536687
 				},
 				{
 					"eventType": "block",
@@ -5334,6 +5361,7 @@
 									"id": "set-size",
 									"objectClass": "upSlash",
 									"sid": 734808690210768,
+									"disabled": true,
 									"parameters": {
 										"width": "upSlash.Width+10*weaponupgrade",
 										"height": "upSlash.Height+10*weaponupgrade"
@@ -5343,6 +5371,7 @@
 									"id": "set-size",
 									"objectClass": "downSlash",
 									"sid": 951640120770498,
+									"disabled": true,
 									"parameters": {
 										"width": "downSlash.Width+10*weaponupgrade",
 										"height": "downSlash.Height+10*weaponupgrade"
@@ -5352,6 +5381,7 @@
 									"id": "set-size",
 									"objectClass": "leftSlash",
 									"sid": 337511646148763,
+									"disabled": true,
 									"parameters": {
 										"width": "leftSlash.Width+10*weaponupgrade",
 										"height": "leftSlash.Height+10*weaponupgrade"
@@ -5361,6 +5391,7 @@
 									"id": "set-size",
 									"objectClass": "rightSlash",
 									"sid": 651769018314400,
+									"disabled": true,
 									"parameters": {
 										"width": "rightSlash.Width+10*weaponupgrade",
 										"height": "rightSlash.Height+10*weaponupgrade"
@@ -5627,17 +5658,24 @@
 							"eventType": "block",
 							"conditions": [
 								{
-									"id": "compare-instance-variable",
+									"id": "on-destroyed",
 									"objectClass": "Boss",
-									"sid": 661145777092725,
-									"parameters": {
-										"instance-variable": "Health",
-										"comparison": 3,
-										"value": "0"
-									}
+									"sid": 525140531439332
 								}
 							],
 							"actions": [
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 458382776958712,
+									"parameters": {
+										"object-to-create": "Boss",
+										"layer": "1",
+										"x": "288",
+										"y": "192",
+										"create-hierarchy": false
+									}
+								},
 								{
 									"id": "set-animation",
 									"objectClass": "Boss",
@@ -5664,14 +5702,9 @@
 							],
 							"actions": [
 								{
-									"id": "destroy",
-									"objectClass": "Boss",
-									"sid": 163995525092154
-								},
-								{
 									"id": "create-object",
 									"objectClass": "System",
-									"sid": 718944297299277,
+									"sid": 771909338168947,
 									"parameters": {
 										"object-to-create": "TrapDoor",
 										"layer": "1",
@@ -5683,7 +5716,7 @@
 								{
 									"id": "create-object",
 									"objectClass": "System",
-									"sid": 176179072593625,
+									"sid": 976693428561117,
 									"parameters": {
 										"object-to-create": "Key",
 										"layer": "1",
@@ -5691,6 +5724,11 @@
 										"y": "192",
 										"create-hierarchy": false
 									}
+								},
+								{
+									"id": "destroy",
+									"objectClass": "Boss",
+									"sid": 163995525092154
 								}
 							],
 							"sid": 874064401103643
@@ -5701,9 +5739,9 @@
 								{
 									"id": "every-x-seconds",
 									"objectClass": "System",
-									"sid": 302201278093940,
+									"sid": 459985436292253,
 									"parameters": {
-										"interval-seconds": "5"
+										"interval-seconds": "6"
 									}
 								}
 							],
@@ -5730,9 +5768,27 @@
 									"parameters": {
 										"interval-seconds": "3"
 									}
+								},
+								{
+									"id": "is-animation-playing",
+									"objectClass": "Boss",
+									"sid": 451823022358346,
+									"parameters": {
+										"animation": "\"Idle\""
+									}
 								}
 							],
-							"actions": [],
+							"actions": [
+								{
+									"id": "set-position",
+									"objectClass": "Boss",
+									"sid": 102301755891329,
+									"parameters": {
+										"x": "random(76, 517)",
+										"y": "random(76, 338)"
+									}
+								}
+							],
 							"sid": 282791369865429
 						},
 						{
@@ -5747,7 +5803,17 @@
 									}
 								}
 							],
-							"actions": [],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "Boss",
+									"sid": 688291087931440,
+									"parameters": {
+										"animation": "\"Idle\"",
+										"from": "beginning"
+									}
+								}
+							],
 							"sid": 895407232061035
 						},
 						{
@@ -5762,7 +5828,17 @@
 									}
 								}
 							],
-							"actions": [],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "Boss",
+									"sid": 196698182274586,
+									"parameters": {
+										"animation": "\"Idle\"",
+										"from": "beginning"
+									}
+								}
+							],
 							"sid": 406967897566495
 						},
 						{
@@ -5777,8 +5853,34 @@
 									}
 								}
 							],
-							"actions": [],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "Boss",
+									"sid": 348695872189232,
+									"parameters": {
+										"animation": "\"Idle\"",
+										"from": "beginning"
+									}
+								}
+							],
 							"sid": 631282042498670
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-collision-with-another-object",
+									"objectClass": "bossAttackV",
+									"sid": 487321566496621,
+									"disabled": true,
+									"parameters": {
+										"object": "BossTilemapSolid"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 927008231430134
 						}
 					]
 				}
