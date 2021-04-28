@@ -2928,6 +2928,32 @@
 							"eventType": "block",
 							"conditions": [
 								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 445132603563928,
+									"parameters": {
+										"first-value": "(level-1)%5",
+										"comparison": 0,
+										"second-value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "go-to-layout",
+									"objectClass": "System",
+									"sid": 648684198497381,
+									"parameters": {
+										"layout": "Boss Room"
+									}
+								}
+							],
+							"sid": 431332699722800
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
 									"id": "else",
 									"objectClass": "System",
 									"sid": 788807597387195
@@ -3365,11 +3391,11 @@
 						{
 							"id": "compare-two-values",
 							"objectClass": "System",
-							"sid": 413203515358853,
+							"sid": 284141128463628,
 							"parameters": {
 								"first-value": "LayoutName",
-								"comparison": 0,
-								"second-value": "\"Dungeon\""
+								"comparison": 1,
+								"second-value": "\"Merchant Room\""
 							}
 						},
 						{
@@ -3463,11 +3489,11 @@
 						{
 							"id": "compare-two-values",
 							"objectClass": "System",
-							"sid": 328349348704080,
+							"sid": 950786273136227,
 							"parameters": {
 								"first-value": "LayoutName",
-								"comparison": 0,
-								"second-value": "\"Dungeon\""
+								"comparison": 1,
+								"second-value": "\"Merchant Room\""
 							}
 						},
 						{
@@ -3561,11 +3587,11 @@
 						{
 							"id": "compare-two-values",
 							"objectClass": "System",
-							"sid": 555843203781124,
+							"sid": 419219855644227,
 							"parameters": {
 								"first-value": "LayoutName",
-								"comparison": 0,
-								"second-value": "\"Dungeon\""
+								"comparison": 1,
+								"second-value": "\"Merchant Room\""
 							}
 						},
 						{
@@ -3659,11 +3685,11 @@
 						{
 							"id": "compare-two-values",
 							"objectClass": "System",
-							"sid": 920585506784069,
+							"sid": 617284701425853,
 							"parameters": {
 								"first-value": "LayoutName",
-								"comparison": 0,
-								"second-value": "\"Dungeon\""
+								"comparison": 1,
+								"second-value": "\"Merchant Room\""
 							}
 						},
 						{
@@ -3758,11 +3784,11 @@
 						{
 							"id": "compare-two-values",
 							"objectClass": "System",
-							"sid": 295766574094168,
+							"sid": 679534909974136,
 							"parameters": {
 								"first-value": "LayoutName",
-								"comparison": 0,
-								"second-value": "\"Dungeon\""
+								"comparison": 1,
+								"second-value": "\"Merchant Room\""
 							}
 						},
 						{
@@ -5505,155 +5531,196 @@
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "on-collision-with-another-object",
-							"objectClass": "Player",
-							"sid": 831145734714413,
-							"parameters": {
-								"object": "bossTriggerLine"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "stop-all",
-							"objectClass": "Audio",
-							"sid": 301120235324056
-						},
-						{
-							"id": "destroy",
-							"objectClass": "bossTriggerLine",
-							"sid": 978855529525083
-						},
-						{
-							"id": "set-visible",
-							"objectClass": "bossBlackout",
-							"sid": 140796589785023,
-							"parameters": {
-								"visibility": "visible"
-							}
-						},
-						{
-							"id": "wait",
+							"id": "compare-two-values",
 							"objectClass": "System",
-							"sid": 135047158179021,
+							"sid": 939263256143863,
 							"parameters": {
-								"seconds": "0.9"
-							}
-						},
-						{
-							"id": "create-object",
-							"objectClass": "System",
-							"sid": 446595926753327,
-							"parameters": {
-								"object-to-create": "Boss",
-								"layer": "1",
-								"x": "288",
-								"y": "192",
-								"create-hierarchy": false
-							}
-						},
-						{
-							"id": "set-visible",
-							"objectClass": "bossBlackout",
-							"sid": 691879137782293,
-							"parameters": {
-								"visibility": "invisible"
-							}
-						},
-						{
-							"id": "play",
-							"objectClass": "Audio",
-							"sid": 591131614259622,
-							"parameters": {
-								"audio-file": "Boss",
-								"loop": "not-looping",
-								"volume": "-5",
-								"tag-optional": "\"\""
-							}
-						},
-						{
-							"id": "set-instvar-value",
-							"objectClass": "Boss",
-							"sid": 970928276220048,
-							"parameters": {
-								"instance-variable": "Health",
-								"value": "50+(level/5)*50"
+								"first-value": "LayoutName",
+								"comparison": 0,
+								"second-value": "\"Boss Room\""
 							}
 						}
 					],
-					"sid": 909477127451408
-				},
-				{
-					"eventType": "block",
-					"conditions": [
+					"actions": [],
+					"sid": 841759812984560,
+					"children": [
 						{
-							"id": "compare-instance-variable",
-							"objectClass": "Boss",
-							"sid": 832637484518090,
-							"parameters": {
-								"instance-variable": "Health",
-								"comparison": 3,
-								"value": "0"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "set-animation",
-							"objectClass": "Boss",
-							"sid": 708083664316203,
-							"parameters": {
-								"animation": "\"Death\"",
-								"from": "beginning"
-							}
-						}
-					],
-					"sid": 447424575820474
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-animation-finished",
-							"objectClass": "Boss",
-							"sid": 784649159945524,
-							"parameters": {
-								"animation": "\"Death\""
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "destroy",
-							"objectClass": "Boss",
-							"sid": 752803885250850
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-collision-with-another-object",
+									"objectClass": "Player",
+									"sid": 281565513266223,
+									"parameters": {
+										"object": "bossTriggerLine"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "stop-all",
+									"objectClass": "Audio",
+									"sid": 988488496202393
+								},
+								{
+									"id": "destroy",
+									"objectClass": "bossTriggerLine",
+									"sid": 943662223577262
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "bossBlackout",
+									"sid": 397061741350626,
+									"parameters": {
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 168685907752340,
+									"parameters": {
+										"seconds": "1"
+									}
+								},
+								{
+									"id": "set-position",
+									"objectClass": "Boss",
+									"sid": 513410195074604,
+									"parameters": {
+										"x": "288",
+										"y": "192"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Boss",
+									"sid": 979529651202265,
+									"parameters": {
+										"instance-variable": "Health",
+										"value": "50+(level/5)*50"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "bossBlackout",
+									"sid": 833680966177192,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "play",
+									"objectClass": "Audio",
+									"sid": 407726409634611,
+									"parameters": {
+										"audio-file": "Boss",
+										"loop": "not-looping",
+										"volume": "-5",
+										"tag-optional": "\"\""
+									}
+								}
+							],
+							"sid": 516200713103605
 						},
 						{
-							"id": "create-object",
-							"objectClass": "System",
-							"sid": 618465069116005,
-							"parameters": {
-								"object-to-create": "TrapDoor",
-								"layer": "1",
-								"x": "250",
-								"y": "190",
-								"create-hierarchy": false
-							}
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Boss",
+									"sid": 661145777092725,
+									"parameters": {
+										"instance-variable": "Health",
+										"comparison": 3,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "Boss",
+									"sid": 148273718980548,
+									"parameters": {
+										"animation": "\"Death\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 664539790898811
 						},
 						{
-							"id": "create-object",
-							"objectClass": "System",
-							"sid": 240444348892975,
-							"parameters": {
-								"object-to-create": "Key",
-								"layer": "1",
-								"x": "288",
-								"y": "192",
-								"create-hierarchy": false
-							}
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-animation-finished",
+									"objectClass": "Boss",
+									"sid": 217810775405736,
+									"parameters": {
+										"animation": "\"Death\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "destroy",
+									"objectClass": "Boss",
+									"sid": 934634015001556
+								},
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 816486062550107,
+									"parameters": {
+										"object-to-create": "TrapDoor",
+										"layer": "1",
+										"x": "250",
+										"y": "190",
+										"create-hierarchy": false
+									}
+								},
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 130224098779380,
+									"parameters": {
+										"object-to-create": "Key",
+										"layer": "1",
+										"x": "288",
+										"y": "192",
+										"create-hierarchy": false
+									}
+								}
+							],
+							"sid": 290417937848657
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "every-x-seconds",
+									"objectClass": "System",
+									"sid": 302201278093940,
+									"parameters": {
+										"interval-seconds": "5"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "Boss",
+									"sid": 403076900735063,
+									"parameters": {
+										"animation": "choose(\"ScytheAttack\", \"ScytheAttack2\", \"\", \"\")",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 850279844956627
 						}
-					],
-					"sid": 151237739260428
+					]
 				}
 			],
 			"sid": 644805835952610

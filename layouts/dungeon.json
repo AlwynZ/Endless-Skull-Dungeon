@@ -447,54 +447,6 @@
 					}
 				},
 				{
-					"type": "phasingSkull",
-					"properties": {
-						"initially-visible": true,
-						"initial-animation": "Animation 1",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
-					"uid": 57,
-					"instanceVariables": {
-						"Health": 100
-					},
-					"behaviors": {
-						"Bullet": {
-							"properties": {
-								"speed": 230,
-								"acceleration": 0,
-								"gravity": 0,
-								"bounce-off-solids": false,
-								"set-angle": true,
-								"step": false,
-								"enabled": true
-							}
-						},
-						"Wrap": {
-							"properties": {
-								"wrap-to": "layout"
-							}
-						}
-					},
-					"world": {
-						"x": -48,
-						"y": 240,
-						"width": 32,
-						"height": 32,
-						"originX": 0.5,
-						"originY": 0.5,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				},
-				{
 					"type": "Spikes",
 					"properties": {
 						"initially-visible": false,
