@@ -139,7 +139,8 @@
 	"objectTypes": {
 		"items": [
 			"damageFlash",
-			"merchCol"
+			"merchCol",
+			"Sprite2"
 		],
 		"subfolders": [
 			{
@@ -187,8 +188,7 @@
 					"Coin",
 					"RedPotion",
 					"BluePotion",
-					"YellowPotion",
-					"bone"
+					"YellowPotion"
 				],
 				"subfolders": [
 					{

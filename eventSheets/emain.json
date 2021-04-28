@@ -45,7 +45,7 @@
 			"eventType": "variable",
 			"name": "lives",
 			"type": "number",
-			"initialValue": "5",
+			"initialValue": "3",
 			"comment": "",
 			"isStatic": false,
 			"isConstant": false,
@@ -716,10 +716,10 @@
 								{
 									"id": "set-eventvar-value",
 									"objectClass": "System",
-									"sid": 931800282728640,
+									"sid": 267731576485926,
 									"parameters": {
 										"variable": "r",
-										"value": "choose(1,2,3,4,5)"
+										"value": "choose(1,2)"
 									}
 								}
 							],
@@ -757,11 +757,11 @@
 												{
 													"id": "compare-two-values",
 													"objectClass": "System",
-													"sid": 818755031015121,
+													"sid": 792871811358930,
 													"parameters": {
 														"first-value": "r",
-														"comparison": 3,
-														"second-value": "2"
+														"comparison": 0,
+														"second-value": "1"
 													}
 												},
 												{
@@ -785,15 +785,6 @@
 														"x": "TempTile.X",
 														"y": "TempTile.Y",
 														"create-hierarchy": false
-													}
-												},
-												{
-													"id": "set-instvar-value",
-													"objectClass": "bouncingSkull",
-													"sid": 390807654422676,
-													"parameters": {
-														"instance-variable": "Health",
-														"value": "6+level"
 													}
 												},
 												{
@@ -840,11 +831,11 @@
 												{
 													"id": "compare-two-values",
 													"objectClass": "System",
-													"sid": 532832592161220,
+													"sid": 321665749268864,
 													"parameters": {
 														"first-value": "r",
-														"comparison": 5,
-														"second-value": "4"
+														"comparison": 0,
+														"second-value": "2"
 													}
 												},
 												{
@@ -871,15 +862,6 @@
 													}
 												},
 												{
-													"id": "set-instvar-value",
-													"objectClass": "Skeleton",
-													"sid": 836987049554304,
-													"parameters": {
-														"instance-variable": "Health",
-														"value": "6+level"
-													}
-												},
-												{
 													"id": "add-to-eventvar",
 													"objectClass": "System",
 													"sid": 213593198756371,
@@ -898,155 +880,6 @@
 												}
 											],
 											"sid": 633905234965963
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "compare-two-values",
-													"objectClass": "System",
-													"sid": 700972205862357,
-													"parameters": {
-														"first-value": "r",
-														"comparison": 0,
-														"second-value": "3"
-													}
-												},
-												{
-													"id": "is-overlapping-another-object",
-													"objectClass": "TempTile",
-													"sid": 800922722196710,
-													"parameters": {
-														"object": "EnemyFam"
-													},
-													"isInverted": true
-												}
-											],
-											"actions": [],
-											"sid": 892231882785989,
-											"children": [
-												{
-													"eventType": "block",
-													"conditions": [
-														{
-															"id": "compare-two-values",
-															"objectClass": "System",
-															"sid": 721449723378092,
-															"parameters": {
-																"first-value": "level%3",
-																"comparison": 0,
-																"second-value": "1"
-															}
-														}
-													],
-													"actions": [
-														{
-															"id": "create-object",
-															"objectClass": "System",
-															"sid": 409511575708737,
-															"parameters": {
-																"object-to-create": "Skeleton",
-																"layer": "1",
-																"x": "TempTile.X",
-																"y": "TempTile.Y",
-																"create-hierarchy": false
-															}
-														},
-														{
-															"id": "set-instvar-value",
-															"objectClass": "Skeleton",
-															"sid": 450867166778329,
-															"parameters": {
-																"instance-variable": "Health",
-																"value": "6+level"
-															}
-														},
-														{
-															"id": "add-to-eventvar",
-															"objectClass": "System",
-															"sid": 400119196512943,
-															"parameters": {
-																"variable": "numEnemies",
-																"value": "1"
-															}
-														},
-														{
-															"id": "signal",
-															"objectClass": "System",
-															"sid": 534931335568681,
-															"parameters": {
-																"tag": "\"Spawn Done\""
-															}
-														}
-													],
-													"sid": 476086092755240
-												},
-												{
-													"eventType": "block",
-													"conditions": [
-														{
-															"id": "compare-two-values",
-															"objectClass": "System",
-															"sid": 424324679335730,
-															"parameters": {
-																"first-value": "level%3",
-																"comparison": 0,
-																"second-value": "2"
-															}
-														}
-													],
-													"actions": [
-														{
-															"id": "create-object",
-															"objectClass": "System",
-															"sid": 989916671662360,
-															"parameters": {
-																"object-to-create": "whiteSkeleton",
-																"layer": "1",
-																"x": "TempTile.X",
-																"y": "TempTile.Y",
-																"create-hierarchy": false
-															}
-														},
-														{
-															"id": "set-instvar-value",
-															"objectClass": "whiteSkeleton",
-															"sid": 436191132659341,
-															"parameters": {
-																"instance-variable": "Health",
-																"value": "6+level"
-															}
-														},
-														{
-															"id": "set-max-speed",
-															"objectClass": "whiteSkeleton",
-															"sid": 272612211631854,
-															"behaviorType": "Pathfinding",
-															"parameters": {
-																"speed": "60"
-															}
-														},
-														{
-															"id": "add-to-eventvar",
-															"objectClass": "System",
-															"sid": 658048969461155,
-															"parameters": {
-																"variable": "numEnemies",
-																"value": "1"
-															}
-														},
-														{
-															"id": "signal",
-															"objectClass": "System",
-															"sid": 269387666896067,
-															"parameters": {
-																"tag": "\"Spawn Done\""
-															}
-														}
-													],
-													"sid": 630154251779024
-												}
-											]
 										}
 									]
 								}
@@ -1260,6 +1093,46 @@
 															],
 															"sid": 774500302071595,
 															"isOrBlock": true
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "pick-overlapping-point",
+																	"objectClass": "System",
+																	"sid": 324714369451673,
+																	"parameters": {
+																		"object": "Hall",
+																		"x": "loopindex(\"i\")*32 + 16 - 32",
+																		"y": "loopindex(\"j\")*32 + 16 "
+																	}
+																},
+																{
+																	"id": "pick-overlapping-point",
+																	"objectClass": "System",
+																	"sid": 404703379768110,
+																	"parameters": {
+																		"object": "Room",
+																		"x": "loopindex(\"i\")*32 + 16 - 32",
+																		"y": "loopindex(\"j\")*32 + 16 "
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-tile",
+																	"objectClass": "TilemapSolid",
+																	"sid": 105549076939346,
+																	"parameters": {
+																		"tile-x": "loopindex(\"i\")",
+																		"tile-y": "loopindex(\"j\")",
+																		"tile": "choose(61,62,63)",
+																		"state": "normal"
+																	}
+																}
+															],
+															"sid": 734285268052325,
+															"isOrBlock": true
 														}
 													]
 												},
@@ -1322,6 +1195,46 @@
 																}
 															],
 															"sid": 918396156506758,
+															"isOrBlock": true
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "pick-overlapping-point",
+																	"objectClass": "System",
+																	"sid": 457149327508063,
+																	"parameters": {
+																		"object": "Hall",
+																		"x": "loopindex(\"i\")*32 + 16 + 32",
+																		"y": "loopindex(\"j\")*32 + 16 "
+																	}
+																},
+																{
+																	"id": "pick-overlapping-point",
+																	"objectClass": "System",
+																	"sid": 849245414286466,
+																	"parameters": {
+																		"object": "Room",
+																		"x": "loopindex(\"i\")*32 + 16 + 32",
+																		"y": "loopindex(\"j\")*32 + 16 "
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-tile",
+																	"objectClass": "TilemapSolid",
+																	"sid": 372686000843941,
+																	"parameters": {
+																		"tile-x": "loopindex(\"i\")",
+																		"tile-y": "loopindex(\"j\")",
+																		"tile": "choose(61,62,63)",
+																		"state": "normal"
+																	}
+																}
+															],
+															"sid": 375246848514406,
 															"isOrBlock": true
 														}
 													]
@@ -1421,6 +1334,39 @@
 																		"comparison": 0,
 																		"second-value": "Border.X/tileSize - ((Border.Width/tileSize)/2)"
 																	}
+																},
+																{
+																	"id": "is-overlapping-at-offset",
+																	"objectClass": "TempTile",
+																	"sid": 755535927712401,
+																	"parameters": {
+																		"object": "Room",
+																		"offset-x": "0",
+																		"offset-y": "-32"
+																	},
+																	"isInverted": true
+																},
+																{
+																	"id": "is-overlapping-at-offset",
+																	"objectClass": "TempTile",
+																	"sid": 642618399105867,
+																	"parameters": {
+																		"object": "Room",
+																		"offset-x": "32",
+																		"offset-y": "32"
+																	},
+																	"isInverted": true
+																},
+																{
+																	"id": "is-overlapping-at-offset",
+																	"objectClass": "TempTile",
+																	"sid": 686262720851174,
+																	"parameters": {
+																		"object": "Hall",
+																		"offset-x": "0",
+																		"offset-y": "-32"
+																	},
+																	"isInverted": true
 																}
 															],
 															"actions": [
@@ -1450,6 +1396,39 @@
 																		"comparison": 0,
 																		"second-value": "Border.X/tileSize + ((Border.Width/tileSize)/2) -1"
 																	}
+																},
+																{
+																	"id": "is-overlapping-at-offset",
+																	"objectClass": "TempTile",
+																	"sid": 186408073274730,
+																	"parameters": {
+																		"object": "Room",
+																		"offset-x": "0",
+																		"offset-y": "-32"
+																	},
+																	"isInverted": true
+																},
+																{
+																	"id": "is-overlapping-at-offset",
+																	"objectClass": "TempTile",
+																	"sid": 470653373342534,
+																	"parameters": {
+																		"object": "Room",
+																		"offset-x": "-32",
+																		"offset-y": "32"
+																	},
+																	"isInverted": true
+																},
+																{
+																	"id": "is-overlapping-at-offset",
+																	"objectClass": "TempTile",
+																	"sid": 748875193636756,
+																	"parameters": {
+																		"object": "Hall",
+																		"offset-x": "0",
+																		"offset-y": "-32"
+																	},
+																	"isInverted": true
 																}
 															],
 															"actions": [
@@ -1505,6 +1484,637 @@
 																}
 															],
 															"sid": 426509423017523
+														},
+														{
+															"eventType": "comment",
+															"text": "Corner fixes"
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "pick-overlapping-point",
+																	"objectClass": "System",
+																	"sid": 526031160234511,
+																	"parameters": {
+																		"object": "Room",
+																		"x": "loopindex(\"i\")*32 + 16",
+																		"y": "loopindex(\"j\")*32 + 16 - 32"
+																	}
+																},
+																{
+																	"id": "pick-overlapping-point",
+																	"objectClass": "System",
+																	"sid": 338261858568469,
+																	"parameters": {
+																		"object": "Hall",
+																		"x": "loopindex(\"i\")*32 + 16 - 32",
+																		"y": "loopindex(\"j\")*32 + 16 "
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-tile",
+																	"objectClass": "TilemapSolid",
+																	"sid": 745824063773945,
+																	"parameters": {
+																		"tile-x": "loopindex(\"i\")",
+																		"tile-y": "loopindex(\"j\")",
+																		"tile": "choose(50, 54)",
+																		"state": "normal"
+																	}
+																}
+															],
+															"sid": 870869134639813
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "pick-overlapping-point",
+																	"objectClass": "System",
+																	"sid": 579743255962095,
+																	"parameters": {
+																		"object": "Room",
+																		"x": "loopindex(\"i\")*32 + 16",
+																		"y": "loopindex(\"j\")*32 + 16 - 32"
+																	}
+																},
+																{
+																	"id": "pick-overlapping-point",
+																	"objectClass": "System",
+																	"sid": 177702583105795,
+																	"parameters": {
+																		"object": "Hall",
+																		"x": "loopindex(\"i\")*32 + 16 + 32",
+																		"y": "loopindex(\"j\")*32 + 16 "
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-tile",
+																	"objectClass": "TilemapSolid",
+																	"sid": 979995588826676,
+																	"parameters": {
+																		"tile-x": "loopindex(\"i\")",
+																		"tile-y": "loopindex(\"j\")",
+																		"tile": "choose(53, 55)",
+																		"state": "normal"
+																	}
+																}
+															],
+															"sid": 508611664802599
+														},
+														{
+															"eventType": "comment",
+															"text": "minor bug drawing where hall bottom overrides corner tile"
+														},
+														{
+															"eventType": "variable",
+															"name": "check4",
+															"type": "number",
+															"initialValue": "0",
+															"comment": "",
+															"isStatic": false,
+															"isConstant": false,
+															"sid": 620978711394118
+														},
+														{
+															"eventType": "block",
+															"conditions": [],
+															"actions": [
+																{
+																	"id": "set-eventvar-value",
+																	"objectClass": "System",
+																	"sid": 743917415387893,
+																	"parameters": {
+																		"variable": "check4",
+																		"value": "0"
+																	}
+																}
+															],
+															"sid": 698074926842344,
+															"children": [
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "pick-overlapping-point",
+																			"objectClass": "System",
+																			"sid": 456643340666611,
+																			"parameters": {
+																				"object": "Room",
+																				"x": "loopindex(\"i\")*32 + 16 + 32",
+																				"y": "loopindex(\"j\")*32 + 16 "
+																			}
+																		}
+																	],
+																	"actions": [
+																		{
+																			"id": "add-to-eventvar",
+																			"objectClass": "System",
+																			"sid": 844779809685172,
+																			"parameters": {
+																				"variable": "check4",
+																				"value": "1"
+																			}
+																		}
+																	],
+																	"sid": 364531575713668
+																},
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "pick-overlapping-point",
+																			"objectClass": "System",
+																			"sid": 275825493993390,
+																			"parameters": {
+																				"object": "Room",
+																				"x": "loopindex(\"i\")*32 + 16 ",
+																				"y": "loopindex(\"j\")*32 + 16 -32"
+																			}
+																		},
+																		{
+																			"id": "pick-overlapping-point",
+																			"objectClass": "System",
+																			"sid": 964521926894336,
+																			"parameters": {
+																				"object": "Hall",
+																				"x": "loopindex(\"i\")*32 + 16 ",
+																				"y": "loopindex(\"j\")*32 + 16 -32"
+																			}
+																		}
+																	],
+																	"actions": [
+																		{
+																			"id": "add-to-eventvar",
+																			"objectClass": "System",
+																			"sid": 984829957739915,
+																			"parameters": {
+																				"variable": "check4",
+																				"value": "1"
+																			}
+																		}
+																	],
+																	"sid": 479357965376928,
+																	"isOrBlock": true
+																},
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "compare-eventvar",
+																			"objectClass": "System",
+																			"sid": 244615444381522,
+																			"parameters": {
+																				"variable": "check4",
+																				"comparison": 0,
+																				"value": "2"
+																			}
+																		}
+																	],
+																	"actions": [
+																		{
+																			"id": "set-tile",
+																			"objectClass": "TilemapSolid",
+																			"sid": 443425713581805,
+																			"parameters": {
+																				"tile-x": "loopindex(\"i\")",
+																				"tile-y": "loopindex(\"j\")",
+																				"tile": "choose(53, 55)",
+																				"state": "normal"
+																			}
+																		}
+																	],
+																	"sid": 286888415672070
+																}
+															]
+														},
+														{
+															"eventType": "block",
+															"conditions": [],
+															"actions": [
+																{
+																	"id": "set-eventvar-value",
+																	"objectClass": "System",
+																	"sid": 323053412732114,
+																	"parameters": {
+																		"variable": "check4",
+																		"value": "0"
+																	}
+																}
+															],
+															"sid": 875235897408179,
+															"children": [
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "pick-overlapping-point",
+																			"objectClass": "System",
+																			"sid": 750939781451943,
+																			"parameters": {
+																				"object": "Room",
+																				"x": "loopindex(\"i\")*32 + 16 - 32",
+																				"y": "loopindex(\"j\")*32 + 16 "
+																			}
+																		}
+																	],
+																	"actions": [
+																		{
+																			"id": "add-to-eventvar",
+																			"objectClass": "System",
+																			"sid": 865653120633186,
+																			"parameters": {
+																				"variable": "check4",
+																				"value": "1"
+																			}
+																		}
+																	],
+																	"sid": 898501400401860
+																},
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "pick-overlapping-point",
+																			"objectClass": "System",
+																			"sid": 163900353024873,
+																			"parameters": {
+																				"object": "Room",
+																				"x": "loopindex(\"i\")*32 + 16 ",
+																				"y": "loopindex(\"j\")*32 + 16 -32"
+																			}
+																		},
+																		{
+																			"id": "pick-overlapping-point",
+																			"objectClass": "System",
+																			"sid": 760765053271786,
+																			"parameters": {
+																				"object": "Hall",
+																				"x": "loopindex(\"i\")*32 + 16 ",
+																				"y": "loopindex(\"j\")*32 + 16 -32"
+																			}
+																		}
+																	],
+																	"actions": [
+																		{
+																			"id": "add-to-eventvar",
+																			"objectClass": "System",
+																			"sid": 233357666764006,
+																			"parameters": {
+																				"variable": "check4",
+																				"value": "1"
+																			}
+																		}
+																	],
+																	"sid": 207297954930159,
+																	"isOrBlock": true
+																},
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "compare-eventvar",
+																			"objectClass": "System",
+																			"sid": 763056621178516,
+																			"parameters": {
+																				"variable": "check4",
+																				"comparison": 0,
+																				"value": "2"
+																			}
+																		}
+																	],
+																	"actions": [
+																		{
+																			"id": "set-tile",
+																			"objectClass": "TilemapSolid",
+																			"sid": 372965841599431,
+																			"parameters": {
+																				"tile-x": "loopindex(\"i\")",
+																				"tile-y": "loopindex(\"j\")",
+																				"tile": "choose(50, 54)",
+																				"state": "normal"
+																			}
+																		}
+																	],
+																	"sid": 713324921581343
+																}
+															]
+														},
+														{
+															"eventType": "comment",
+															"text": "Hallway corner connection"
+														},
+														{
+															"eventType": "variable",
+															"name": "check",
+															"type": "number",
+															"initialValue": "0",
+															"comment": "",
+															"isStatic": false,
+															"isConstant": false,
+															"sid": 692543480066335
+														},
+														{
+															"eventType": "block",
+															"conditions": [],
+															"actions": [],
+															"sid": 650583877959472,
+															"children": [
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "pick-overlapping-point",
+																			"objectClass": "System",
+																			"sid": 942361717737516,
+																			"parameters": {
+																				"object": "Hall",
+																				"x": "loopindex(\"i\")*32 + 16 + 32",
+																				"y": "loopindex(\"j\")*32 + 16"
+																			}
+																		}
+																	],
+																	"actions": [
+																		{
+																			"id": "add-to-eventvar",
+																			"objectClass": "System",
+																			"sid": 319144924662415,
+																			"parameters": {
+																				"variable": "check",
+																				"value": "1"
+																			}
+																		}
+																	],
+																	"sid": 972607954470729
+																},
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "pick-overlapping-point",
+																			"objectClass": "System",
+																			"sid": 144224248646057,
+																			"parameters": {
+																				"object": "Hall",
+																				"x": "loopindex(\"i\")*32 + 16",
+																				"y": "loopindex(\"j\")*32 + 16 - 32"
+																			}
+																		}
+																	],
+																	"actions": [
+																		{
+																			"id": "add-to-eventvar",
+																			"objectClass": "System",
+																			"sid": 330199567094416,
+																			"parameters": {
+																				"variable": "check",
+																				"value": "1"
+																			}
+																		}
+																	],
+																	"sid": 194634103508994
+																},
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "compare-eventvar",
+																			"objectClass": "System",
+																			"sid": 219009756654390,
+																			"parameters": {
+																				"variable": "check",
+																				"comparison": 0,
+																				"value": "2"
+																			}
+																		}
+																	],
+																	"actions": [
+																		{
+																			"id": "set-tile",
+																			"objectClass": "TilemapSolid",
+																			"sid": 927763878685958,
+																			"parameters": {
+																				"tile-x": "loopindex(\"i\")",
+																				"tile-y": "loopindex(\"j\")",
+																				"tile": "choose(53, 55)",
+																				"state": "normal"
+																			}
+																		}
+																	],
+																	"sid": 523089497753721
+																}
+															]
+														},
+														{
+															"eventType": "comment",
+															"text": "Hallway corner connection"
+														},
+														{
+															"eventType": "variable",
+															"name": "check2",
+															"type": "number",
+															"initialValue": "0",
+															"comment": "",
+															"isStatic": false,
+															"isConstant": false,
+															"sid": 152645405632433
+														},
+														{
+															"eventType": "block",
+															"conditions": [],
+															"actions": [],
+															"sid": 737965690051178,
+															"children": [
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "pick-overlapping-point",
+																			"objectClass": "System",
+																			"sid": 126472361922210,
+																			"parameters": {
+																				"object": "Hall",
+																				"x": "loopindex(\"i\")*32 + 16 - 32",
+																				"y": "loopindex(\"j\")*32 + 16"
+																			}
+																		}
+																	],
+																	"actions": [
+																		{
+																			"id": "add-to-eventvar",
+																			"objectClass": "System",
+																			"sid": 716448185662659,
+																			"parameters": {
+																				"variable": "check2",
+																				"value": "1"
+																			}
+																		}
+																	],
+																	"sid": 867653432760190
+																},
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "pick-overlapping-point",
+																			"objectClass": "System",
+																			"sid": 393173716527854,
+																			"parameters": {
+																				"object": "Hall",
+																				"x": "loopindex(\"i\")*32 + 16",
+																				"y": "loopindex(\"j\")*32 + 16 - 32"
+																			}
+																		}
+																	],
+																	"actions": [
+																		{
+																			"id": "add-to-eventvar",
+																			"objectClass": "System",
+																			"sid": 900392822970221,
+																			"parameters": {
+																				"variable": "check2",
+																				"value": "1"
+																			}
+																		}
+																	],
+																	"sid": 589556372836720
+																},
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "compare-eventvar",
+																			"objectClass": "System",
+																			"sid": 204809157546356,
+																			"parameters": {
+																				"variable": "check2",
+																				"comparison": 0,
+																				"value": "2"
+																			}
+																		}
+																	],
+																	"actions": [
+																		{
+																			"id": "set-tile",
+																			"objectClass": "TilemapSolid",
+																			"sid": 881452146618985,
+																			"parameters": {
+																				"tile-x": "loopindex(\"i\")",
+																				"tile-y": "loopindex(\"j\")",
+																				"tile": "choose(50, 54)",
+																				"state": "normal"
+																			}
+																		}
+																	],
+																	"sid": 251649187050317
+																}
+															]
+														},
+														{
+															"eventType": "variable",
+															"name": "check3",
+															"type": "number",
+															"initialValue": "0",
+															"comment": "",
+															"isStatic": false,
+															"isConstant": false,
+															"sid": 550915496868613
+														},
+														{
+															"eventType": "block",
+															"conditions": [],
+															"actions": [],
+															"sid": 475456131268634,
+															"children": [
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "pick-overlapping-point",
+																			"objectClass": "System",
+																			"sid": 470176361600120,
+																			"parameters": {
+																				"object": "Hall",
+																				"x": "loopindex(\"i\")*32 + 16 - 32",
+																				"y": "loopindex(\"j\")*32 + 16"
+																			}
+																		}
+																	],
+																	"actions": [
+																		{
+																			"id": "add-to-eventvar",
+																			"objectClass": "System",
+																			"sid": 171872274359261,
+																			"parameters": {
+																				"variable": "check3",
+																				"value": "1"
+																			}
+																		}
+																	],
+																	"sid": 194247002406048
+																},
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "pick-overlapping-point",
+																			"objectClass": "System",
+																			"sid": 863758776126307,
+																			"parameters": {
+																				"object": "Hall",
+																				"x": "loopindex(\"i\")*32 + 16 + 32",
+																				"y": "loopindex(\"j\")*32 + 16"
+																			}
+																		}
+																	],
+																	"actions": [
+																		{
+																			"id": "add-to-eventvar",
+																			"objectClass": "System",
+																			"sid": 275192844963916,
+																			"parameters": {
+																				"variable": "check3",
+																				"value": "1"
+																			}
+																		}
+																	],
+																	"sid": 926683328146794
+																},
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "compare-eventvar",
+																			"objectClass": "System",
+																			"sid": 169105353843986,
+																			"parameters": {
+																				"variable": "check3",
+																				"comparison": 0,
+																				"value": "2"
+																			}
+																		}
+																	],
+																	"actions": [
+																		{
+																			"id": "set-tile",
+																			"objectClass": "TilemapSolid",
+																			"sid": 708137229491708,
+																			"parameters": {
+																				"tile-x": "loopindex(\"i\")",
+																				"tile-y": "loopindex(\"j\")",
+																				"tile": "choose(61,62,63)",
+																				"state": "normal"
+																			}
+																		}
+																	],
+																	"sid": 718146030943223
+																}
+															]
 														}
 													]
 												},
@@ -1624,375 +2234,7 @@
 													}
 												}
 											],
-											"sid": 524691863197522,
-											"children": [
-												{
-													"eventType": "comment",
-													"text": "Corner tiles that connect to halls"
-												},
-												{
-													"eventType": "variable",
-													"name": "count",
-													"type": "number",
-													"initialValue": "0",
-													"comment": "",
-													"isStatic": false,
-													"isConstant": false,
-													"sid": 470717338035684
-												},
-												{
-													"eventType": "block",
-													"conditions": [
-														{
-															"id": "compare-width",
-															"objectClass": "Hall",
-															"sid": 119634170298656,
-															"parameters": {
-																"comparison": 4,
-																"width": "tileSize"
-															}
-														}
-													],
-													"actions": [],
-													"sid": 821475560448969,
-													"children": [
-														{
-															"eventType": "block",
-															"conditions": [
-																{
-																	"id": "is-overlapping-at-offset",
-																	"objectClass": "TempTile",
-																	"sid": 991104171980664,
-																	"parameters": {
-																		"object": "Border",
-																		"offset-x": "0",
-																		"offset-y": "32"
-																	}
-																},
-																{
-																	"id": "is-overlapping-at-offset",
-																	"objectClass": "TempTile",
-																	"sid": 124027257375389,
-																	"parameters": {
-																		"object": "Room",
-																		"offset-x": "-32",
-																		"offset-y": "0"
-																	}
-																},
-																{
-																	"id": "is-overlapping-at-offset",
-																	"objectClass": "TempTile",
-																	"sid": 281479060364977,
-																	"parameters": {
-																		"object": "Room",
-																		"offset-x": "0",
-																		"offset-y": "0"
-																	},
-																	"isInverted": true
-																}
-															],
-															"actions": [
-																{
-																	"id": "set-eventvar-value",
-																	"objectClass": "System",
-																	"sid": 549787715155490,
-																	"parameters": {
-																		"variable": "count",
-																		"value": "Border.PickedCount"
-																	}
-																}
-															],
-															"sid": 824534523963079,
-															"children": [
-																{
-																	"eventType": "block",
-																	"conditions": [
-																		{
-																			"id": "compare-eventvar",
-																			"objectClass": "System",
-																			"sid": 526379758253255,
-																			"parameters": {
-																				"variable": "count",
-																				"comparison": 0,
-																				"value": "2"
-																			}
-																		}
-																	],
-																	"actions": [
-																		{
-																			"id": "set-tile",
-																			"objectClass": "TilemapSolid",
-																			"sid": 694434322638547,
-																			"parameters": {
-																				"tile-x": "loopindex(\"i\")",
-																				"tile-y": "loopindex(\"j\")+1",
-																				"tile": "50",
-																				"state": "normal"
-																			}
-																		}
-																	],
-																	"sid": 102622549504163
-																}
-															]
-														},
-														{
-															"eventType": "block",
-															"conditions": [
-																{
-																	"id": "is-overlapping-at-offset",
-																	"objectClass": "TempTile",
-																	"sid": 241188970914128,
-																	"parameters": {
-																		"object": "Border",
-																		"offset-x": "0",
-																		"offset-y": "32"
-																	}
-																},
-																{
-																	"id": "is-overlapping-at-offset",
-																	"objectClass": "TempTile",
-																	"sid": 131189721238340,
-																	"parameters": {
-																		"object": "Room",
-																		"offset-x": "32",
-																		"offset-y": "0"
-																	}
-																},
-																{
-																	"id": "is-overlapping-at-offset",
-																	"objectClass": "TempTile",
-																	"sid": 589462706475252,
-																	"parameters": {
-																		"object": "Room",
-																		"offset-x": "0",
-																		"offset-y": "0"
-																	},
-																	"isInverted": true
-																}
-															],
-															"actions": [
-																{
-																	"id": "set-eventvar-value",
-																	"objectClass": "System",
-																	"sid": 740400552294665,
-																	"parameters": {
-																		"variable": "count",
-																		"value": "Border.PickedCount"
-																	}
-																}
-															],
-															"sid": 314829247826687,
-															"children": [
-																{
-																	"eventType": "block",
-																	"conditions": [
-																		{
-																			"id": "compare-eventvar",
-																			"objectClass": "System",
-																			"sid": 976142164374677,
-																			"parameters": {
-																				"variable": "count",
-																				"comparison": 0,
-																				"value": "2"
-																			}
-																		}
-																	],
-																	"actions": [
-																		{
-																			"id": "set-tile",
-																			"objectClass": "TilemapSolid",
-																			"sid": 715148660840324,
-																			"parameters": {
-																				"tile-x": "loopindex(\"i\")",
-																				"tile-y": "loopindex(\"j\")+1",
-																				"tile": "53",
-																				"state": "normal"
-																			}
-																		}
-																	],
-																	"sid": 929652780989490
-																}
-															]
-														}
-													]
-												},
-												{
-													"eventType": "block",
-													"conditions": [
-														{
-															"id": "compare-height",
-															"objectClass": "Hall",
-															"sid": 331614769408013,
-															"parameters": {
-																"comparison": 4,
-																"height": "tileSize"
-															}
-														}
-													],
-													"actions": [],
-													"sid": 220506009342674,
-													"children": [
-														{
-															"eventType": "block",
-															"conditions": [
-																{
-																	"id": "is-overlapping-at-offset",
-																	"objectClass": "TempTile",
-																	"sid": 303837717171233,
-																	"parameters": {
-																		"object": "Border",
-																		"offset-x": "32",
-																		"offset-y": "0"
-																	}
-																},
-																{
-																	"id": "is-overlapping-at-offset",
-																	"objectClass": "TempTile",
-																	"sid": 854891964882240,
-																	"parameters": {
-																		"object": "Room",
-																		"offset-x": "0",
-																		"offset-y": "-32"
-																	}
-																},
-																{
-																	"id": "is-overlapping-at-offset",
-																	"objectClass": "TempTile",
-																	"sid": 893333148392758,
-																	"parameters": {
-																		"object": "Room",
-																		"offset-x": "0",
-																		"offset-y": "0"
-																	},
-																	"isInverted": true
-																}
-															],
-															"actions": [
-																{
-																	"id": "set-eventvar-value",
-																	"objectClass": "System",
-																	"sid": 743760012902702,
-																	"parameters": {
-																		"variable": "count",
-																		"value": "Border.PickedCount"
-																	}
-																}
-															],
-															"sid": 114199682736195,
-															"children": [
-																{
-																	"eventType": "block",
-																	"conditions": [
-																		{
-																			"id": "compare-eventvar",
-																			"objectClass": "System",
-																			"sid": 535252547678785,
-																			"parameters": {
-																				"variable": "count",
-																				"comparison": 4,
-																				"value": "1"
-																			}
-																		}
-																	],
-																	"actions": [
-																		{
-																			"id": "set-tile",
-																			"objectClass": "TilemapSolid",
-																			"sid": 444034692879262,
-																			"parameters": {
-																				"tile-x": "loopindex(\"i\")+1",
-																				"tile-y": "loopindex(\"j\")",
-																				"tile": "50",
-																				"state": "normal"
-																			}
-																		}
-																	],
-																	"sid": 431761090350037
-																}
-															]
-														},
-														{
-															"eventType": "block",
-															"conditions": [
-																{
-																	"id": "is-overlapping-at-offset",
-																	"objectClass": "TempTile",
-																	"sid": 276460405385467,
-																	"parameters": {
-																		"object": "Border",
-																		"offset-x": "-32",
-																		"offset-y": "0"
-																	}
-																},
-																{
-																	"id": "is-overlapping-at-offset",
-																	"objectClass": "TempTile",
-																	"sid": 420234406784712,
-																	"parameters": {
-																		"object": "Room",
-																		"offset-x": "0",
-																		"offset-y": "-32"
-																	}
-																},
-																{
-																	"id": "is-overlapping-at-offset",
-																	"objectClass": "TempTile",
-																	"sid": 844302148146018,
-																	"parameters": {
-																		"object": "Room",
-																		"offset-x": "0",
-																		"offset-y": "0"
-																	},
-																	"isInverted": true
-																}
-															],
-															"actions": [
-																{
-																	"id": "set-eventvar-value",
-																	"objectClass": "System",
-																	"sid": 774347472969538,
-																	"parameters": {
-																		"variable": "count",
-																		"value": "Border.PickedCount"
-																	}
-																}
-															],
-															"sid": 263246108972926,
-															"children": [
-																{
-																	"eventType": "block",
-																	"conditions": [
-																		{
-																			"id": "compare-eventvar",
-																			"objectClass": "System",
-																			"sid": 228735478558475,
-																			"parameters": {
-																				"variable": "count",
-																				"comparison": 4,
-																				"value": "1"
-																			}
-																		}
-																	],
-																	"actions": [
-																		{
-																			"id": "set-tile",
-																			"objectClass": "TilemapSolid",
-																			"sid": 531039535144944,
-																			"parameters": {
-																				"tile-x": "loopindex(\"i\")-1",
-																				"tile-y": "loopindex(\"j\")",
-																				"tile": "53",
-																				"state": "normal"
-																			}
-																		}
-																	],
-																	"sid": 286546346778541
-																}
-															]
-														}
-													]
-												}
-											]
+											"sid": 524691863197522
 										}
 									]
 								}
@@ -2123,15 +2365,6 @@
 								"height-type": "no",
 								"z": true
 							}
-						},
-						{
-							"id": "set-boolean-eventvar",
-							"objectClass": "System",
-							"sid": 653922200308677,
-							"parameters": {
-								"variable": "midAttack",
-								"value": "false"
-							}
 						}
 					],
 					"sid": 209738281706197,
@@ -2198,15 +2431,6 @@
 									}
 								},
 								{
-									"id": "set-instvar-value",
-									"objectClass": "phasingSkull",
-									"sid": 657397957515639,
-									"parameters": {
-										"instance-variable": "Health",
-										"value": "6+level"
-									}
-								},
-								{
 									"id": "create-object",
 									"objectClass": "System",
 									"sid": 566126649198931,
@@ -2216,15 +2440,6 @@
 										"x": "choose(-40, 2000)",
 										"y": "random(100, 900)",
 										"create-hierarchy": false
-									}
-								},
-								{
-									"id": "set-instvar-value",
-									"objectClass": "phasingSkull",
-									"sid": 662961425312719,
-									"parameters": {
-										"instance-variable": "Health",
-										"value": "6+level"
 									}
 								},
 								{
@@ -2240,15 +2455,6 @@
 									}
 								},
 								{
-									"id": "set-instvar-value",
-									"objectClass": "phasingSkull",
-									"sid": 362438576143216,
-									"parameters": {
-										"instance-variable": "Health",
-										"value": "6+level"
-									}
-								},
-								{
 									"id": "create-object",
 									"objectClass": "System",
 									"sid": 375206337212580,
@@ -2258,15 +2464,6 @@
 										"x": "choose(-40, 2000)",
 										"y": "random(100, 900)",
 										"create-hierarchy": false
-									}
-								},
-								{
-									"id": "set-instvar-value",
-									"objectClass": "phasingSkull",
-									"sid": 695224591622010,
-									"parameters": {
-										"instance-variable": "Health",
-										"value": "6+level"
 									}
 								},
 								{
@@ -2553,98 +2750,6 @@
 						}
 					],
 					"sid": 768860882957963
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "has-los-to-object",
-							"objectClass": "whiteSkeleton",
-							"sid": 469631759096978,
-							"behaviorType": "LineOfSight",
-							"parameters": {
-								"object": "Player",
-								"image-point": "0"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "move-at-angle",
-							"objectClass": "whiteSkeleton",
-							"sid": 283104966903769,
-							"parameters": {
-								"angle": "angle(whiteSkeleton.X, whiteSkeleton.Y, Player.X, Player.Y)",
-								"distance": "1.0+(level*0.01)"
-							}
-						}
-					],
-					"sid": 479259822558215
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "has-los-to-object",
-							"objectClass": "whiteSkeleton",
-							"sid": 999145714926355,
-							"behaviorType": "LineOfSight",
-							"parameters": {
-								"object": "Player",
-								"image-point": "0"
-							}
-						},
-						{
-							"id": "compare-two-values",
-							"objectClass": "System",
-							"sid": 316655266756830,
-							"parameters": {
-								"first-value": "abs(whiteSkeleton.X-Player.X) + abs(whiteSkeleton.Y-Player.Y)",
-								"comparison": 3,
-								"second-value": "400"
-							}
-						},
-						{
-							"id": "every-x-seconds",
-							"objectClass": "System",
-							"sid": 737889212116500,
-							"parameters": {
-								"interval-seconds": "2.5"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "spawn-another-object",
-							"objectClass": "whiteSkeleton",
-							"sid": 189550399180292,
-							"parameters": {
-								"object": "bone",
-								"layer": "0",
-								"image-point": "0",
-								"create-hierarchy": false
-							}
-						},
-						{
-							"id": "set-speed",
-							"objectClass": "bone",
-							"sid": 515702686520093,
-							"behaviorType": "子弹",
-							"parameters": {
-								"speed": "300"
-							}
-						},
-						{
-							"id": "set-angle-of-motion",
-							"objectClass": "bone",
-							"sid": 440385198778298,
-							"behaviorType": "子弹",
-							"parameters": {
-								"angle": "angle(whiteSkeleton.X, whiteSkeleton.Y, Player.X, Player.Y)"
-							}
-						}
-					],
-					"sid": 741721864836851
 				}
 			],
 			"sid": 277427262874824
@@ -2895,121 +3000,10 @@
 					"conditions": [
 						{
 							"id": "on-collision-with-another-object",
-							"objectClass": "Player",
-							"sid": 514244314938082,
-							"parameters": {
-								"object": "bone"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "destroy",
-							"objectClass": "bone",
-							"sid": 901387182968431
-						},
-						{
-							"id": "play",
-							"objectClass": "Audio",
-							"sid": 959841316653871,
-							"parameters": {
-								"audio-file": "hit",
-								"loop": "not-looping",
-								"volume": "-29",
-								"tag-optional": "\"\""
-							}
-						},
-						{
-							"id": "subtract-from-eventvar",
-							"objectClass": "System",
-							"sid": 907194184893132,
-							"parameters": {
-								"variable": "lives",
-								"value": "1"
-							}
-						},
-						{
-							"id": "set-text",
-							"objectClass": "lifeCount",
-							"sid": 183618292109045,
-							"parameters": {
-								"text": "lives"
-							}
-						},
-						{
-							"id": "shake",
-							"objectClass": "Player",
-							"sid": 158644830006632,
-							"behaviorType": "ScrollTo",
-							"parameters": {
-								"magnitude": "10",
-								"duration": "0.2",
-								"mode": "reducing-magnitude"
-							}
-						},
-						{
-							"id": "set-visible",
-							"objectClass": "damageFlash",
-							"sid": 932905607837078,
-							"parameters": {
-								"visibility": "visible"
-							}
-						},
-						{
-							"id": "wait",
-							"objectClass": "System",
-							"sid": 385661882712335,
-							"parameters": {
-								"seconds": "0.15"
-							}
-						},
-						{
-							"id": "set-visible",
-							"objectClass": "damageFlash",
-							"sid": 488708275830847,
-							"parameters": {
-								"visibility": "invisible"
-							}
-						}
-					],
-					"sid": 892743952966344
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-collision-with-another-object",
 							"objectClass": "SlashFam",
-							"sid": 161006968889968,
+							"sid": 169064211232411,
 							"parameters": {
 								"object": "EnemyFam"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "subtract-from-instvar",
-							"objectClass": "EnemyFam",
-							"sid": 102947621924536,
-							"parameters": {
-								"instance-variable": "Health",
-								"value": "playerAttackDamage"
-							}
-						}
-					],
-					"sid": 159169720559877
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "compare-instance-variable",
-							"objectClass": "EnemyFam",
-							"sid": 848256855138816,
-							"parameters": {
-								"instance-variable": "Health",
-								"comparison": 3,
-								"value": "0"
 							}
 						}
 					],
@@ -3317,48 +3311,6 @@
 						}
 					],
 					"sid": 383949361708905
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-collision-with-another-object",
-							"objectClass": "bone",
-							"sid": 830780953817903,
-							"parameters": {
-								"object": "TilemapSolid"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "destroy",
-							"objectClass": "bone",
-							"sid": 963018533988283
-						}
-					],
-					"sid": 587721652236585
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-collision-with-another-object",
-							"objectClass": "SlashFam",
-							"sid": 858021843433384,
-							"parameters": {
-								"object": "bone"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "destroy",
-							"objectClass": "bone",
-							"sid": 262141214863659
-						}
-					],
-					"sid": 944468231073550
 				}
 			],
 			"sid": 561616468574223
@@ -5133,11 +5085,11 @@
 								{
 									"id": "compare-eventvar",
 									"objectClass": "System",
-									"sid": 934710145470355,
+									"sid": 640276582658271,
 									"parameters": {
 										"variable": "lives",
 										"comparison": 2,
-										"value": "5"
+										"value": "3"
 									}
 								}
 							],
@@ -5357,15 +5309,6 @@
 									"parameters": {
 										"width": "rightSlash.Width+10*weaponupgrade",
 										"height": "rightSlash.Height+10*weaponupgrade"
-									}
-								},
-								{
-									"id": "set-eventvar-value",
-									"objectClass": "System",
-									"sid": 880790555306945,
-									"parameters": {
-										"variable": "playerAttackDamage",
-										"value": "10+5*weaponupgrade"
 									}
 								}
 							],
