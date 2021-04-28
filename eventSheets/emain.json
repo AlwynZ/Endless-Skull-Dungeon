@@ -45,7 +45,7 @@
 			"eventType": "variable",
 			"name": "lives",
 			"type": "number",
-			"initialValue": "3",
+			"initialValue": "300",
 			"comment": "",
 			"isStatic": false,
 			"isConstant": false,
@@ -55,7 +55,7 @@
 			"eventType": "variable",
 			"name": "level",
 			"type": "number",
-			"initialValue": "1",
+			"initialValue": "2",
 			"comment": "",
 			"isStatic": false,
 			"isConstant": false,
@@ -716,10 +716,10 @@
 								{
 									"id": "set-eventvar-value",
 									"objectClass": "System",
-									"sid": 267731576485926,
+									"sid": 640830828917606,
 									"parameters": {
 										"variable": "r",
-										"value": "choose(1,2)"
+										"value": "choose(1,2,3,4,5)"
 									}
 								}
 							],
@@ -757,11 +757,11 @@
 												{
 													"id": "compare-two-values",
 													"objectClass": "System",
-													"sid": 792871811358930,
+													"sid": 146155718673950,
 													"parameters": {
 														"first-value": "r",
-														"comparison": 0,
-														"second-value": "1"
+														"comparison": 3,
+														"second-value": "2"
 													}
 												},
 												{
@@ -785,6 +785,15 @@
 														"x": "TempTile.X",
 														"y": "TempTile.Y",
 														"create-hierarchy": false
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "bouncingSkull",
+													"sid": 769005560376738,
+													"parameters": {
+														"instance-variable": "Health",
+														"value": "6+level"
 													}
 												},
 												{
@@ -831,11 +840,11 @@
 												{
 													"id": "compare-two-values",
 													"objectClass": "System",
-													"sid": 321665749268864,
+													"sid": 794332263358724,
 													"parameters": {
 														"first-value": "r",
-														"comparison": 0,
-														"second-value": "2"
+														"comparison": 5,
+														"second-value": "4"
 													}
 												},
 												{
@@ -862,6 +871,33 @@
 													}
 												},
 												{
+													"id": "set-instvar-value",
+													"objectClass": "Skeleton",
+													"sid": 258328685413455,
+													"parameters": {
+														"instance-variable": "Health",
+														"value": "6+level"
+													}
+												},
+												{
+													"id": "set-max-speed",
+													"objectClass": "Skeleton",
+													"sid": 711532934921368,
+													"behaviorType": "Pathfinding",
+													"parameters": {
+														"speed": "100"
+													}
+												},
+												{
+													"id": "set-speed",
+													"objectClass": "Skeleton",
+													"sid": 321268159377119,
+													"behaviorType": "Pathfinding",
+													"parameters": {
+														"speed": "100"
+													}
+												},
+												{
 													"id": "add-to-eventvar",
 													"objectClass": "System",
 													"sid": 213593198756371,
@@ -880,6 +916,182 @@
 												}
 											],
 											"sid": 633905234965963
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 448997021907404,
+													"parameters": {
+														"first-value": "r",
+														"comparison": 0,
+														"second-value": "3"
+													}
+												},
+												{
+													"id": "is-overlapping-another-object",
+													"objectClass": "TempTile",
+													"sid": 604808402899703,
+													"parameters": {
+														"object": "EnemyFam"
+													},
+													"isInverted": true
+												}
+											],
+											"actions": [],
+											"sid": 517248141532842,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 568086622573233,
+															"parameters": {
+																"first-value": "level%3",
+																"comparison": 0,
+																"second-value": "1"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "create-object",
+															"objectClass": "System",
+															"sid": 288689335853601,
+															"parameters": {
+																"object-to-create": "Skeleton",
+																"layer": "1",
+																"x": "TempTile.X",
+																"y": "TempTile.Y",
+																"create-hierarchy": false
+															}
+														},
+														{
+															"id": "set-instvar-value",
+															"objectClass": "Skeleton",
+															"sid": 466153083664617,
+															"parameters": {
+																"instance-variable": "Health",
+																"value": "6+level"
+															}
+														},
+														{
+															"id": "set-max-speed",
+															"objectClass": "Skeleton",
+															"sid": 484869851954107,
+															"behaviorType": "Pathfinding",
+															"parameters": {
+																"speed": "100"
+															}
+														},
+														{
+															"id": "set-speed",
+															"objectClass": "Skeleton",
+															"sid": 553146240175420,
+															"behaviorType": "Pathfinding",
+															"parameters": {
+																"speed": "100"
+															}
+														},
+														{
+															"id": "add-to-eventvar",
+															"objectClass": "System",
+															"sid": 233103523737752,
+															"parameters": {
+																"variable": "numEnemies",
+																"value": "1"
+															}
+														},
+														{
+															"id": "signal",
+															"objectClass": "System",
+															"sid": 600299491197444,
+															"parameters": {
+																"tag": "\"Spawn Done\""
+															}
+														}
+													],
+													"sid": 448453255396857
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 672612988075513,
+															"parameters": {
+																"first-value": "level%3",
+																"comparison": 0,
+																"second-value": "2"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "create-object",
+															"objectClass": "System",
+															"sid": 834000870731594,
+															"parameters": {
+																"object-to-create": "whiteSkeleton",
+																"layer": "1",
+																"x": "TempTile.X",
+																"y": "TempTile.Y",
+																"create-hierarchy": false
+															}
+														},
+														{
+															"id": "set-instvar-value",
+															"objectClass": "whiteSkeleton",
+															"sid": 181434050208161,
+															"parameters": {
+																"instance-variable": "Health",
+																"value": "6+level"
+															}
+														},
+														{
+															"id": "set-speed",
+															"objectClass": "whiteSkeleton",
+															"sid": 801869046954480,
+															"behaviorType": "Pathfinding",
+															"parameters": {
+																"speed": "50"
+															}
+														},
+														{
+															"id": "set-max-speed",
+															"objectClass": "whiteSkeleton",
+															"sid": 932977952231925,
+															"behaviorType": "Pathfinding",
+															"parameters": {
+																"speed": "50"
+															}
+														},
+														{
+															"id": "add-to-eventvar",
+															"objectClass": "System",
+															"sid": 132562496146926,
+															"parameters": {
+																"variable": "numEnemies",
+																"value": "1"
+															}
+														},
+														{
+															"id": "signal",
+															"objectClass": "System",
+															"sid": 138503522702468,
+															"parameters": {
+																"tag": "\"Spawn Done\""
+															}
+														}
+													],
+													"sid": 375248359445379
+												}
+											]
 										}
 									]
 								}
@@ -2374,6 +2586,15 @@
 								"variable": "numEnemies",
 								"value": "0"
 							}
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 174936813050225,
+							"parameters": {
+								"variable": "midAttack",
+								"value": "false"
+							}
 						}
 					],
 					"sid": 209738281706197,
@@ -2440,6 +2661,15 @@
 									}
 								},
 								{
+									"id": "set-instvar-value",
+									"objectClass": "phasingSkull",
+									"sid": 249249990989026,
+									"parameters": {
+										"instance-variable": "Health",
+										"value": "6+level"
+									}
+								},
+								{
 									"id": "create-object",
 									"objectClass": "System",
 									"sid": 566126649198931,
@@ -2449,6 +2679,15 @@
 										"x": "choose(-40, 2000)",
 										"y": "random(100, 900)",
 										"create-hierarchy": false
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "phasingSkull",
+									"sid": 752849356081337,
+									"parameters": {
+										"instance-variable": "Health",
+										"value": "6+level"
 									}
 								},
 								{
@@ -2464,6 +2703,15 @@
 									}
 								},
 								{
+									"id": "set-instvar-value",
+									"objectClass": "phasingSkull",
+									"sid": 739745618891682,
+									"parameters": {
+										"instance-variable": "Health",
+										"value": "6+level"
+									}
+								},
+								{
 									"id": "create-object",
 									"objectClass": "System",
 									"sid": 375206337212580,
@@ -2473,6 +2721,15 @@
 										"x": "choose(-40, 2000)",
 										"y": "random(100, 900)",
 										"create-hierarchy": false
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "phasingSkull",
+									"sid": 995401327762627,
+									"parameters": {
+										"instance-variable": "Health",
+										"value": "6+level"
 									}
 								},
 								{
@@ -2779,6 +3036,98 @@
 						}
 					],
 					"sid": 768860882957963
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "has-los-to-object",
+							"objectClass": "whiteSkeleton",
+							"sid": 414915989686913,
+							"behaviorType": "LineOfSight",
+							"parameters": {
+								"object": "Player",
+								"image-point": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "move-at-angle",
+							"objectClass": "whiteSkeleton",
+							"sid": 913428923507850,
+							"parameters": {
+								"angle": "angle(whiteSkeleton.X, whiteSkeleton.Y, Player.X, Player.Y)",
+								"distance": "1.0+(level*0.01)"
+							}
+						}
+					],
+					"sid": 729763817495750
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "has-los-to-object",
+							"objectClass": "whiteSkeleton",
+							"sid": 607198411026078,
+							"behaviorType": "LineOfSight",
+							"parameters": {
+								"object": "Player",
+								"image-point": "0"
+							}
+						},
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 549311111810868,
+							"parameters": {
+								"first-value": "abs(whiteSkeleton.X-Player.X) + abs(whiteSkeleton.Y-Player.Y)",
+								"comparison": 3,
+								"second-value": "400"
+							}
+						},
+						{
+							"id": "every-x-seconds",
+							"objectClass": "System",
+							"sid": 993767782772386,
+							"parameters": {
+								"interval-seconds": "2.5"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "spawn-another-object",
+							"objectClass": "whiteSkeleton",
+							"sid": 963212637682591,
+							"parameters": {
+								"object": "bone",
+								"layer": "0",
+								"image-point": "0",
+								"create-hierarchy": false
+							}
+						},
+						{
+							"id": "set-speed",
+							"objectClass": "bone",
+							"sid": 553640552684847,
+							"behaviorType": "子弹",
+							"parameters": {
+								"speed": "350"
+							}
+						},
+						{
+							"id": "set-angle-of-motion",
+							"objectClass": "bone",
+							"sid": 400588735117923,
+							"behaviorType": "子弹",
+							"parameters": {
+								"angle": "angle(whiteSkeleton.X, whiteSkeleton.Y, Player.X, Player.Y)"
+							}
+						}
+					],
+					"sid": 215195347237791
 				}
 			],
 			"sid": 277427262874824
@@ -3055,6 +3404,90 @@
 					"conditions": [
 						{
 							"id": "on-collision-with-another-object",
+							"objectClass": "Player",
+							"sid": 315803148615499,
+							"parameters": {
+								"object": "bone"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "bone",
+							"sid": 265877040101815
+						},
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 646866258368265,
+							"parameters": {
+								"audio-file": "hit",
+								"loop": "not-looping",
+								"volume": "-29",
+								"tag-optional": "\"\""
+							}
+						},
+						{
+							"id": "subtract-from-eventvar",
+							"objectClass": "System",
+							"sid": 300932832472907,
+							"parameters": {
+								"variable": "lives",
+								"value": "1"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "lifeCount",
+							"sid": 373729274319674,
+							"parameters": {
+								"text": "lives"
+							}
+						},
+						{
+							"id": "shake",
+							"objectClass": "Player",
+							"sid": 786366490391760,
+							"behaviorType": "ScrollTo",
+							"parameters": {
+								"magnitude": "10",
+								"duration": "0.2",
+								"mode": "reducing-magnitude"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "damageFlash",
+							"sid": 727801970738005,
+							"parameters": {
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 458344891786252,
+							"parameters": {
+								"seconds": "0.15"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "damageFlash",
+							"sid": 991206190820228,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						}
+					],
+					"sid": 921668999637860
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
 							"objectClass": "SlashFam",
 							"sid": 169064211232411,
 							"parameters": {
@@ -3063,17 +3496,6 @@
 						}
 					],
 					"actions": [
-						{
-							"id": "spawn-another-object",
-							"objectClass": "EnemyFam",
-							"sid": 573125110642104,
-							"parameters": {
-								"object": "Coin",
-								"layer": "1",
-								"image-point": "0",
-								"create-hierarchy": false
-							}
-						},
 						{
 							"id": "subtract-from-instvar",
 							"objectClass": "EnemyFam",
@@ -3084,131 +3506,7 @@
 							}
 						}
 					],
-					"sid": 900159403163642,
-					"children": [
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-boolean-eventvar",
-									"objectClass": "System",
-									"sid": 199731293969269,
-									"parameters": {
-										"variable": "hasKey"
-									},
-									"isInverted": true
-								}
-							],
-							"actions": [],
-							"sid": 704347041816618,
-							"children": [
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "compare-two-values",
-											"objectClass": "System",
-											"sid": 874198647610140,
-											"parameters": {
-												"first-value": "numEnemies",
-												"comparison": 3,
-												"second-value": "1"
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "spawn-another-object",
-											"objectClass": "EnemyFam",
-											"sid": 824650502536248,
-											"parameters": {
-												"object": "Key",
-												"layer": "1",
-												"image-point": "0",
-												"create-hierarchy": false
-											}
-										},
-										{
-											"id": "move-at-angle",
-											"objectClass": "Key",
-											"sid": 994996374176857,
-											"parameters": {
-												"angle": "random(0, 360)",
-												"distance": "10"
-											}
-										}
-									],
-									"sid": 124332049876704
-								},
-								{
-									"eventType": "variable",
-									"name": "r",
-									"type": "number",
-									"initialValue": "0",
-									"comment": "",
-									"isStatic": false,
-									"isConstant": false,
-									"sid": 889791938570655
-								},
-								{
-									"eventType": "block",
-									"conditions": [],
-									"actions": [
-										{
-											"id": "set-eventvar-value",
-											"objectClass": "System",
-											"sid": 867959873682729,
-											"parameters": {
-												"variable": "r",
-												"value": "int(random(1,4))"
-											}
-										}
-									],
-									"sid": 123919135169781,
-									"children": [
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "compare-eventvar",
-													"objectClass": "System",
-													"sid": 156800401193536,
-													"parameters": {
-														"variable": "r",
-														"comparison": 0,
-														"value": "1"
-													}
-												}
-											],
-											"actions": [
-												{
-													"id": "spawn-another-object",
-													"objectClass": "EnemyFam",
-													"sid": 526616876790885,
-													"parameters": {
-														"object": "Key",
-														"layer": "1",
-														"image-point": "0",
-														"create-hierarchy": false
-													}
-												},
-												{
-													"id": "move-at-angle",
-													"objectClass": "Key",
-													"sid": 378888979309941,
-													"parameters": {
-														"angle": "random(0, 360)",
-														"distance": "15"
-													}
-												}
-											],
-											"sid": 896796994066623
-										}
-									]
-								}
-							]
-						}
-					]
+					"sid": 900159403163642
 				},
 				{
 					"eventType": "block",
@@ -3226,6 +3524,17 @@
 					],
 					"actions": [
 						{
+							"id": "spawn-another-object",
+							"objectClass": "EnemyFam",
+							"sid": 343248171066227,
+							"parameters": {
+								"object": "Coin",
+								"layer": "1",
+								"image-point": "0",
+								"create-hierarchy": false
+							}
+						},
+						{
 							"id": "subtract-from-eventvar",
 							"objectClass": "System",
 							"sid": 132461878502758,
@@ -3240,7 +3549,131 @@
 							"sid": 718559532407072
 						}
 					],
-					"sid": 173407782536687
+					"sid": 173407782536687,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 396891409386947,
+									"parameters": {
+										"variable": "hasKey"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [],
+							"sid": 658018214795456,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 857877749630794,
+											"parameters": {
+												"first-value": "numEnemies",
+												"comparison": 3,
+												"second-value": "1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "spawn-another-object",
+											"objectClass": "EnemyFam",
+											"sid": 921745227998218,
+											"parameters": {
+												"object": "Key",
+												"layer": "1",
+												"image-point": "0",
+												"create-hierarchy": false
+											}
+										},
+										{
+											"id": "move-at-angle",
+											"objectClass": "Key",
+											"sid": 828262433344705,
+											"parameters": {
+												"angle": "random(0, 360)",
+												"distance": "10"
+											}
+										}
+									],
+									"sid": 371181894193863
+								},
+								{
+									"eventType": "variable",
+									"name": "r",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"isStatic": false,
+									"isConstant": false,
+									"sid": 264056422296139
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 304598615466940,
+											"parameters": {
+												"variable": "r",
+												"value": "int(random(1,4))"
+											}
+										}
+									],
+									"sid": 244927416749538,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 404567779996617,
+													"parameters": {
+														"variable": "r",
+														"comparison": 0,
+														"value": "1"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "spawn-another-object",
+													"objectClass": "EnemyFam",
+													"sid": 160464851266474,
+													"parameters": {
+														"object": "Key",
+														"layer": "1",
+														"image-point": "0",
+														"create-hierarchy": false
+													}
+												},
+												{
+													"id": "move-at-angle",
+													"objectClass": "Key",
+													"sid": 534614781604536,
+													"parameters": {
+														"angle": "random(0, 360)",
+														"distance": "15"
+													}
+												}
+											],
+											"sid": 988776498895634
+										}
+									]
+								}
+							]
+						}
+					]
 				},
 				{
 					"eventType": "block",
@@ -3341,6 +3774,14 @@
 							"parameters": {
 								"object": "TilemapSolid"
 							}
+						},
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "movingArrow",
+							"sid": 601361869016817,
+							"parameters": {
+								"object": "BossTilemapSolid"
+							}
 						}
 					],
 					"actions": [
@@ -3392,7 +3833,59 @@
 							"sid": 249911072529465
 						}
 					],
-					"sid": 383949361708905
+					"sid": 383949361708905,
+					"isOrBlock": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "bone",
+							"sid": 106220422008557,
+							"parameters": {
+								"object": "TilemapSolid"
+							}
+						},
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "bone",
+							"sid": 501018339799685,
+							"parameters": {
+								"object": "BossTilemapSolid"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "bone",
+							"sid": 119644838283315
+						}
+					],
+					"sid": 579639015108521,
+					"isOrBlock": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "SlashFam",
+							"sid": 639539975874366,
+							"parameters": {
+								"object": "bone"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "bone",
+							"sid": 704662699737837
+						}
+					],
+					"sid": 761667012199326
 				}
 			],
 			"sid": 561616468574223
@@ -5395,6 +5888,15 @@
 									"parameters": {
 										"width": "rightSlash.Width+10*weaponupgrade",
 										"height": "rightSlash.Height+10*weaponupgrade"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 365021057758368,
+									"parameters": {
+										"variable": "playerAttackDamage",
+										"value": "10+5*weaponupgrade"
 									}
 								}
 							],
