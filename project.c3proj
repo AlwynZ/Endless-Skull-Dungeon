@@ -139,8 +139,7 @@
 	"objectTypes": {
 		"items": [
 			"damageFlash",
-			"merchCol",
-			"Sprite2"
+			"merchCol"
 		],
 		"subfolders": [
 			{
