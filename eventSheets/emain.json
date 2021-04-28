@@ -2365,6 +2365,15 @@
 								"height-type": "no",
 								"z": true
 							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 660124371989998,
+							"parameters": {
+								"variable": "numEnemies",
+								"value": "0"
+							}
 						}
 					],
 					"sid": 209738281706197,
@@ -2513,6 +2522,43 @@
 							"sid": 684018442952519,
 							"children": [
 								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 971312578776915,
+											"parameters": {
+												"first-value": "maxEnemies",
+												"comparison": 2,
+												"second-value": "20"
+											}
+										},
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 843097704707500,
+											"parameters": {
+												"first-value": "level%3",
+												"comparison": 0,
+												"second-value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "add-to-eventvar",
+											"objectClass": "System",
+											"sid": 148859819532069,
+											"parameters": {
+												"variable": "maxEnemies",
+												"value": "1"
+											}
+										}
+									],
+									"sid": 960777806153084
+								},
+								{
 									"eventType": "comment",
 									"text": "Spawn Enemies"
 								},
@@ -2550,23 +2596,6 @@
 										}
 									],
 									"sid": 174315248701577
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "is-between-angles",
-											"objectClass": "System",
-											"sid": 112373526922605,
-											"parameters": {
-												"angle": "0",
-												"first-angle": "0",
-												"second-angle": "45"
-											}
-										}
-									],
-									"actions": [],
-									"sid": 705565809624063
 								},
 								{
 									"eventType": "block",
