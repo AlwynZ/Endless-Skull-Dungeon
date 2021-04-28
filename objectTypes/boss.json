@@ -331,7 +331,7 @@
 					}
 				],
 				"sid": 555970212002421,
-				"name": "ScytheAttack",
+				"name": "ScytheAttackV",
 				"isLooping": false,
 				"isPingPong": false,
 				"repeatCount": 1,
@@ -566,7 +566,7 @@
 					}
 				],
 				"sid": 729134321882690,
-				"name": "ScytheAttack2",
+				"name": "ScytheAttackH",
 				"isLooping": false,
 				"isPingPong": false,
 				"repeatCount": 1,

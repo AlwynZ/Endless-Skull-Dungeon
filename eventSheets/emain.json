@@ -5656,7 +5656,7 @@
 								{
 									"id": "on-animation-finished",
 									"objectClass": "Boss",
-									"sid": 217810775405736,
+									"sid": 789858845841903,
 									"parameters": {
 										"animation": "\"Death\""
 									}
@@ -5666,12 +5666,12 @@
 								{
 									"id": "destroy",
 									"objectClass": "Boss",
-									"sid": 934634015001556
+									"sid": 163995525092154
 								},
 								{
 									"id": "create-object",
 									"objectClass": "System",
-									"sid": 816486062550107,
+									"sid": 718944297299277,
 									"parameters": {
 										"object-to-create": "TrapDoor",
 										"layer": "1",
@@ -5683,7 +5683,7 @@
 								{
 									"id": "create-object",
 									"objectClass": "System",
-									"sid": 130224098779380,
+									"sid": 176179072593625,
 									"parameters": {
 										"object-to-create": "Key",
 										"layer": "1",
@@ -5693,7 +5693,7 @@
 									}
 								}
 							],
-							"sid": 290417937848657
+							"sid": 874064401103643
 						},
 						{
 							"eventType": "block",
@@ -5711,14 +5711,74 @@
 								{
 									"id": "set-animation",
 									"objectClass": "Boss",
-									"sid": 403076900735063,
+									"sid": 542666289238849,
 									"parameters": {
-										"animation": "choose(\"ScytheAttack\", \"ScytheAttack2\", \"\", \"\")",
+										"animation": "choose(\"ScytheAttackV\", \"ScytheAttackH\", \"Summon\")",
 										"from": "beginning"
 									}
 								}
 							],
 							"sid": 850279844956627
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "every-x-seconds",
+									"objectClass": "System",
+									"sid": 672472681100434,
+									"parameters": {
+										"interval-seconds": "3"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 282791369865429
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-animation-finished",
+									"objectClass": "Boss",
+									"sid": 340217413325083,
+									"parameters": {
+										"animation": "\"ScytheAttackV\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 895407232061035
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-animation-finished",
+									"objectClass": "Boss",
+									"sid": 583298900404613,
+									"parameters": {
+										"animation": "\"ScytheAttackH\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 406967897566495
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-animation-finished",
+									"objectClass": "Boss",
+									"sid": 577658276679963,
+									"parameters": {
+										"animation": "\"ScytheAttackSummon\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 631282042498670
 						}
 					]
 				}
