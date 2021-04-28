@@ -2316,43 +2316,6 @@
 							"sid": 684018442952519,
 							"children": [
 								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "compare-two-values",
-											"objectClass": "System",
-											"sid": 576602536377334,
-											"parameters": {
-												"first-value": "maxEnemies",
-												"comparison": 2,
-												"second-value": "20"
-											}
-										},
-										{
-											"id": "compare-two-values",
-											"objectClass": "System",
-											"sid": 784746409911825,
-											"parameters": {
-												"first-value": "level%3",
-												"comparison": 0,
-												"second-value": "0"
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "add-to-eventvar",
-											"objectClass": "System",
-											"sid": 286494608354821,
-											"parameters": {
-												"variable": "maxEnemies",
-												"value": "1"
-											}
-										}
-									],
-									"sid": 273478517143357
-								},
-								{
 									"eventType": "comment",
 									"text": "Spawn Enemies"
 								},
@@ -2390,6 +2353,23 @@
 										}
 									],
 									"sid": 174315248701577
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-between-angles",
+											"objectClass": "System",
+											"sid": 112373526922605,
+											"parameters": {
+												"angle": "0",
+												"first-angle": "0",
+												"second-angle": "45"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 705565809624063
 								},
 								{
 									"eventType": "block",
@@ -3103,11 +3083,11 @@
 										{
 											"id": "compare-two-values",
 											"objectClass": "System",
-											"sid": 569871003382464,
+											"sid": 470609231822727,
 											"parameters": {
 												"first-value": "numEnemies",
 												"comparison": 0,
-												"second-value": "2"
+												"second-value": "1"
 											}
 										}
 									],
@@ -3152,10 +3132,10 @@
 										{
 											"id": "set-eventvar-value",
 											"objectClass": "System",
-											"sid": 818324531938024,
+											"sid": 867959873682729,
 											"parameters": {
 												"variable": "r",
-												"value": "int(random(1,5))"
+												"value": "int(random(1,4))"
 											}
 										}
 									],
