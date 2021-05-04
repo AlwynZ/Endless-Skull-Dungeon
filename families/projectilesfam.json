@@ -1,0 +1,12 @@
+{
+	"name": "ProjectilesFam",
+	"plugin-id": "Sprite",
+	"sid": 793666727777192,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"members": [
+		"bone",
+		"Fireball"
+	]
+}

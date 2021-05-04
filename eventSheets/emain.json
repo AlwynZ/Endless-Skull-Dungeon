@@ -774,65 +774,153 @@
 													"isInverted": true
 												}
 											],
-											"actions": [
+											"actions": [],
+											"sid": 165257156787342,
+											"children": [
 												{
-													"id": "create-object",
-													"objectClass": "System",
-													"sid": 780196507727103,
-													"parameters": {
-														"object-to-create": "bouncingSkull",
-														"layer": "1",
-														"x": "TempTile.X",
-														"y": "TempTile.Y",
-														"create-hierarchy": false
-													}
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 508856608271805,
+															"parameters": {
+																"first-value": "level",
+																"comparison": 4,
+																"second-value": "5"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "create-object",
+															"objectClass": "System",
+															"sid": 952415950033714,
+															"parameters": {
+																"object-to-create": "spittingSkull",
+																"layer": "1",
+																"x": "TempTile.X",
+																"y": "TempTile.Y",
+																"create-hierarchy": false
+															}
+														},
+														{
+															"id": "set-instvar-value",
+															"objectClass": "spittingSkull",
+															"sid": 604358527008446,
+															"parameters": {
+																"instance-variable": "Health",
+																"value": "6+level"
+															}
+														},
+														{
+															"id": "set-speed",
+															"objectClass": "spittingSkull",
+															"sid": 214854635561762,
+															"behaviorType": "Bullet",
+															"parameters": {
+																"speed": "100*(1+0.1*level)"
+															}
+														},
+														{
+															"id": "set-angle-of-motion",
+															"objectClass": "spittingSkull",
+															"sid": 361256227016726,
+															"behaviorType": "Bullet",
+															"parameters": {
+																"angle": "random(0,360)"
+															}
+														},
+														{
+															"id": "add-to-eventvar",
+															"objectClass": "System",
+															"sid": 232137643575470,
+															"parameters": {
+																"variable": "numEnemies",
+																"value": "1"
+															}
+														},
+														{
+															"id": "signal",
+															"objectClass": "System",
+															"sid": 586856421167594,
+															"parameters": {
+																"tag": "\"Spawn Done\""
+															}
+														}
+													],
+													"sid": 386787002299565
 												},
 												{
-													"id": "set-instvar-value",
-													"objectClass": "bouncingSkull",
-													"sid": 769005560376738,
-													"parameters": {
-														"instance-variable": "Health",
-														"value": "6+level"
-													}
-												},
-												{
-													"id": "set-speed",
-													"objectClass": "bouncingSkull",
-													"sid": 826044720035824,
-													"behaviorType": "Bullet",
-													"parameters": {
-														"speed": "100*(1+0.1*level)"
-													}
-												},
-												{
-													"id": "set-angle-of-motion",
-													"objectClass": "bouncingSkull",
-													"sid": 604567781687159,
-													"behaviorType": "Bullet",
-													"parameters": {
-														"angle": "random(0,360)"
-													}
-												},
-												{
-													"id": "add-to-eventvar",
-													"objectClass": "System",
-													"sid": 325112498813365,
-													"parameters": {
-														"variable": "numEnemies",
-														"value": "1"
-													}
-												},
-												{
-													"id": "signal",
-													"objectClass": "System",
-													"sid": 875203983680800,
-													"parameters": {
-														"tag": "\"Spawn Done\""
-													}
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "else",
+															"objectClass": "System",
+															"sid": 288954280792710
+														}
+													],
+													"actions": [
+														{
+															"id": "create-object",
+															"objectClass": "System",
+															"sid": 814064150170255,
+															"parameters": {
+																"object-to-create": "bouncingSkull",
+																"layer": "1",
+																"x": "TempTile.X",
+																"y": "TempTile.Y",
+																"create-hierarchy": false
+															}
+														},
+														{
+															"id": "set-instvar-value",
+															"objectClass": "bouncingSkull",
+															"sid": 302655619334007,
+															"parameters": {
+																"instance-variable": "Health",
+																"value": "6+level"
+															}
+														},
+														{
+															"id": "set-speed",
+															"objectClass": "bouncingSkull",
+															"sid": 285128873664888,
+															"behaviorType": "Bullet",
+															"parameters": {
+																"speed": "100*(1+0.1*level)"
+															}
+														},
+														{
+															"id": "set-angle-of-motion",
+															"objectClass": "bouncingSkull",
+															"sid": 451586249911433,
+															"behaviorType": "Bullet",
+															"parameters": {
+																"angle": "random(0,360)"
+															}
+														},
+														{
+															"id": "add-to-eventvar",
+															"objectClass": "System",
+															"sid": 287966407970528,
+															"parameters": {
+																"variable": "numEnemies",
+																"value": "1"
+															}
+														},
+														{
+															"id": "signal",
+															"objectClass": "System",
+															"sid": 758653828784611,
+															"parameters": {
+																"tag": "\"Spawn Done\""
+															}
+														}
+													],
+													"sid": 579942975294890
 												}
-											],
-											"sid": 165257156787342
+											]
 										},
 										{
 											"eventType": "block",
@@ -861,7 +949,7 @@
 												{
 													"id": "create-object",
 													"objectClass": "System",
-													"sid": 352891493763118,
+													"sid": 431181536866150,
 													"parameters": {
 														"object-to-create": "Skeleton",
 														"layer": "1",
@@ -873,7 +961,7 @@
 												{
 													"id": "set-instvar-value",
 													"objectClass": "Skeleton",
-													"sid": 258328685413455,
+													"sid": 697462866625025,
 													"parameters": {
 														"instance-variable": "Health",
 														"value": "6+level"
@@ -882,7 +970,7 @@
 												{
 													"id": "set-max-speed",
 													"objectClass": "Skeleton",
-													"sid": 711532934921368,
+													"sid": 890193235797454,
 													"behaviorType": "Pathfinding",
 													"parameters": {
 														"speed": "100"
@@ -891,7 +979,7 @@
 												{
 													"id": "set-speed",
 													"objectClass": "Skeleton",
-													"sid": 321268159377119,
+													"sid": 392945244686995,
 													"behaviorType": "Pathfinding",
 													"parameters": {
 														"speed": "100"
@@ -900,7 +988,7 @@
 												{
 													"id": "add-to-eventvar",
 													"objectClass": "System",
-													"sid": 213593198756371,
+													"sid": 289369701661789,
 													"parameters": {
 														"variable": "numEnemies",
 														"value": "1"
@@ -909,7 +997,7 @@
 												{
 													"id": "signal",
 													"objectClass": "System",
-													"sid": 960400166095545,
+													"sid": 851179251362375,
 													"parameters": {
 														"tag": "\"Spawn Done\""
 													}
@@ -3128,6 +3216,90 @@
 						}
 					],
 					"sid": 215195347237791
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "has-los-to-object",
+							"objectClass": "spittingSkull",
+							"sid": 614552463490516,
+							"behaviorType": "LineOfSight",
+							"parameters": {
+								"object": "Player",
+								"image-point": "0"
+							}
+						},
+						{
+							"id": "every-x-seconds",
+							"objectClass": "System",
+							"sid": 513323962728655,
+							"parameters": {
+								"interval-seconds": "4"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "move-at-angle",
+							"objectClass": "spittingSkull",
+							"sid": 919763916223054,
+							"parameters": {
+								"angle": "angle(spittingSkull.X, spittingSkull.Y, Player.X, Player.Y)",
+								"distance": "1.0+(level*0.01)"
+							}
+						}
+					],
+					"sid": 152783964591109,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for",
+									"objectClass": "System",
+									"sid": 883930680143194,
+									"parameters": {
+										"name": "\"i\"",
+										"start-index": "-1",
+										"end-index": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "spawn-another-object",
+									"objectClass": "spittingSkull",
+									"sid": 196041222624467,
+									"parameters": {
+										"object": "Fireball",
+										"layer": "0",
+										"image-point": "0",
+										"create-hierarchy": false
+									}
+								},
+								{
+									"id": "set-speed",
+									"objectClass": "Fireball",
+									"sid": 282850814882058,
+									"behaviorType": "Bullet",
+									"parameters": {
+										"speed": "200"
+									}
+								},
+								{
+									"id": "set-angle-of-motion",
+									"objectClass": "Fireball",
+									"sid": 472727684524224,
+									"behaviorType": "Bullet",
+									"parameters": {
+										"angle": "angle(spittingSkull.X, spittingSkull.Y, Player.X, Player.Y) - (10*(loopindex(\"i\")))"
+									}
+								}
+							],
+							"sid": 190931548836729
+						}
+					]
 				}
 			],
 			"sid": 277427262874824
@@ -3397,17 +3569,17 @@
 						{
 							"id": "on-collision-with-another-object",
 							"objectClass": "Player",
-							"sid": 315803148615499,
+							"sid": 525858613412708,
 							"parameters": {
-								"object": "bone"
+								"object": "ProjectilesFam"
 							}
 						}
 					],
 					"actions": [
 						{
 							"id": "destroy",
-							"objectClass": "bone",
-							"sid": 265877040101815
+							"objectClass": "ProjectilesFam",
+							"sid": 745520564770587
 						},
 						{
 							"id": "play",
@@ -3825,16 +3997,16 @@
 					"conditions": [
 						{
 							"id": "on-collision-with-another-object",
-							"objectClass": "bone",
-							"sid": 106220422008557,
+							"objectClass": "ProjectilesFam",
+							"sid": 525292228662930,
 							"parameters": {
 								"object": "TilemapSolid"
 							}
 						},
 						{
 							"id": "on-collision-with-another-object",
-							"objectClass": "bone",
-							"sid": 501018339799685,
+							"objectClass": "ProjectilesFam",
+							"sid": 174969024155822,
 							"parameters": {
 								"object": "BossTilemapSolid"
 							}
@@ -3843,8 +4015,8 @@
 					"actions": [
 						{
 							"id": "destroy",
-							"objectClass": "bone",
-							"sid": 119644838283315
+							"objectClass": "ProjectilesFam",
+							"sid": 601593808079882
 						}
 					],
 					"sid": 579639015108521,
@@ -3856,17 +4028,17 @@
 						{
 							"id": "on-collision-with-another-object",
 							"objectClass": "SlashFam",
-							"sid": 639539975874366,
+							"sid": 199372436921198,
 							"parameters": {
-								"object": "bone"
+								"object": "ProjectilesFam"
 							}
 						}
 					],
 					"actions": [
 						{
 							"id": "destroy",
-							"objectClass": "bone",
-							"sid": 704662699737837
+							"objectClass": "ProjectilesFam",
+							"sid": 357423156617582
 						}
 					],
 					"sid": 761667012199326
