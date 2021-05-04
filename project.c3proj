@@ -41,7 +41,7 @@
 		{
 			"type": "plugin",
 			"id": "Audio",
-			"name": "音频",
+			"name": "Audio",
 			"author": "Scirra",
 			"version": "r241",
 			"bundled": false
@@ -65,7 +65,7 @@
 		{
 			"type": "behavior",
 			"id": "solid",
-			"name": "刚体",
+			"name": "Solid",
 			"author": "Scirra",
 			"version": "r241",
 			"bundled": false
@@ -73,7 +73,7 @@
 		{
 			"type": "behavior",
 			"id": "Bullet",
-			"name": "子弹",
+			"name": "Bullet",
 			"author": "Scirra",
 			"version": "r241",
 			"bundled": false
@@ -81,7 +81,7 @@
 		{
 			"type": "behavior",
 			"id": "destroy",
-			"name": "出界销毁",
+			"name": "Destroy outside layout",
 			"author": "Scirra",
 			"version": "r241",
 			"bundled": false
@@ -89,7 +89,7 @@
 		{
 			"type": "behavior",
 			"id": "LOS",
-			"name": "视线",
+			"name": "Line of sight",
 			"author": "Scirra",
 			"version": "r241",
 			"bundled": false
@@ -97,7 +97,7 @@
 		{
 			"type": "behavior",
 			"id": "Pathfinding",
-			"name": "寻路",
+			"name": "Pathfinding",
 			"author": "Scirra",
 			"version": "r241",
 			"bundled": false
@@ -105,7 +105,7 @@
 		{
 			"type": "behavior",
 			"id": "wrap",
-			"name": "边界穿梭",
+			"name": "Wrap",
 			"author": "Scirra",
 			"version": "r241",
 			"bundled": false
@@ -113,7 +113,7 @@
 		{
 			"type": "behavior",
 			"id": "scrollto",
-			"name": "视野跟随",
+			"name": "Scroll To",
 			"author": "Scirra",
 			"version": "r241",
 			"bundled": false
@@ -121,7 +121,7 @@
 		{
 			"type": "behavior",
 			"id": "EightDir",
-			"name": "8方向",
+			"name": "8 Direction",
 			"author": "Scirra",
 			"version": "r241",
 			"bundled": false
@@ -129,7 +129,7 @@
 		{
 			"type": "behavior",
 			"id": "Pin",
-			"name": "固定",
+			"name": "Pin",
 			"author": "Scirra",
 			"version": "r241",
 			"bundled": false
@@ -143,7 +143,8 @@
 			"bossBlackout",
 			"bossTriggerLine",
 			"bossAttackV",
-			"bossAttackH"
+			"bossAttackH",
+			"Heart"
 		],
 		"subfolders": [
 			{
@@ -158,7 +159,8 @@
 					"CandleStick",
 					"TrapDoor",
 					"BossTilemap",
-					"BossTilemapSolid"
+					"BossTilemapSolid",
+					"LevelTile"
 				],
 				"subfolders": [],
 				"name": "Background"
@@ -192,7 +194,9 @@
 					"RedPotion",
 					"BluePotion",
 					"YellowPotion",
-					"bone"
+					"bone",
+					"ArrowIcon",
+					"KeyIcon"
 				],
 				"subfolders": [
 					{

@@ -2477,25 +2477,25 @@
 						{
 							"id": "set-text",
 							"objectClass": "lifeCount",
-							"sid": 374163857261974,
+							"sid": 193321259708018,
 							"parameters": {
-								"text": "lives"
+								"text": "\"x\"&lives"
 							}
 						},
 						{
 							"id": "set-text",
 							"objectClass": "goldCount",
-							"sid": 368764584300143,
+							"sid": 304335468761127,
 							"parameters": {
-								"text": "gold"
+								"text": "gold & \"g\""
 							}
 						},
 						{
 							"id": "set-text",
 							"objectClass": "arrowNum",
-							"sid": 617793811735725,
+							"sid": 410078840579305,
 							"parameters": {
-								"text": "rangednum"
+								"text": "\"x\"&rangednum"
 							}
 						}
 					],
@@ -3354,14 +3354,6 @@
 							}
 						},
 						{
-							"id": "set-text",
-							"objectClass": "lifeCount",
-							"sid": 979893507044789,
-							"parameters": {
-								"text": "lives"
-							}
-						},
-						{
 							"id": "shake",
 							"objectClass": "Player",
 							"sid": 805577608362848,
@@ -3435,14 +3427,6 @@
 							"parameters": {
 								"variable": "lives",
 								"value": "1"
-							}
-						},
-						{
-							"id": "set-text",
-							"objectClass": "lifeCount",
-							"sid": 373729274319674,
-							"parameters": {
-								"text": "lives"
 							}
 						},
 						{
@@ -3709,6 +3693,14 @@
 							"parameters": {
 								"text": "\"YES\""
 							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "KeyIcon",
+							"sid": 829709541831454,
+							"parameters": {
+								"visibility": "visible"
+							}
 						}
 					],
 					"sid": 849168132407838,
@@ -3750,14 +3742,6 @@
 							"parameters": {
 								"variable": "gold",
 								"value": "level"
-							}
-						},
-						{
-							"id": "set-text",
-							"objectClass": "goldCount",
-							"sid": 693774709240601,
-							"parameters": {
-								"text": "gold"
 							}
 						}
 					],
@@ -6152,11 +6136,11 @@
 								{
 									"id": "compare-eventvar",
 									"objectClass": "System",
-									"sid": 640276582658271,
+									"sid": 538549961275074,
 									"parameters": {
 										"variable": "lives",
 										"comparison": 2,
-										"value": "3"
+										"value": "100"
 									}
 								}
 							],
@@ -6188,22 +6172,6 @@
 									"parameters": {
 										"variable": "lives",
 										"value": "1"
-									}
-								},
-								{
-									"id": "set-text",
-									"objectClass": "goldCount",
-									"sid": 338218014326060,
-									"parameters": {
-										"text": "gold"
-									}
-								},
-								{
-									"id": "set-text",
-									"objectClass": "lifeCount",
-									"sid": 352921268136775,
-									"parameters": {
-										"text": "lives"
 									}
 								}
 							],
@@ -6260,14 +6228,6 @@
 									"parameters": {
 										"variable": "rangednum",
 										"value": "1"
-									}
-								},
-								{
-									"id": "set-text",
-									"objectClass": "goldCount",
-									"sid": 474470511273985,
-									"parameters": {
-										"text": "gold"
 									}
 								}
 							],
@@ -6332,14 +6292,6 @@
 									"sid": 565342406233834,
 									"parameters": {
 										"text": "5*(weaponupgrade+1)&\"g\""
-									}
-								},
-								{
-									"id": "set-text",
-									"objectClass": "goldCount",
-									"sid": 926920912512358,
-									"parameters": {
-										"text": "gold"
 									}
 								},
 								{
@@ -6453,14 +6405,6 @@
 									"sid": 609642409437379,
 									"parameters": {
 										"text": "5*(speedupgrade+1)&\"g\""
-									}
-								},
-								{
-									"id": "set-text",
-									"objectClass": "goldCount",
-									"sid": 123119699100744,
-									"parameters": {
-										"text": "gold"
 									}
 								},
 								{
