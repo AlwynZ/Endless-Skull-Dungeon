@@ -45,7 +45,7 @@
 			"eventType": "variable",
 			"name": "lives",
 			"type": "number",
-			"initialValue": "100",
+			"initialValue": "10",
 			"comment": "",
 			"isStatic": false,
 			"isConstant": false,
@@ -2862,6 +2862,15 @@
 									"parameters": {
 										"color": "rgbEx(192, 192, 192)"
 									}
+								},
+								{
+									"id": "set-max-speed",
+									"objectClass": "Player",
+									"sid": 652512730460733,
+									"behaviorType": "8Direction",
+									"parameters": {
+										"max-speed": "200+20*speedupgrade"
+									}
 								}
 							],
 							"sid": 684018442952519,
@@ -3394,6 +3403,32 @@
 								{
 									"id": "compare-two-values",
 									"objectClass": "System",
+									"sid": 930445897426369,
+									"parameters": {
+										"first-value": "level%5",
+										"comparison": 0,
+										"second-value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "go-to-layout",
+									"objectClass": "System",
+									"sid": 219230176194746,
+									"parameters": {
+										"layout": "Boss Room"
+									}
+								}
+							],
+							"sid": 340811105421360
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
 									"sid": 940438306107207,
 									"parameters": {
 										"first-value": "LayoutName",
@@ -3470,32 +3505,6 @@
 								}
 							],
 							"sid": 577160798228580
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-two-values",
-									"objectClass": "System",
-									"sid": 445132603563928,
-									"parameters": {
-										"first-value": "(level-1)%5",
-										"comparison": 0,
-										"second-value": "0"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "go-to-layout",
-									"objectClass": "System",
-									"sid": 648684198497381,
-									"parameters": {
-										"layout": "Boss Room"
-									}
-								}
-							],
-							"sid": 431332699722800
 						},
 						{
 							"eventType": "block",
@@ -3712,6 +3721,16 @@
 								"instance-variable": "Health",
 								"comparison": 3,
 								"value": "0"
+							}
+						},
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 908720818734392,
+							"parameters": {
+								"first-value": "LayoutName",
+								"comparison": 0,
+								"second-value": "\"Dungeon\""
 							}
 						}
 					],
@@ -7057,6 +7076,17 @@
 									}
 								},
 								{
+									"id": "play",
+									"objectClass": "Audio",
+									"sid": 621955601652960,
+									"parameters": {
+										"audio-file": "bossSlashHit",
+										"loop": "not-looping",
+										"volume": "0",
+										"tag-optional": "\"\""
+									}
+								},
+								{
 									"id": "wait",
 									"objectClass": "System",
 									"sid": 675807750325273,
@@ -7112,6 +7142,17 @@
 										"layer": "1",
 										"image-point": "0",
 										"create-hierarchy": false
+									}
+								},
+								{
+									"id": "play",
+									"objectClass": "Audio",
+									"sid": 598119528294488,
+									"parameters": {
+										"audio-file": "bossSlashHit",
+										"loop": "not-looping",
+										"volume": "0",
+										"tag-optional": "\"\""
 									}
 								},
 								{
@@ -7313,17 +7354,6 @@
 								}
 							],
 							"actions": [
-								{
-									"id": "play",
-									"objectClass": "Audio",
-									"sid": 598119528294488,
-									"parameters": {
-										"audio-file": "bossSlashHit",
-										"loop": "not-looping",
-										"volume": "0",
-										"tag-optional": "\"\""
-									}
-								},
 								{
 									"id": "subtract-from-eventvar",
 									"objectClass": "System",
