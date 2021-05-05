@@ -324,6 +324,21 @@
 					"name": "hit.webm",
 					"type": "audio/webm; codecs=opus",
 					"sid": 211802099015505
+				},
+				{
+					"name": "playerSlashHit.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 109254470072049
+				},
+				{
+					"name": "bossSlashHit.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 238604143403177
+				},
+				{
+					"name": "key.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 420847339257282
 				}
 			],
 			"subfolders": []
