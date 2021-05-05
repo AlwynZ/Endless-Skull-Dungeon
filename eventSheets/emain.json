@@ -3382,6 +3382,14 @@
 							"parameters": {
 								"object": "Ladder"
 							}
+						},
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 278757030357702,
+							"parameters": {
+								"key": 57
+							}
 						}
 					],
 					"actions": [
@@ -3699,11 +3707,11 @@
 						{
 							"id": "play",
 							"objectClass": "Audio",
-							"sid": 159241464510321,
+							"sid": 895821375329547,
 							"parameters": {
 								"audio-file": "playerSlashHit",
 								"loop": "not-looping",
-								"volume": "-20",
+								"volume": "-30",
 								"tag-optional": "\"\""
 							}
 						}
@@ -6756,6 +6764,16 @@
 			"isActiveOnStart": true,
 			"children": [
 				{
+					"eventType": "variable",
+					"name": "bossDead",
+					"type": "boolean",
+					"initialValue": "false",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 163241159934658
+				},
+				{
 					"eventType": "block",
 					"conditions": [
 						{
@@ -6772,16 +6790,6 @@
 					"actions": [],
 					"sid": 841759812984560,
 					"children": [
-						{
-							"eventType": "variable",
-							"name": "bossDead",
-							"type": "boolean",
-							"initialValue": "false",
-							"comment": "",
-							"isStatic": false,
-							"isConstant": false,
-							"sid": 698325300380654
-						},
 						{
 							"eventType": "block",
 							"conditions": [
@@ -6871,32 +6879,21 @@
 									"parameters": {
 										"variable": "bossDead"
 									}
-								},
-								{
-									"id": "on-key-pressed",
-									"objectClass": "Keyboard",
-									"sid": 676984889783414,
-									"parameters": {
-										"key": 48
-									}
 								}
 							],
 							"actions": [
 								{
-									"id": "destroy",
+									"id": "stop-animation",
 									"objectClass": "Boss",
-									"sid": 781458159092653
+									"sid": 402918251989459
 								},
 								{
-									"id": "create-object",
-									"objectClass": "System",
-									"sid": 458382776958712,
+									"id": "set-position",
+									"objectClass": "Boss",
+									"sid": 874136015556549,
 									"parameters": {
-										"object-to-create": "Boss",
-										"layer": "1",
 										"x": "288",
-										"y": "192",
-										"create-hierarchy": false
+										"y": "192"
 									}
 								},
 								{
@@ -6970,6 +6967,14 @@
 							"eventType": "block",
 							"conditions": [
 								{
+									"id": "every-x-seconds",
+									"objectClass": "System",
+									"sid": 159491813202117,
+									"parameters": {
+										"interval-seconds": "4"
+									}
+								},
+								{
 									"id": "compare-boolean-eventvar",
 									"objectClass": "System",
 									"sid": 818049692740882,
@@ -6977,14 +6982,6 @@
 										"variable": "bossDead"
 									},
 									"isInverted": true
-								},
-								{
-									"id": "every-x-seconds",
-									"objectClass": "System",
-									"sid": 284898700604823,
-									"parameters": {
-										"interval-seconds": "5"
-									}
 								}
 							],
 							"actions": [
@@ -7006,7 +7003,7 @@
 								{
 									"id": "every-x-seconds",
 									"objectClass": "System",
-									"sid": 672472681100434,
+									"sid": 339514850123264,
 									"parameters": {
 										"interval-seconds": "3"
 									}
@@ -7015,6 +7012,7 @@
 									"id": "is-animation-playing",
 									"objectClass": "Boss",
 									"sid": 451823022358346,
+									"disabled": true,
 									"parameters": {
 										"animation": "\"Idle\""
 									}
@@ -7056,23 +7054,12 @@
 							],
 							"actions": [
 								{
-									"id": "set-animation",
-									"objectClass": "Boss",
-									"sid": 493437400955869,
+									"id": "set-position",
+									"objectClass": "bossAttackV",
+									"sid": 134669510182992,
 									"parameters": {
-										"animation": "\"Idle\"",
-										"from": "beginning"
-									}
-								},
-								{
-									"id": "spawn-another-object",
-									"objectClass": "Boss",
-									"sid": 392111469692533,
-									"parameters": {
-										"object": "bossAttackV",
-										"layer": "1",
-										"image-point": "0",
-										"create-hierarchy": false
+										"x": "Boss.X",
+										"y": "Boss.Y"
 									}
 								},
 								{
@@ -7095,9 +7082,28 @@
 									}
 								},
 								{
+									"id": "set-position",
+									"objectClass": "bossAttackV",
+									"sid": 844965241018686,
+									"parameters": {
+										"x": "-1000",
+										"y": "-500"
+									}
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "Boss",
+									"sid": 123461317623208,
+									"parameters": {
+										"animation": "\"Idle\"",
+										"from": "beginning"
+									}
+								},
+								{
 									"id": "destroy",
 									"objectClass": "bossAttackV",
-									"sid": 614104856385044
+									"sid": 614104856385044,
+									"disabled": true
 								}
 							],
 							"sid": 623031778323912
@@ -7125,23 +7131,24 @@
 							],
 							"actions": [
 								{
-									"id": "set-animation",
-									"objectClass": "Boss",
-									"sid": 169072159336587,
-									"parameters": {
-										"animation": "\"Idle\"",
-										"from": "beginning"
-									}
-								},
-								{
 									"id": "spawn-another-object",
 									"objectClass": "Boss",
 									"sid": 162570099597541,
+									"disabled": true,
 									"parameters": {
 										"object": "bossAttackH",
 										"layer": "1",
 										"image-point": "0",
 										"create-hierarchy": false
+									}
+								},
+								{
+									"id": "set-position",
+									"objectClass": "bossAttackH",
+									"sid": 530944558360162,
+									"parameters": {
+										"x": "Boss.X",
+										"y": "Boss.Y"
 									}
 								},
 								{
@@ -7164,9 +7171,28 @@
 									}
 								},
 								{
+									"id": "set-position",
+									"objectClass": "bossAttackH",
+									"sid": 925663678897172,
+									"parameters": {
+										"x": "-1000",
+										"y": "-500"
+									}
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "Boss",
+									"sid": 330876074924142,
+									"parameters": {
+										"animation": "\"Idle\"",
+										"from": "beginning"
+									}
+								},
+								{
 									"id": "destroy",
 									"objectClass": "bossAttackH",
-									"sid": 460247904893085
+									"sid": 460247904893085,
+									"disabled": true
 								}
 							],
 							"sid": 148424102590133
@@ -7205,11 +7231,11 @@
 								{
 									"id": "spawn-another-object",
 									"objectClass": "Boss",
-									"sid": 560209438536829,
+									"sid": 713472017702203,
 									"parameters": {
 										"object": "phasingSkull",
-										"layer": "choose(1,2)",
-										"image-point": "0",
+										"layer": "1",
+										"image-point": "choose(1,2)",
 										"create-hierarchy": false
 									}
 								},
@@ -7222,6 +7248,24 @@
 										"layer": "1",
 										"image-point": "choose(1,2)",
 										"create-hierarchy": false
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "bouncingSkull",
+									"sid": 112022160482940,
+									"parameters": {
+										"instance-variable": "Health",
+										"value": "level"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "phasingSkull",
+									"sid": 725753496055312,
+									"parameters": {
+										"instance-variable": "Health",
+										"value": "level"
 									}
 								},
 								{
@@ -7413,13 +7457,103 @@
 							"eventType": "block",
 							"conditions": [
 								{
+									"id": "on-collision-with-another-object",
+									"objectClass": "SlashFam",
+									"sid": 491267872381076,
+									"parameters": {
+										"object": "EnemyFam"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "subtract-from-instvar",
+									"objectClass": "EnemyFam",
+									"sid": 942648310193197,
+									"parameters": {
+										"instance-variable": "Health",
+										"value": "playerAttackDamage"
+									}
+								},
+								{
+									"id": "play",
+									"objectClass": "Audio",
+									"sid": 689853335760836,
+									"parameters": {
+										"audio-file": "playerSlashHit",
+										"loop": "not-looping",
+										"volume": "-30",
+										"tag-optional": "\"\""
+									}
+								}
+							],
+							"sid": 844353375953301
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
 									"id": "compare-instance-variable",
-									"objectClass": "Boss",
-									"sid": 182590471939212,
+									"objectClass": "bouncingSkull",
+									"sid": 216657028144218,
 									"parameters": {
 										"instance-variable": "Health",
 										"comparison": 3,
-										"value": "playerAttackDamage"
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "destroy",
+									"objectClass": "bouncingSkull",
+									"sid": 397269570779085
+								}
+							],
+							"sid": 701112167352750
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "phasingSkull",
+									"sid": 640180995708180,
+									"parameters": {
+										"instance-variable": "Health",
+										"comparison": 3,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "destroy",
+									"objectClass": "phasingSkull",
+									"sid": 635428584158061
+								}
+							],
+							"sid": 371040358242210
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Boss",
+									"sid": 602119873525494,
+									"parameters": {
+										"instance-variable": "Health",
+										"comparison": 3,
+										"value": "0"
+									}
+								},
+								{
+									"id": "on-key-pressed",
+									"objectClass": "Keyboard",
+									"sid": 761273014439379,
+									"parameters": {
+										"key": 191
 									}
 								}
 							],
@@ -7434,7 +7568,8 @@
 									}
 								}
 							],
-							"sid": 122135263884336
+							"sid": 122135263884336,
+							"isOrBlock": true
 						}
 					]
 				}

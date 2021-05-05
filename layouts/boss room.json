@@ -515,7 +515,7 @@
 					"behaviors": {
 						"Bullet": {
 							"properties": {
-								"speed": 100,
+								"speed": 200,
 								"acceleration": 0,
 								"gravity": 0,
 								"bounce-off-solids": true,
