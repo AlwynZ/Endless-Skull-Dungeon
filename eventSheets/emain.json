@@ -6403,11 +6403,11 @@
 								{
 									"id": "compare-eventvar",
 									"objectClass": "System",
-									"sid": 538549961275074,
+									"sid": 788594818234352,
 									"parameters": {
 										"variable": "lives",
 										"comparison": 2,
-										"value": "100"
+										"value": "10"
 									}
 								}
 							],
