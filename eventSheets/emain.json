@@ -163,6 +163,16 @@
 		},
 		{
 			"eventType": "variable",
+			"name": "BossDeadG",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "is boss dead global",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 224028292249765
+		},
+		{
+			"eventType": "variable",
 			"name": "weaponMode",
 			"type": "number",
 			"initialValue": "0",
@@ -6764,16 +6774,6 @@
 			"isActiveOnStart": true,
 			"children": [
 				{
-					"eventType": "variable",
-					"name": "bossDead",
-					"type": "boolean",
-					"initialValue": "false",
-					"comment": "",
-					"isStatic": false,
-					"isConstant": false,
-					"sid": 163241159934658
-				},
-				{
 					"eventType": "block",
 					"conditions": [
 						{
@@ -6856,6 +6856,15 @@
 									}
 								},
 								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 290670060719555,
+									"parameters": {
+										"variable": "BossDeadG",
+										"value": "false"
+									}
+								},
+								{
 									"id": "play",
 									"objectClass": "Audio",
 									"sid": 407726409634611,
@@ -6875,9 +6884,9 @@
 								{
 									"id": "compare-boolean-eventvar",
 									"objectClass": "System",
-									"sid": 133044021948636,
+									"sid": 803350754552403,
 									"parameters": {
-										"variable": "bossDead"
+										"variable": "BossDeadG"
 									}
 								}
 							],
@@ -6923,9 +6932,9 @@
 								{
 									"id": "compare-boolean-eventvar",
 									"objectClass": "System",
-									"sid": 719750191659026,
+									"sid": 438012206983245,
 									"parameters": {
-										"variable": "bossDead"
+										"variable": "BossDeadG"
 									},
 									"isInverted": true
 								}
@@ -6977,9 +6986,9 @@
 								{
 									"id": "compare-boolean-eventvar",
 									"objectClass": "System",
-									"sid": 818049692740882,
+									"sid": 379011793161140,
 									"parameters": {
-										"variable": "bossDead"
+										"variable": "BossDeadG"
 									},
 									"isInverted": true
 								}
@@ -7045,9 +7054,9 @@
 								{
 									"id": "compare-boolean-eventvar",
 									"objectClass": "System",
-									"sid": 725387829315150,
+									"sid": 302421150140682,
 									"parameters": {
-										"variable": "bossDead"
+										"variable": "BossDeadG"
 									},
 									"isInverted": true
 								}
@@ -7076,9 +7085,9 @@
 								{
 									"id": "wait",
 									"objectClass": "System",
-									"sid": 675807750325273,
+									"sid": 420908983315676,
 									"parameters": {
-										"seconds": "0.5"
+										"seconds": "0.4"
 									}
 								},
 								{
@@ -7122,9 +7131,9 @@
 								{
 									"id": "compare-boolean-eventvar",
 									"objectClass": "System",
-									"sid": 647972958472650,
+									"sid": 959427432728651,
 									"parameters": {
-										"variable": "bossDead"
+										"variable": "BossDeadG"
 									},
 									"isInverted": true
 								}
@@ -7211,9 +7220,9 @@
 								{
 									"id": "compare-boolean-eventvar",
 									"objectClass": "System",
-									"sid": 658152392514647,
+									"sid": 277261945932901,
 									"parameters": {
-										"variable": "bossDead"
+										"variable": "BossDeadG"
 									},
 									"isInverted": true
 								}
@@ -7302,9 +7311,9 @@
 								{
 									"id": "compare-boolean-eventvar",
 									"objectClass": "System",
-									"sid": 328823079883170,
+									"sid": 379075030780537,
 									"parameters": {
-										"variable": "bossDead"
+										"variable": "BossDeadG"
 									},
 									"isInverted": true
 								}
@@ -7390,9 +7399,9 @@
 								{
 									"id": "compare-boolean-eventvar",
 									"objectClass": "System",
-									"sid": 666313469251325,
+									"sid": 540999891001775,
 									"parameters": {
-										"variable": "bossDead"
+										"variable": "BossDeadG"
 									},
 									"isInverted": true
 								}
@@ -7561,9 +7570,9 @@
 								{
 									"id": "set-boolean-eventvar",
 									"objectClass": "System",
-									"sid": 142439703679416,
+									"sid": 618098939580439,
 									"parameters": {
-										"variable": "bossDead",
+										"variable": "BossDeadG",
 										"value": "true"
 									}
 								}
