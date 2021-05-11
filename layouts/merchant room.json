@@ -690,9 +690,9 @@
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
-						"x": 440,
+						"x": 200,
 						"y": 23,
-						"width": 96,
+						"width": 336,
 						"height": 16,
 						"originX": 0,
 						"originY": 0,
@@ -1122,14 +1122,14 @@
 				{
 					"type": "weaponPrice",
 					"properties": {
-						"text": "1",
+						"text": "1g",
 						"enable-bbcode": true,
 						"character-width": 16,
 						"character-height": 16,
 						"character-set": "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.,;:?!-_~#\"'&()[]|`\\/@°+=*$£€<>",
 						"spacing-data": "",
 						"scale": 1,
-						"character-spacing": -5,
+						"character-spacing": -3,
 						"line-height": 0,
 						"horizontal-alignment": "left",
 						"vertical-alignment": "top",
@@ -1153,21 +1153,21 @@
 							0,
 							1
 						],
-						"angle": 0.01653273983081671,
+						"angle": 0,
 						"zElevation": 0
 					}
 				},
 				{
 					"type": "potionPrice",
 					"properties": {
-						"text": "1",
+						"text": "1g",
 						"enable-bbcode": true,
 						"character-width": 16,
 						"character-height": 16,
 						"character-set": "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.,;:?!-_~#\"'&()[]|`\\/@°+=*$£€<>",
 						"spacing-data": "",
 						"scale": 1,
-						"character-spacing": -5,
+						"character-spacing": -3,
 						"line-height": 0,
 						"horizontal-alignment": "left",
 						"vertical-alignment": "top",
@@ -1182,7 +1182,7 @@
 						"x": 368,
 						"y": 128,
 						"width": 64,
-						"height": 32,
+						"height": 16,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -1267,14 +1267,14 @@
 				{
 					"type": "speedPrice",
 					"properties": {
-						"text": "1",
+						"text": "1g",
 						"enable-bbcode": true,
 						"character-width": 16,
 						"character-height": 16,
 						"character-set": "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.,;:?!-_~#\"'&()[]|`\\/@°+=*$£€<>",
 						"spacing-data": "",
 						"scale": 1,
-						"character-spacing": -5,
+						"character-spacing": -3,
 						"line-height": 0,
 						"horizontal-alignment": "left",
 						"vertical-alignment": "top",
@@ -1381,7 +1381,7 @@
 						"character-set": "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.,;:?!-_~#\"'&()[]|`\\/@°+=*$£€<>",
 						"spacing-data": "",
 						"scale": 1,
-						"character-spacing": -5,
+						"character-spacing": -3,
 						"line-height": 0,
 						"horizontal-alignment": "left",
 						"vertical-alignment": "top",

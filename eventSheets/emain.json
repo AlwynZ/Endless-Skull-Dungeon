@@ -6368,6 +6368,32 @@
 					"eventType": "block",
 					"conditions": [
 						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 236617031479757,
+							"parameters": {
+								"first-value": "speedupgrade",
+								"comparison": 5,
+								"second-value": "25"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "speedPrice",
+							"sid": 876644947255416,
+							"parameters": {
+								"text": "\"MAX\""
+							}
+						}
+					],
+					"sid": 939017181783620
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
 							"id": "on-collision-with-another-object",
 							"objectClass": "Player",
 							"sid": 580391366319151,
@@ -6715,6 +6741,16 @@
 										"comparison": 5,
 										"value": "5*(speedupgrade+1)"
 									}
+								},
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 396803684021946,
+									"parameters": {
+										"first-value": "speedupgrade",
+										"comparison": 2,
+										"second-value": "25"
+									}
 								}
 							],
 							"actions": [
@@ -6758,10 +6794,10 @@
 								{
 									"id": "set-max-speed",
 									"objectClass": "Player",
-									"sid": 335086736953582,
+									"sid": 670760082645147,
 									"behaviorType": "8Direction",
 									"parameters": {
-										"max-speed": "Player.8Direction.MaxSpeed+50"
+										"max-speed": "200+20*speedupgrade"
 									}
 								}
 							],
