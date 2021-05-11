@@ -2619,6 +2619,15 @@
 							}
 						},
 						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 813923235722768,
+							"parameters": {
+								"layer": "\"Game Over\"",
+								"visibility": "invisible"
+							}
+						},
+						{
 							"id": "set-text",
 							"objectClass": "levelCount",
 							"sid": 869365221301234,
@@ -2859,7 +2868,7 @@
 								},
 								{
 									"id": "set-default-color",
-									"objectClass": "arrowText",
+									"objectClass": "overText",
 									"sid": 119729581728411,
 									"parameters": {
 										"color": "rgbEx(192, 192, 192)"
@@ -3095,17 +3104,79 @@
 							"disabled": true
 						},
 						{
-							"id": "reset-global-variables",
+							"id": "set-layer-visible",
 							"objectClass": "System",
-							"sid": 699906009525954
+							"sid": 953869009937559,
+							"parameters": {
+								"layer": "\"Game Over\"",
+								"visibility": "visible"
+							}
 						},
 						{
-							"id": "restart-layout",
-							"objectClass": "System",
-							"sid": 716083463624453
+							"id": "destroy",
+							"objectClass": "Player",
+							"sid": 197041124868455
+						},
+						{
+							"id": "set-text",
+							"objectClass": "overText",
+							"sid": 248356123859326,
+							"parameters": {
+								"text": "\"Game Over\"&newline&newline&newline&\"You made it to level \"&level&newline&newline&newline&newline&newline&\"Press Space to play again\""
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "gameOverFade",
+							"sid": 247609073445612,
+							"parameters": {
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "start-fade",
+							"objectClass": "gameOverFade",
+							"sid": 660628675288116,
+							"behaviorType": "Fade"
 						}
 					],
-					"sid": 128259444735128
+					"sid": 128259444735128,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-key-pressed",
+									"objectClass": "Keyboard",
+									"sid": 532631638093752,
+									"parameters": {
+										"key": 32
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "reset-global-variables",
+									"objectClass": "System",
+									"sid": 859230506975403
+								},
+								{
+									"id": "go-to-layout",
+									"objectClass": "System",
+									"sid": 462642194905862,
+									"parameters": {
+										"layout": "Dungeon"
+									}
+								},
+								{
+									"id": "restart-layout",
+									"objectClass": "System",
+									"sid": 237107256520390
+								}
+							],
+							"sid": 399270193705381
+						}
+					]
 				}
 			],
 			"sid": 696096181159325
@@ -5995,7 +6066,7 @@
 								},
 								{
 									"id": "set-default-color",
-									"objectClass": "arrowText",
+									"objectClass": "overText",
 									"sid": 966335425302836,
 									"parameters": {
 										"color": "rgb(255, 200, 0)"
@@ -6025,7 +6096,7 @@
 								},
 								{
 									"id": "set-default-color",
-									"objectClass": "arrowText",
+									"objectClass": "overText",
 									"sid": 292247991599769,
 									"parameters": {
 										"color": "rgbEx(192, 192, 192)"

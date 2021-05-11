@@ -133,6 +133,14 @@
 			"author": "Scirra",
 			"version": "r241",
 			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "Fade",
+			"name": "Fade",
+			"author": "Scirra",
+			"version": "r241",
+			"bundled": false
 		}
 	],
 	"uniqueId": "h46i3qi9kc2",
@@ -144,7 +152,8 @@
 			"bossTriggerLine",
 			"bossAttackV",
 			"bossAttackH",
-			"Heart"
+			"Heart",
+			"gameOverFade"
 		],
 		"subfolders": [
 			{
@@ -241,7 +250,7 @@
 					"speedPrice",
 					"arrowPrice",
 					"arrowNum",
-					"arrowText"
+					"overText"
 				],
 				"subfolders": [],
 				"name": "Text"
