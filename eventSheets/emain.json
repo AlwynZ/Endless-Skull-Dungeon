@@ -6614,10 +6614,10 @@
 								{
 									"id": "set-eventvar-value",
 									"objectClass": "System",
-									"sid": 365021057758368,
+									"sid": 617268197530612,
 									"parameters": {
 										"variable": "playerAttackDamage",
-										"value": "10+5*weaponupgrade"
+										"value": "10+2*weaponupgrade"
 									}
 								}
 							],
@@ -6914,43 +6914,6 @@
 										"animation": "\"Death\"",
 										"from": "beginning"
 									}
-								},
-								{
-									"id": "wait",
-									"objectClass": "System",
-									"sid": 404495882824663,
-									"parameters": {
-										"seconds": "2"
-									}
-								},
-								{
-									"id": "destroy",
-									"objectClass": "Boss",
-									"sid": 142383244324324
-								},
-								{
-									"id": "create-object",
-									"objectClass": "System",
-									"sid": 549916782942067,
-									"parameters": {
-										"object-to-create": "Key",
-										"layer": "1",
-										"x": "288",
-										"y": "192",
-										"create-hierarchy": false
-									}
-								},
-								{
-									"id": "create-object",
-									"objectClass": "System",
-									"sid": 484750093394571,
-									"parameters": {
-										"object-to-create": "TrapDoor",
-										"layer": "1",
-										"x": "250",
-										"y": "190",
-										"create-hierarchy": false
-									}
 								}
 							],
 							"sid": 664539790898811,
@@ -6966,18 +6929,39 @@
 									"parameters": {
 										"animation": "\"Death\""
 									}
-								},
-								{
-									"id": "compare-boolean-eventvar",
-									"objectClass": "System",
-									"sid": 438012206983245,
-									"parameters": {
-										"variable": "BossDeadG"
-									},
-									"isInverted": true
 								}
 							],
-							"actions": [],
+							"actions": [
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 953614893064671,
+									"parameters": {
+										"object-to-create": "Key",
+										"layer": "1",
+										"x": "288",
+										"y": "192",
+										"create-hierarchy": false
+									}
+								},
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 692673980030212,
+									"parameters": {
+										"object-to-create": "TrapDoor",
+										"layer": "1",
+										"x": "250",
+										"y": "190",
+										"create-hierarchy": false
+									}
+								},
+								{
+									"id": "destroy",
+									"objectClass": "Boss",
+									"sid": 754113453796137
+								}
+							],
 							"sid": 874064401103643
 						},
 						{
