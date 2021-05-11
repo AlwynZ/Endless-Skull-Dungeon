@@ -6938,11 +6938,11 @@
 								{
 									"id": "play",
 									"objectClass": "Audio",
-									"sid": 407726409634611,
+									"sid": 966213824202429,
 									"parameters": {
 										"audio-file": "Boss",
 										"loop": "not-looping",
-										"volume": "-5",
+										"volume": "-20",
 										"tag-optional": "\"\""
 									}
 								}
@@ -7128,10 +7128,10 @@
 								{
 									"id": "set-position",
 									"objectClass": "bossAttackV",
-									"sid": 134669510182992,
+									"sid": 289207466734085,
 									"parameters": {
 										"x": "Boss.X",
-										"y": "Boss.Y"
+										"y": "187"
 									}
 								},
 								{
@@ -7217,9 +7217,9 @@
 								{
 									"id": "set-position",
 									"objectClass": "bossAttackH",
-									"sid": 530944558360162,
+									"sid": 771447395588557,
 									"parameters": {
-										"x": "Boss.X",
+										"x": "278",
 										"y": "Boss.Y"
 									}
 								},

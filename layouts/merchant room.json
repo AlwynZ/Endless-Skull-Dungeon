@@ -112,7 +112,7 @@
 							"height": 17,
 							"max-width": 104,
 							"max-height": 41,
-							"data": "579x0,1,2x11,21,31,11,21,31,41,32x0,2,65,6x0,42,32x0,3,50,3x0,69,2x0,52,32x0,4,7x0,53,32x0,5,7x0,45,32x0,2,2x0,91,4x0,42,32x0,3,2x0,92,4x0,52,32x0,4,2x0,93,2x0,60,0,53,32x0,5,2x0,94,4x0,45,32x0,2,7x0,52,32x0,3,7x0,53,32x0,4,0,69,5x0,44,32x0,5,78,3x0,65h,2x0,45,32x0,6,16,26,16,26,36,26,36,46,3143x0"
+							"data": "579x0,1,2x11,21,31,11,21,31,41,32x0,2,65,6x0,42,32x0,3,50,6x0,52,32x0,4,7x0,53,32x0,5,7x0,45,32x0,2,2x0,91,4x0,42,32x0,3,2x0,92,4x0,52,32x0,4,2x0,93,4x0,53,32x0,5,2x0,94,4x0,45,32x0,2,7x0,52,32x0,3,7x0,53,32x0,4,7x0,44,32x0,5,78,3x0,65h,2x0,45,32x0,6,16,26,16,26,36,26,36,46,3143x0"
 						},
 						"tile-width": 32,
 						"tile-height": 32,
@@ -467,6 +467,54 @@
 							1
 						],
 						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Tilemap",
+					"properties": {
+						"initially-visible": true,
+						"tile-width": 32,
+						"tile-height": 32,
+						"tile-x-offset": 2,
+						"tile-y-offset": 2,
+						"tile-x-spacing": 0,
+						"tile-y-spacing": 0,
+						"tile-x-drawing-offset": 0,
+						"tile-y-drawing-offset": 0,
+						"drawing-mode": "top-to-right"
+					},
+					"uid": 107,
+					"instanceVariables": {},
+					"behaviors": {},
+					"ownData": {
+						"tilemapData": {
+							"width": 13,
+							"height": 9,
+							"max-width": 275,
+							"max-height": 140,
+							"data": "286x0,69,700x0,60,37512x0"
+						},
+						"tile-width": 32,
+						"tile-height": 32,
+						"tile-x-offset": 2,
+						"tile-y-offset": 2,
+						"tile-x-spacing": 0,
+						"tile-y-spacing": 0
+					},
+					"world": {
+						"x": 56,
+						"y": 88,
+						"width": 432,
+						"height": 296,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
 						"zElevation": 0
 					}
 				}
@@ -1226,7 +1274,7 @@
 						"character-set": "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.,;:?!-_~#\"'&()[]|`\\/@°+=*$£€<>",
 						"spacing-data": "",
 						"scale": 1,
-						"character-spacing": 0,
+						"character-spacing": -5,
 						"line-height": 0,
 						"horizontal-alignment": "left",
 						"vertical-alignment": "top",
@@ -1333,7 +1381,7 @@
 						"character-set": "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.,;:?!-_~#\"'&()[]|`\\/@°+=*$£€<>",
 						"spacing-data": "",
 						"scale": 1,
-						"character-spacing": 0,
+						"character-spacing": -5,
 						"line-height": 0,
 						"horizontal-alignment": "left",
 						"vertical-alignment": "top",
