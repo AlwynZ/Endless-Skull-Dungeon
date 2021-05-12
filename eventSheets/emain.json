@@ -155,7 +155,7 @@
 			"eventType": "variable",
 			"name": "rangednum",
 			"type": "number",
-			"initialValue": "5",
+			"initialValue": "10",
 			"comment": "number left to use a ranged weapon",
 			"isStatic": false,
 			"isConstant": false,
@@ -176,10 +176,20 @@
 			"name": "weaponMode",
 			"type": "number",
 			"initialValue": "0",
-			"comment": "0 = melee, 1 = ranged?",
+			"comment": "0 = melee, 1 = ranged",
 			"isStatic": false,
 			"isConstant": false,
 			"sid": 965995107706723
+		},
+		{
+			"eventType": "variable",
+			"name": "healthPotionsBought",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 738094280057969
 		},
 		{
 			"eventType": "group",
@@ -2806,7 +2816,7 @@
 								{
 									"id": "set-speed",
 									"objectClass": "phasingSkull",
-									"sid": 323486424285125,
+									"sid": 612697583957654,
 									"behaviorType": "Bullet",
 									"parameters": {
 										"speed": "230*(1+0.01*level)"
@@ -3039,6 +3049,15 @@
 									"sid": 973258854348844,
 									"parameters": {
 										"text": "5&\"g\""
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 157755929556400,
+									"parameters": {
+										"variable": "healthPotionsBought",
+										"value": "0"
 									}
 								}
 							],
@@ -6574,6 +6593,44 @@
 								{
 									"id": "compare-text",
 									"objectClass": "merchantText",
+									"sid": 458196684183185,
+									"parameters": {
+										"text-to-compare": "\"health potion\"",
+										"case-sensitivity": "ignore-case"
+									}
+								},
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 962766155296751,
+									"parameters": {
+										"variable": "healthPotionsBought",
+										"comparison": 2,
+										"value": "5"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "play",
+									"objectClass": "Audio",
+									"sid": 948594326175842,
+									"parameters": {
+										"audio-file": "error",
+										"loop": "not-looping",
+										"volume": "-5",
+										"tag-optional": "\"\""
+									}
+								}
+							],
+							"sid": 617196969728023
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-text",
+									"objectClass": "merchantText",
 									"sid": 144105873472176,
 									"parameters": {
 										"text-to-compare": "\"health potion\"",
@@ -6598,6 +6655,16 @@
 										"variable": "lives",
 										"comparison": 2,
 										"value": "10"
+									}
+								},
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 811698244709392,
+									"parameters": {
+										"variable": "healthPotionsBought",
+										"comparison": 2,
+										"value": "5"
 									}
 								}
 							],
@@ -6628,6 +6695,15 @@
 									"sid": 373908669003409,
 									"parameters": {
 										"variable": "lives",
+										"value": "1"
+									}
+								},
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 998872976452494,
+									"parameters": {
+										"variable": "healthPotionsBought",
 										"value": "1"
 									}
 								}
@@ -7043,7 +7119,7 @@
 								{
 									"id": "set-instvar-value",
 									"objectClass": "Boss",
-									"sid": 979529651202265,
+									"sid": 975425744148661,
 									"parameters": {
 										"instance-variable": "Health",
 										"value": "50+(level/5)*50"
@@ -7368,9 +7444,9 @@
 								{
 									"id": "wait",
 									"objectClass": "System",
-									"sid": 326661275032073,
+									"sid": 461056712229491,
 									"parameters": {
-										"seconds": "0.5"
+										"seconds": "0.5-(0.1*(round(level/5)))"
 									}
 								},
 								{
@@ -7430,66 +7506,107 @@
 										"animation": "\"Idle\"",
 										"from": "beginning"
 									}
-								},
-								{
-									"id": "spawn-another-object",
-									"objectClass": "Boss",
-									"sid": 713472017702203,
-									"parameters": {
-										"object": "phasingSkull",
-										"layer": "1",
-										"image-point": "choose(1,2)",
-										"create-hierarchy": false
-									}
-								},
-								{
-									"id": "spawn-another-object",
-									"objectClass": "Boss",
-									"sid": 504877830345656,
-									"parameters": {
-										"object": "bouncingSkull",
-										"layer": "1",
-										"image-point": "choose(1,2)",
-										"create-hierarchy": false
-									}
-								},
-								{
-									"id": "set-instvar-value",
-									"objectClass": "bouncingSkull",
-									"sid": 112022160482940,
-									"parameters": {
-										"instance-variable": "Health",
-										"value": "level"
-									}
-								},
-								{
-									"id": "set-instvar-value",
-									"objectClass": "phasingSkull",
-									"sid": 725753496055312,
-									"parameters": {
-										"instance-variable": "Health",
-										"value": "level"
-									}
-								},
-								{
-									"id": "set-angle",
-									"objectClass": "bouncingSkull",
-									"sid": 551030767394653,
-									"parameters": {
-										"angle": "random(0, 360)"
-									}
-								},
-								{
-									"id": "set-angle-toward-position",
-									"objectClass": "phasingSkull",
-									"sid": 174504425417406,
-									"parameters": {
-										"x": "Player.X",
-										"y": "Player.Y"
-									}
 								}
 							],
-							"sid": 990061196015879
+							"sid": 990061196015879,
+							"children": [
+								{
+									"eventType": "variable",
+									"name": "setsSummoned",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"isStatic": false,
+									"isConstant": false,
+									"sid": 549561385229585
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 327445129961459,
+											"parameters": {
+												"variable": "setsSummoned",
+												"comparison": 2,
+												"value": "round(level/5)"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "create-object",
+											"objectClass": "System",
+											"sid": 334985290530665,
+											"parameters": {
+												"object-to-create": "phasingSkull",
+												"layer": "1",
+												"x": "Boss.X+random(-10, 10)",
+												"y": "Boss.Y+random(-10, 10)",
+												"create-hierarchy": false
+											}
+										},
+										{
+											"id": "create-object",
+											"objectClass": "System",
+											"sid": 953282931361096,
+											"parameters": {
+												"object-to-create": "spittingSkull",
+												"layer": "1",
+												"x": "Boss.X+random(-10, 10)",
+												"y": "Boss.Y+random(-10, 10)",
+												"create-hierarchy": false
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "spittingSkull",
+											"sid": 120416894293694,
+											"parameters": {
+												"instance-variable": "Health",
+												"value": "level*2"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "phasingSkull",
+											"sid": 197771675205432,
+											"parameters": {
+												"instance-variable": "Health",
+												"value": "level*2"
+											}
+										},
+										{
+											"id": "set-angle",
+											"objectClass": "spittingSkull",
+											"sid": 551030767394653,
+											"parameters": {
+												"angle": "random(0, 360)"
+											}
+										},
+										{
+											"id": "set-angle-toward-position",
+											"objectClass": "phasingSkull",
+											"sid": 174504425417406,
+											"parameters": {
+												"x": "Player.X",
+												"y": "Player.Y"
+											}
+										},
+										{
+											"id": "add-to-eventvar",
+											"objectClass": "System",
+											"sid": 252480713734771,
+											"parameters": {
+												"variable": "setsSummoned",
+												"value": "1"
+											}
+										}
+									],
+									"sid": 420624773156367
+								}
+							]
 						},
 						{
 							"eventType": "block",

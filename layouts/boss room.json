@@ -242,6 +242,54 @@
 						],
 						"zElevation": 0
 					}
+				},
+				{
+					"type": "Tilemap",
+					"properties": {
+						"initially-visible": true,
+						"tile-width": 32,
+						"tile-height": 32,
+						"tile-x-offset": 2,
+						"tile-y-offset": 2,
+						"tile-x-spacing": 0,
+						"tile-y-spacing": 0,
+						"tile-x-drawing-offset": 0,
+						"tile-y-drawing-offset": 0,
+						"drawing-mode": "top-to-right"
+					},
+					"uid": 11,
+					"instanceVariables": {},
+					"behaviors": {},
+					"ownData": {
+						"tilemapData": {
+							"width": 60,
+							"height": 50,
+							"max-width": 274,
+							"max-height": 139,
+							"data": "140x0,78h,3x0,65,6x0,78h,1522x0,28,550x0,78,9x0,66,78,35849x0"
+						},
+						"tile-width": 32,
+						"tile-height": 32,
+						"tile-x-offset": 2,
+						"tile-y-offset": 2,
+						"tile-x-spacing": 0,
+						"tile-y-spacing": 0
+					},
+					"world": {
+						"x": 0,
+						"y": 0,
+						"width": 1920,
+						"height": 1600,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"zElevation": 0
+					}
 				}
 			],
 			"sid": 853213094728099,
@@ -376,37 +424,6 @@
 						"y": 403.450074179585,
 						"width": 99.77966273298341,
 						"height": 35.08938008497802,
-						"originX": 0.5,
-						"originY": 0.5,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				},
-				{
-					"type": "Boss",
-					"properties": {
-						"initially-visible": false,
-						"initial-animation": "Idle",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
-					"uid": 11,
-					"instanceVariables": {
-						"Health": 100
-					},
-					"behaviors": {},
-					"world": {
-						"x": -169.6789385180639,
-						"y": 192.9973836633344,
-						"width": 200,
-						"height": 200,
 						"originX": 0.5,
 						"originY": 0.5,
 						"color": [
@@ -773,6 +790,57 @@
 						"x": 528.3746892755762,
 						"y": 305.73419340780634,
 						"width": -32,
+						"height": 32,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "spittingSkull",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 12,
+					"instanceVariables": {
+						"Health": 100
+					},
+					"behaviors": {
+						"Bullet": {
+							"properties": {
+								"speed": 0,
+								"acceleration": 0,
+								"gravity": 0,
+								"bounce-off-solids": true,
+								"set-angle": true,
+								"step": false,
+								"enabled": true
+							}
+						},
+						"LineOfSight": {
+							"properties": {
+								"obstacles": "solids",
+								"range": 1000,
+								"cone-of-view": 360,
+								"use-collision-cells": true
+							}
+						}
+					},
+					"world": {
+						"x": -375,
+						"y": -332,
+						"width": 32,
 						"height": 32,
 						"originX": 0.5,
 						"originY": 0.5,
