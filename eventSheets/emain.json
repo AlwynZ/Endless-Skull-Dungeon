@@ -994,11 +994,11 @@
 														{
 															"id": "compare-two-values",
 															"objectClass": "System",
-															"sid": 101082320719892,
+															"sid": 433713017597797,
 															"parameters": {
 																"first-value": "random(1,10)",
 																"comparison": 3,
-																"second-value": "5"
+																"second-value": "4"
 															}
 														}
 													],
@@ -7571,10 +7571,10 @@
 								{
 									"id": "set-instvar-value",
 									"objectClass": "Boss",
-									"sid": 722594354790377,
+									"sid": 634073520089190,
 									"parameters": {
 										"instance-variable": "Health",
-										"value": "100+level*10"
+										"value": "50+level*10"
 									}
 								},
 								{
@@ -7843,9 +7843,9 @@
 								{
 									"id": "wait",
 									"objectClass": "System",
-									"sid": 420908983315676,
+									"sid": 803803647336947,
 									"parameters": {
-										"seconds": "0.4"
+										"seconds": "0.5-(0.1*(round(level/5)))"
 									}
 								},
 								{
@@ -7994,6 +7994,83 @@
 										"animation": "\"Idle\"",
 										"from": "beginning"
 									}
+								},
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 396266427400035,
+									"parameters": {
+										"object-to-create": "phasingSkull",
+										"layer": "1",
+										"x": "Boss.X+random(-10, 10)",
+										"y": "Boss.Y+random(-10, 10)",
+										"create-hierarchy": false
+									}
+								},
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 901409393954784,
+									"parameters": {
+										"object-to-create": "bouncingSkull",
+										"layer": "1",
+										"x": "Boss.X+random(-10, 10)",
+										"y": "Boss.Y+random(-10, 10)",
+										"create-hierarchy": false
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "bouncingSkull",
+									"sid": 593396219893990,
+									"parameters": {
+										"instance-variable": "Health",
+										"value": "level*2"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "phasingSkull",
+									"sid": 529219533192990,
+									"parameters": {
+										"instance-variable": "Health",
+										"value": "level*2"
+									}
+								},
+								{
+									"id": "set-speed",
+									"objectClass": "bouncingSkull",
+									"sid": 408719665384292,
+									"behaviorType": "Bullet",
+									"parameters": {
+										"speed": "145+level"
+									}
+								},
+								{
+									"id": "set-speed",
+									"objectClass": "phasingSkull",
+									"sid": 600242512214934,
+									"behaviorType": "Bullet",
+									"parameters": {
+										"speed": "195+level"
+									}
+								},
+								{
+									"id": "set-angle",
+									"objectClass": "bouncingSkull",
+									"sid": 820176693715998,
+									"parameters": {
+										"angle": "random(0, 360)"
+									}
+								},
+								{
+									"id": "set-angle-toward-position",
+									"objectClass": "phasingSkull",
+									"sid": 152232308176970,
+									"parameters": {
+										"x": "Player.X",
+										"y": "Player.Y"
+									}
 								}
 							],
 							"sid": 990061196015879,
@@ -8002,11 +8079,13 @@
 									"eventType": "block",
 									"conditions": [
 										{
-											"id": "repeat",
+											"id": "compare-eventvar",
 											"objectClass": "System",
-											"sid": 246826838082686,
+											"sid": 959199918827731,
 											"parameters": {
-												"count": "3"
+												"variable": "level",
+												"comparison": 5,
+												"value": "20"
 											}
 										}
 									],
@@ -8014,9 +8093,9 @@
 										{
 											"id": "create-object",
 											"objectClass": "System",
-											"sid": 447897081706178,
+											"sid": 235048740584486,
 											"parameters": {
-												"object-to-create": "phasingSkull",
+												"object-to-create": "redSkeleton",
 												"layer": "1",
 												"x": "Boss.X+random(-10, 10)",
 												"y": "Boss.Y+random(-10, 10)",
@@ -8024,9 +8103,114 @@
 											}
 										},
 										{
+											"id": "set-instvar-value",
+											"objectClass": "redSkeleton",
+											"sid": 810354908089305,
+											"parameters": {
+												"instance-variable": "Health",
+												"value": "level"
+											}
+										}
+									],
+									"sid": 933178026432144
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 701295193926763,
+											"parameters": {
+												"variable": "level",
+												"comparison": 5,
+												"value": "20"
+											}
+										}
+									],
+									"actions": [
+										{
 											"id": "create-object",
 											"objectClass": "System",
-											"sid": 240269901703278,
+											"sid": 454386811417148,
+											"parameters": {
+												"object-to-create": "whiteSkeleton",
+												"layer": "1",
+												"x": "Boss.X+random(-10, 10)",
+												"y": "Boss.Y+random(-10, 10)",
+												"create-hierarchy": false
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "whiteSkeleton",
+											"sid": 285856949360770,
+											"parameters": {
+												"instance-variable": "Health",
+												"value": "level"
+											}
+										}
+									],
+									"sid": 142383213469200
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 502833966285632,
+											"parameters": {
+												"variable": "level",
+												"comparison": 5,
+												"value": "15"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "create-object",
+											"objectClass": "System",
+											"sid": 581494314712574,
+											"parameters": {
+												"object-to-create": "Skeleton",
+												"layer": "1",
+												"x": "Boss.X+random(-10, 10)",
+												"y": "Boss.Y+random(-10, 10)",
+												"create-hierarchy": false
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Skeleton",
+											"sid": 786899538173992,
+											"parameters": {
+												"instance-variable": "Health",
+												"value": "level"
+											}
+										}
+									],
+									"sid": 874137898939726
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 832989718378301,
+											"parameters": {
+												"variable": "level",
+												"comparison": 5,
+												"value": "10"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "create-object",
+											"objectClass": "System",
+											"sid": 969248198105254,
 											"parameters": {
 												"object-to-create": "spittingSkull",
 												"layer": "1",
@@ -8038,40 +8222,14 @@
 										{
 											"id": "set-instvar-value",
 											"objectClass": "spittingSkull",
-											"sid": 805408299129344,
+											"sid": 295258486382471,
 											"parameters": {
 												"instance-variable": "Health",
 												"value": "level*2"
-											}
-										},
-										{
-											"id": "set-instvar-value",
-											"objectClass": "phasingSkull",
-											"sid": 352647322268731,
-											"parameters": {
-												"instance-variable": "Health",
-												"value": "level*2"
-											}
-										},
-										{
-											"id": "set-angle",
-											"objectClass": "spittingSkull",
-											"sid": 539375284539013,
-											"parameters": {
-												"angle": "random(0, 360)"
-											}
-										},
-										{
-											"id": "set-angle-toward-position",
-											"objectClass": "phasingSkull",
-											"sid": 430217633465228,
-											"parameters": {
-												"x": "Player.X",
-												"y": "Player.Y"
 											}
 										}
 									],
-									"sid": 874137898939726
+									"sid": 490706422670663
 								}
 							]
 						},
@@ -8316,8 +8474,8 @@
 							"actions": [
 								{
 									"id": "destroy",
-									"objectClass": "bouncingSkull",
-									"sid": 132037422080138
+									"objectClass": "spittingSkull",
+									"sid": 560992754538139
 								}
 							],
 							"sid": 331538809839722

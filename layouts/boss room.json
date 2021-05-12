@@ -347,8 +347,8 @@
 					"world": {
 						"x": -377,
 						"y": 187,
-						"width": 100,
-						"height": 527,
+						"width": 96.4,
+						"height": 845.308,
 						"originX": 0.5,
 						"originY": 0.5,
 						"color": [
@@ -463,8 +463,8 @@
 					"world": {
 						"x": 280.47933884297527,
 						"y": -129,
-						"width": 926.9586776859505,
-						"height": 100,
+						"width": 1486.8417190082646,
+						"height": 96.4,
 						"originX": 0.5,
 						"originY": 0.5,
 						"color": [
@@ -532,100 +532,6 @@
 							1
 						],
 						"angle": 0,
-						"zElevation": 0
-					}
-				},
-				{
-					"type": "bouncingSkull",
-					"properties": {
-						"initially-visible": true,
-						"initial-animation": "Animation 1",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
-					"uid": 96,
-					"instanceVariables": {
-						"Health": 10
-					},
-					"behaviors": {
-						"Bullet": {
-							"properties": {
-								"speed": 200,
-								"acceleration": 0,
-								"gravity": 0,
-								"bounce-off-solids": true,
-								"set-angle": true,
-								"step": false,
-								"enabled": true
-							}
-						},
-						"DestroyOutsideLayout": {
-							"properties": {}
-						}
-					},
-					"world": {
-						"x": -336,
-						"y": -403,
-						"width": 32,
-						"height": 32,
-						"originX": 0.5,
-						"originY": 0.5,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				},
-				{
-					"type": "phasingSkull",
-					"properties": {
-						"initially-visible": true,
-						"initial-animation": "Animation 1",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
-					"uid": 97,
-					"instanceVariables": {
-						"Health": 10
-					},
-					"behaviors": {
-						"Bullet": {
-							"properties": {
-								"speed": 200,
-								"acceleration": 0,
-								"gravity": 0,
-								"bounce-off-solids": false,
-								"set-angle": true,
-								"step": false,
-								"enabled": true
-							}
-						},
-						"Wrap": {
-							"properties": {
-								"wrap-to": "layout"
-							}
-						}
-					},
-					"world": {
-						"x": -481,
-						"y": -226,
-						"width": 32,
-						"height": 32,
-						"originX": 0.5,
-						"originY": 0.5,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0.00032357214473699436,
 						"zElevation": 0
 					}
 				},
@@ -790,57 +696,6 @@
 						"x": 528.3746892755762,
 						"y": 305.73419340780634,
 						"width": -32,
-						"height": 32,
-						"originX": 0.5,
-						"originY": 0.5,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				},
-				{
-					"type": "spittingSkull",
-					"properties": {
-						"initially-visible": true,
-						"initial-animation": "Animation 1",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
-					"uid": 12,
-					"instanceVariables": {
-						"Health": 100
-					},
-					"behaviors": {
-						"Bullet": {
-							"properties": {
-								"speed": 100,
-								"acceleration": 0,
-								"gravity": 0,
-								"bounce-off-solids": true,
-								"set-angle": true,
-								"step": false,
-								"enabled": true
-							}
-						},
-						"LineOfSight": {
-							"properties": {
-								"obstacles": "solids",
-								"range": 1000,
-								"cone-of-view": 360,
-								"use-collision-cells": true
-							}
-						}
-					},
-					"world": {
-						"x": -375,
-						"y": -332,
-						"width": 32,
 						"height": 32,
 						"originX": 0.5,
 						"originY": 0.5,
