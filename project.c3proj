@@ -167,7 +167,6 @@
 					"Ladder",
 					"TilemapSolid",
 					"CandleStick",
-					"TrapDoor",
 					"BossTilemap",
 					"BossTilemapSolid",
 					"LevelTile"
@@ -179,7 +178,8 @@
 				"items": [
 					"Player",
 					"Merchant",
-					"direction"
+					"direction",
+					"TrapDoor"
 				],
 				"subfolders": [
 					{
@@ -291,6 +291,7 @@
 	},
 	"layouts": {
 		"items": [
+			"Intro Screen",
 			"Dungeon",
 			"Merchant Room",
 			"Boss Room"
@@ -448,5 +449,5 @@
 	},
 	"viewportWidth": 550,
 	"viewportHeight": 400,
-	"firstLayout": "Dungeon"
+	"firstLayout": "Intro Screen"
 }

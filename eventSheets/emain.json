@@ -55,7 +55,7 @@
 			"eventType": "variable",
 			"name": "level",
 			"type": "number",
-			"initialValue": "1",
+			"initialValue": "0",
 			"comment": "",
 			"isStatic": false,
 			"isConstant": false,
@@ -155,7 +155,7 @@
 			"eventType": "variable",
 			"name": "rangednum",
 			"type": "number",
-			"initialValue": "50",
+			"initialValue": "5",
 			"comment": "number left to use a ranged weapon",
 			"isStatic": false,
 			"isConstant": false,
@@ -2636,42 +2636,6 @@
 							}
 						},
 						{
-							"id": "set-size",
-							"objectClass": "upSlash",
-							"sid": 839284564367350,
-							"parameters": {
-								"width": "upSlash.Width+10*weaponupgrade",
-								"height": "upSlash.Height+10*weaponupgrade"
-							}
-						},
-						{
-							"id": "set-size",
-							"objectClass": "leftSlash",
-							"sid": 639732502643357,
-							"parameters": {
-								"width": "leftSlash.Width+10*weaponupgrade",
-								"height": "leftSlash.Height+10*weaponupgrade"
-							}
-						},
-						{
-							"id": "set-size",
-							"objectClass": "downSlash",
-							"sid": 263996595588610,
-							"parameters": {
-								"width": "downSlash.Width+10*weaponupgrade",
-								"height": "downSlash.Height+10*weaponupgrade"
-							}
-						},
-						{
-							"id": "set-size",
-							"objectClass": "rightSlash",
-							"sid": 282351800000292,
-							"parameters": {
-								"width": "rightSlash.Width+10*weaponupgrade",
-								"height": "rightSlash.Height+10*weaponupgrade"
-							}
-						},
-						{
 							"id": "pin-to-object-imagepoint",
 							"objectClass": "direction",
 							"sid": 913685061207424,
@@ -3492,6 +3456,32 @@
 								{
 									"id": "compare-two-values",
 									"objectClass": "System",
+									"sid": 840682111178319,
+									"parameters": {
+										"first-value": "LayoutName",
+										"comparison": 0,
+										"second-value": "\"Intro Screen\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "go-to-layout",
+									"objectClass": "System",
+									"sid": 890732566241250,
+									"parameters": {
+										"layout": "Dungeon"
+									}
+								}
+							],
+							"sid": 322519825221021
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
 									"sid": 930445897426369,
 									"parameters": {
 										"first-value": "level%5",
@@ -4086,10 +4076,10 @@
 						{
 							"id": "add-to-eventvar",
 							"objectClass": "System",
-							"sid": 583391290718211,
+							"sid": 163307479699540,
 							"parameters": {
 								"variable": "gold",
-								"value": "level"
+								"value": "1+round(level/2)"
 							}
 						}
 					],
@@ -4321,6 +4311,15 @@
 									}
 								},
 								{
+									"id": "set-size",
+									"objectClass": "upSlash",
+									"sid": 651328912802340,
+									"parameters": {
+										"width": "40+weaponupgrade",
+										"height": "40+weaponupgrade"
+									}
+								},
+								{
 									"id": "wait",
 									"objectClass": "System",
 									"sid": 583423451603241,
@@ -4539,6 +4538,15 @@
 										"x": "Player.X-25",
 										"y": "Player.Y",
 										"create-hierarchy": false
+									}
+								},
+								{
+									"id": "set-size",
+									"objectClass": "leftSlash",
+									"sid": 670099544924898,
+									"parameters": {
+										"width": "40+weaponupgrade",
+										"height": "40+weaponupgrade"
 									}
 								},
 								{
@@ -4763,6 +4771,15 @@
 									}
 								},
 								{
+									"id": "set-size",
+									"objectClass": "downSlash",
+									"sid": 945382549189037,
+									"parameters": {
+										"width": "40+weaponupgrade",
+										"height": "40+weaponupgrade"
+									}
+								},
+								{
 									"id": "wait",
 									"objectClass": "System",
 									"sid": 732924901348435,
@@ -4981,6 +4998,15 @@
 										"x": "Player.X+25",
 										"y": "Player.Y",
 										"create-hierarchy": false
+									}
+								},
+								{
+									"id": "set-size",
+									"objectClass": "rightSlash",
+									"sid": 425529563094673,
+									"parameters": {
+										"width": "40+weaponupgrade",
+										"height": "40+weaponupgrade"
 									}
 								},
 								{
@@ -5243,6 +5269,15 @@
 											}
 										},
 										{
+											"id": "set-size",
+											"objectClass": "rightSlash",
+											"sid": 738913459170065,
+											"parameters": {
+												"width": "40+weaponupgrade",
+												"height": "40+weaponupgrade"
+											}
+										},
+										{
 											"id": "wait",
 											"objectClass": "System",
 											"sid": 646792326310718,
@@ -5454,6 +5489,15 @@
 												"x": "Player.X",
 												"y": "Player.Y+25",
 												"create-hierarchy": false
+											}
+										},
+										{
+											"id": "set-size",
+											"objectClass": "downSlash",
+											"sid": 891052337258116,
+											"parameters": {
+												"width": "40+weaponupgrade",
+												"height": "40+weaponupgrade"
 											}
 										},
 										{
@@ -5671,6 +5715,15 @@
 											}
 										},
 										{
+											"id": "set-size",
+											"objectClass": "upSlash",
+											"sid": 914978157983795,
+											"parameters": {
+												"width": "40+weaponupgrade",
+												"height": "40+weaponupgrade"
+											}
+										},
+										{
 											"id": "wait",
 											"objectClass": "System",
 											"sid": 989682364356135,
@@ -5882,6 +5935,15 @@
 												"x": "Player.X-25",
 												"y": "Player.Y",
 												"create-hierarchy": false
+											}
+										},
+										{
+											"id": "set-size",
+											"objectClass": "leftSlash",
+											"sid": 491683692441419,
+											"parameters": {
+												"width": "40+weaponupgrade",
+												"height": "40+weaponupgrade"
 											}
 										},
 										{
@@ -6958,12 +7020,24 @@
 									}
 								},
 								{
-									"id": "set-position",
-									"objectClass": "Boss",
-									"sid": 513410195074604,
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 675441720826650,
 									"parameters": {
+										"object-to-create": "Boss",
+										"layer": "1",
 										"x": "288",
-										"y": "192"
+										"y": "192",
+										"create-hierarchy": false
+									}
+								},
+								{
+									"id": "set-size",
+									"objectClass": "Boss",
+									"sid": 449877525161620,
+									"parameters": {
+										"width": "200",
+										"height": "200"
 									}
 								},
 								{
