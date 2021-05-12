@@ -155,7 +155,7 @@
 			"eventType": "variable",
 			"name": "rangednum",
 			"type": "number",
-			"initialValue": "100",
+			"initialValue": "50",
 			"comment": "number left to use a ranged weapon",
 			"isStatic": false,
 			"isConstant": false,
@@ -4167,6 +4167,27 @@
 					],
 					"sid": 383949361708905,
 					"isOrBlock": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "movingArrow",
+							"sid": 789403611695690,
+							"parameters": {
+								"object": "EnemyFam"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "movingArrow",
+							"sid": 582939076896858
+						}
+					],
+					"sid": 116572100001943
 				},
 				{
 					"eventType": "block",
