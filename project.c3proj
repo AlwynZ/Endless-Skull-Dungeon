@@ -189,7 +189,8 @@
 							"phasingSkull",
 							"Boss",
 							"whiteSkeleton",
-							"spittingSkull"
+							"spittingSkull",
+							"redSkeleton"
 						],
 						"subfolders": [],
 						"name": "Enemies"
@@ -221,6 +222,16 @@
 						],
 						"subfolders": [],
 						"name": "slashes"
+					},
+					{
+						"items": [
+							"redDownSlash",
+							"redLeftSlash",
+							"redRightSlash",
+							"redUpSlash"
+						],
+						"subfolders": [],
+						"name": "redSlashes"
 					}
 				],
 				"name": "Items"
@@ -285,7 +296,8 @@
 		"items": [
 			"EnemyFam",
 			"SlashFam",
-			"ProjectilesFam"
+			"ProjectilesFam",
+			"redSlashFam"
 		],
 		"subfolders": []
 	},
@@ -355,6 +367,16 @@
 					"name": "error.webm",
 					"type": "audio/webm; codecs=opus",
 					"sid": 689488589141762
+				},
+				{
+					"name": "bossDeath.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 236908975646744
+				},
+				{
+					"name": "redSlash.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 527574946086906
 				}
 			],
 			"subfolders": []

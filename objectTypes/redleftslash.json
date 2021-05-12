@@ -1,0 +1,57 @@
+{
+	"name": "redLeftSlash",
+	"plugin-id": "Sprite",
+	"sid": 413198149043754,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 241,
+						"height": 401,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 993640,
+						"collisionPoly": {
+							"points": [
+								1,
+								1,
+								0.37966804979253144,
+								0.9127182044887778,
+								0.05394190871369348,
+								0.6371571072319208,
+								0.056016597510373314,
+								0.2892768079800543,
+								0.29045643153526945,
+								0.11720698254364159,
+								0.7863070539419071,
+								0,
+								1,
+								0,
+								0.995850622406639,
+								0.5810473815461353
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 173658908091356,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

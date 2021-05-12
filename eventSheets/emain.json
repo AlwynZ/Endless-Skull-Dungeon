@@ -183,6 +183,16 @@
 		},
 		{
 			"eventType": "variable",
+			"name": "redSlashPresent",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 720144369738064
+		},
+		{
+			"eventType": "variable",
 			"name": "healthPotionsBought",
 			"type": "number",
 			"initialValue": "0",
@@ -965,65 +975,163 @@
 													"isInverted": true
 												}
 											],
-											"actions": [
+											"actions": [],
+											"sid": 633905234965963,
+											"children": [
 												{
-													"id": "create-object",
-													"objectClass": "System",
-													"sid": 431181536866150,
-													"parameters": {
-														"object-to-create": "Skeleton",
-														"layer": "1",
-														"x": "TempTile.X",
-														"y": "TempTile.Y",
-														"create-hierarchy": false
-													}
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-eventvar",
+															"objectClass": "System",
+															"sid": 862538633534479,
+															"parameters": {
+																"variable": "level",
+																"comparison": 4,
+																"value": "10"
+															}
+														},
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 101082320719892,
+															"parameters": {
+																"first-value": "random(1,10)",
+																"comparison": 3,
+																"second-value": "5"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "create-object",
+															"objectClass": "System",
+															"sid": 431181536866150,
+															"parameters": {
+																"object-to-create": "redSkeleton",
+																"layer": "1",
+																"x": "TempTile.X",
+																"y": "TempTile.Y",
+																"create-hierarchy": false
+															}
+														},
+														{
+															"id": "set-instvar-value",
+															"objectClass": "redSkeleton",
+															"sid": 697462866625025,
+															"parameters": {
+																"instance-variable": "Health",
+																"value": "6+level"
+															}
+														},
+														{
+															"id": "set-max-speed",
+															"objectClass": "redSkeleton",
+															"sid": 890193235797454,
+															"behaviorType": "Pathfinding",
+															"parameters": {
+																"speed": "100"
+															}
+														},
+														{
+															"id": "set-speed",
+															"objectClass": "redSkeleton",
+															"sid": 392945244686995,
+															"behaviorType": "Pathfinding",
+															"parameters": {
+																"speed": "100"
+															}
+														},
+														{
+															"id": "add-to-eventvar",
+															"objectClass": "System",
+															"sid": 289369701661789,
+															"parameters": {
+																"variable": "numEnemies",
+																"value": "1"
+															}
+														},
+														{
+															"id": "signal",
+															"objectClass": "System",
+															"sid": 851179251362375,
+															"parameters": {
+																"tag": "\"Spawn Done\""
+															}
+														}
+													],
+													"sid": 353780079295738
 												},
 												{
-													"id": "set-instvar-value",
-													"objectClass": "Skeleton",
-													"sid": 697462866625025,
-													"parameters": {
-														"instance-variable": "Health",
-														"value": "6+level"
-													}
-												},
-												{
-													"id": "set-max-speed",
-													"objectClass": "Skeleton",
-													"sid": 890193235797454,
-													"behaviorType": "Pathfinding",
-													"parameters": {
-														"speed": "100"
-													}
-												},
-												{
-													"id": "set-speed",
-													"objectClass": "Skeleton",
-													"sid": 392945244686995,
-													"behaviorType": "Pathfinding",
-													"parameters": {
-														"speed": "100"
-													}
-												},
-												{
-													"id": "add-to-eventvar",
-													"objectClass": "System",
-													"sid": 289369701661789,
-													"parameters": {
-														"variable": "numEnemies",
-														"value": "1"
-													}
-												},
-												{
-													"id": "signal",
-													"objectClass": "System",
-													"sid": 851179251362375,
-													"parameters": {
-														"tag": "\"Spawn Done\""
-													}
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "else",
+															"objectClass": "System",
+															"sid": 796481802308606
+														}
+													],
+													"actions": [
+														{
+															"id": "create-object",
+															"objectClass": "System",
+															"sid": 847639167033583,
+															"parameters": {
+																"object-to-create": "Skeleton",
+																"layer": "1",
+																"x": "TempTile.X",
+																"y": "TempTile.Y",
+																"create-hierarchy": false
+															}
+														},
+														{
+															"id": "set-instvar-value",
+															"objectClass": "Skeleton",
+															"sid": 531943747142330,
+															"parameters": {
+																"instance-variable": "Health",
+																"value": "6+level"
+															}
+														},
+														{
+															"id": "set-max-speed",
+															"objectClass": "Skeleton",
+															"sid": 714650161355325,
+															"behaviorType": "Pathfinding",
+															"parameters": {
+																"speed": "100"
+															}
+														},
+														{
+															"id": "set-speed",
+															"objectClass": "Skeleton",
+															"sid": 909570526194896,
+															"behaviorType": "Pathfinding",
+															"parameters": {
+																"speed": "100"
+															}
+														},
+														{
+															"id": "add-to-eventvar",
+															"objectClass": "System",
+															"sid": 272033778279940,
+															"parameters": {
+																"variable": "numEnemies",
+																"value": "1"
+															}
+														},
+														{
+															"id": "signal",
+															"objectClass": "System",
+															"sid": 893267556625180,
+															"parameters": {
+																"tag": "\"Spawn Done\""
+															}
+														}
+													],
+													"sid": 637902591632879
 												}
-											],
-											"sid": 633905234965963
+											]
 										},
 										{
 											"eventType": "block",
@@ -3230,6 +3338,241 @@
 					"conditions": [
 						{
 							"id": "has-los-to-object",
+							"objectClass": "redSkeleton",
+							"sid": 976730984692241,
+							"behaviorType": "LineOfSight",
+							"parameters": {
+								"object": "Player",
+								"image-point": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "move-at-angle",
+							"objectClass": "redSkeleton",
+							"sid": 173808029298264,
+							"parameters": {
+								"angle": "angle(redSkeleton.X, redSkeleton.Y, Player.X, Player.Y)",
+								"distance": "0.3+(level*0.01)"
+							}
+						}
+					],
+					"sid": 914873004175322,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 214503700470690,
+									"parameters": {
+										"first-value": "distance(Player.X, Player.Y, redSkeleton.X, redSkeleton.Y)",
+										"comparison": 3,
+										"second-value": "40"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "stop",
+									"objectClass": "redSkeleton",
+									"sid": 814015150584687,
+									"behaviorType": "Pathfinding"
+								}
+							],
+							"sid": 824817240814346,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 891583624817482,
+											"parameters": {
+												"first-value": "Player.X",
+												"comparison": 5,
+												"second-value": "redSkeleton.X"
+											}
+										},
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 784942886098629,
+											"parameters": {
+												"variable": "redSlashPresent"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-position",
+											"objectClass": "redRightSlash",
+											"sid": 712347716140997,
+											"parameters": {
+												"x": "redSkeleton.X+25",
+												"y": "redSkeleton.Y"
+											}
+										},
+										{
+											"id": "set-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 182382120701888,
+											"parameters": {
+												"variable": "redSlashPresent",
+												"value": "true"
+											}
+										},
+										{
+											"id": "play",
+											"objectClass": "Audio",
+											"sid": 141064963802045,
+											"parameters": {
+												"audio-file": "redSlash",
+												"loop": "not-looping",
+												"volume": "0",
+												"tag-optional": "\"\""
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 713086242638277,
+											"parameters": {
+												"seconds": "0.2"
+											}
+										},
+										{
+											"id": "set-position",
+											"objectClass": "redRightSlash",
+											"sid": 297682594712497,
+											"parameters": {
+												"x": "-700",
+												"y": "700"
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 256831544190651,
+											"parameters": {
+												"seconds": "0.3"
+											}
+										},
+										{
+											"id": "set-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 180339722284090,
+											"parameters": {
+												"variable": "redSlashPresent",
+												"value": "false"
+											}
+										}
+									],
+									"sid": 272584582341182
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 995781368868020,
+											"parameters": {
+												"first-value": "Player.X",
+												"comparison": 2,
+												"second-value": "redSkeleton.X"
+											}
+										},
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 155634636000151,
+											"parameters": {
+												"variable": "redSlashPresent"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-position",
+											"objectClass": "redLeftSlash",
+											"sid": 632444722571842,
+											"parameters": {
+												"x": "redSkeleton.X-25",
+												"y": "redSkeleton.Y"
+											}
+										},
+										{
+											"id": "set-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 321772281153215,
+											"parameters": {
+												"variable": "redSlashPresent",
+												"value": "true"
+											}
+										},
+										{
+											"id": "play",
+											"objectClass": "Audio",
+											"sid": 769913301030501,
+											"parameters": {
+												"audio-file": "redSlash",
+												"loop": "not-looping",
+												"volume": "0",
+												"tag-optional": "\"\""
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 718379706568396,
+											"parameters": {
+												"seconds": "0.2"
+											}
+										},
+										{
+											"id": "set-position",
+											"objectClass": "redLeftSlash",
+											"sid": 914912871520702,
+											"parameters": {
+												"x": "-700",
+												"y": "700"
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 610226559575282,
+											"parameters": {
+												"seconds": "0.3"
+											}
+										},
+										{
+											"id": "set-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 926867829601435,
+											"parameters": {
+												"variable": "redSlashPresent",
+												"value": "false"
+											}
+										}
+									],
+									"sid": 184672444975856
+								}
+							]
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "has-los-to-object",
 							"objectClass": "whiteSkeleton",
 							"sid": 607198411026078,
 							"behaviorType": "LineOfSight",
@@ -3251,9 +3594,9 @@
 						{
 							"id": "every-x-seconds",
 							"objectClass": "System",
-							"sid": 993767782772386,
+							"sid": 978938460828134,
 							"parameters": {
-								"interval-seconds": "2.5"
+								"interval-seconds": "2.5-(level*0.05)"
 							}
 						}
 					],
@@ -3771,6 +4114,77 @@
 						}
 					],
 					"sid": 921668999637860
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "Player",
+							"sid": 697559282349641,
+							"parameters": {
+								"object": "redSlashFam"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 870843086289783,
+							"parameters": {
+								"audio-file": "hit",
+								"loop": "not-looping",
+								"volume": "-29",
+								"tag-optional": "\"\""
+							}
+						},
+						{
+							"id": "subtract-from-eventvar",
+							"objectClass": "System",
+							"sid": 370543689980012,
+							"parameters": {
+								"variable": "lives",
+								"value": "1"
+							}
+						},
+						{
+							"id": "shake",
+							"objectClass": "Player",
+							"sid": 951240673977952,
+							"behaviorType": "ScrollTo",
+							"parameters": {
+								"magnitude": "10",
+								"duration": "0.2",
+								"mode": "reducing-magnitude"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "damageFlash",
+							"sid": 246149457280323,
+							"parameters": {
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 890805671441520,
+							"parameters": {
+								"seconds": "0.15"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "damageFlash",
+							"sid": 304190844302381,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						}
+					],
+					"sid": 920926207601709
 				},
 				{
 					"eventType": "block",
@@ -6602,10 +7016,10 @@
 								{
 									"id": "compare-eventvar",
 									"objectClass": "System",
-									"sid": 962766155296751,
+									"sid": 372883601279357,
 									"parameters": {
 										"variable": "healthPotionsBought",
-										"comparison": 2,
+										"comparison": 5,
 										"value": "5"
 									}
 								}
@@ -6624,6 +7038,44 @@
 								}
 							],
 							"sid": 617196969728023
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-text",
+									"objectClass": "merchantText",
+									"sid": 253544944008240,
+									"parameters": {
+										"text-to-compare": "\"health potion\"",
+										"case-sensitivity": "ignore-case"
+									}
+								},
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 497483070487130,
+									"parameters": {
+										"variable": "lives",
+										"comparison": 0,
+										"value": "10"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "play",
+									"objectClass": "Audio",
+									"sid": 190580001891517,
+									"parameters": {
+										"audio-file": "error",
+										"loop": "not-looping",
+										"volume": "-5",
+										"tag-optional": "\"\""
+									}
+								}
+							],
+							"sid": 663852238440449
 						},
 						{
 							"eventType": "block",
@@ -7119,10 +7571,10 @@
 								{
 									"id": "set-instvar-value",
 									"objectClass": "Boss",
-									"sid": 975425744148661,
+									"sid": 722594354790377,
 									"parameters": {
 										"instance-variable": "Health",
-										"value": "50+(level/5)*50"
+										"value": "100+level*10"
 									}
 								},
 								{
@@ -7196,6 +7648,42 @@
 							],
 							"sid": 664539790898811,
 							"isOrBlock": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-animation-playing",
+									"objectClass": "Boss",
+									"sid": 251179105168656,
+									"parameters": {
+										"animation": "\"Death\""
+									}
+								},
+								{
+									"id": "compare-animation-frame",
+									"objectClass": "Boss",
+									"sid": 162465946619857,
+									"parameters": {
+										"comparison": 0,
+										"number": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "play",
+									"objectClass": "Audio",
+									"sid": 455598398426844,
+									"parameters": {
+										"audio-file": "bossDeath",
+										"loop": "not-looping",
+										"volume": "-30",
+										"tag-optional": "\"\""
+									}
+								}
+							],
+							"sid": 642020708498864
 						},
 						{
 							"eventType": "block",
@@ -7511,26 +7999,14 @@
 							"sid": 990061196015879,
 							"children": [
 								{
-									"eventType": "variable",
-									"name": "setsSummoned",
-									"type": "number",
-									"initialValue": "0",
-									"comment": "",
-									"isStatic": false,
-									"isConstant": false,
-									"sid": 549561385229585
-								},
-								{
 									"eventType": "block",
 									"conditions": [
 										{
-											"id": "compare-eventvar",
+											"id": "repeat",
 											"objectClass": "System",
-											"sid": 327445129961459,
+											"sid": 246826838082686,
 											"parameters": {
-												"variable": "setsSummoned",
-												"comparison": 2,
-												"value": "round(level/5)"
+												"count": "3"
 											}
 										}
 									],
@@ -7538,7 +8014,7 @@
 										{
 											"id": "create-object",
 											"objectClass": "System",
-											"sid": 334985290530665,
+											"sid": 447897081706178,
 											"parameters": {
 												"object-to-create": "phasingSkull",
 												"layer": "1",
@@ -7550,7 +8026,7 @@
 										{
 											"id": "create-object",
 											"objectClass": "System",
-											"sid": 953282931361096,
+											"sid": 240269901703278,
 											"parameters": {
 												"object-to-create": "spittingSkull",
 												"layer": "1",
@@ -7562,7 +8038,7 @@
 										{
 											"id": "set-instvar-value",
 											"objectClass": "spittingSkull",
-											"sid": 120416894293694,
+											"sid": 805408299129344,
 											"parameters": {
 												"instance-variable": "Health",
 												"value": "level*2"
@@ -7571,7 +8047,7 @@
 										{
 											"id": "set-instvar-value",
 											"objectClass": "phasingSkull",
-											"sid": 197771675205432,
+											"sid": 352647322268731,
 											"parameters": {
 												"instance-variable": "Health",
 												"value": "level*2"
@@ -7580,7 +8056,7 @@
 										{
 											"id": "set-angle",
 											"objectClass": "spittingSkull",
-											"sid": 551030767394653,
+											"sid": 539375284539013,
 											"parameters": {
 												"angle": "random(0, 360)"
 											}
@@ -7588,23 +8064,14 @@
 										{
 											"id": "set-angle-toward-position",
 											"objectClass": "phasingSkull",
-											"sid": 174504425417406,
+											"sid": 430217633465228,
 											"parameters": {
 												"x": "Player.X",
 												"y": "Player.Y"
 											}
-										},
-										{
-											"id": "add-to-eventvar",
-											"objectClass": "System",
-											"sid": 252480713734771,
-											"parameters": {
-												"variable": "setsSummoned",
-												"value": "1"
-											}
 										}
 									],
-									"sid": 420624773156367
+									"sid": 874137898939726
 								}
 							]
 						},
@@ -7831,6 +8298,29 @@
 								}
 							],
 							"sid": 701112167352750
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "spittingSkull",
+									"sid": 687478254824622,
+									"parameters": {
+										"instance-variable": "Health",
+										"comparison": 3,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "destroy",
+									"objectClass": "bouncingSkull",
+									"sid": 132037422080138
+								}
+							],
+							"sid": 331538809839722
 						},
 						{
 							"eventType": "block",

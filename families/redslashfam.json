@@ -1,0 +1,14 @@
+{
+	"name": "redSlashFam",
+	"plugin-id": "Sprite",
+	"sid": 243152364684190,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"members": [
+		"redDownSlash",
+		"redLeftSlash",
+		"redRightSlash",
+		"redUpSlash"
+	]
+}
