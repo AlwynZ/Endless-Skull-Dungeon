@@ -7755,9 +7755,9 @@
 								{
 									"id": "set-animation",
 									"objectClass": "Boss",
-									"sid": 542666289238849,
+									"sid": 655486866741617,
 									"parameters": {
-										"animation": "choose(\"ScytheAttackV\", \"ScytheAttackH\", \"Summon\")",
+										"animation": "choose(\"ScytheAttackV\", \"ScytheAttackH\", \"Skill\")",
 										"from": "beginning"
 									}
 								}
@@ -7832,11 +7832,11 @@
 								{
 									"id": "play",
 									"objectClass": "Audio",
-									"sid": 194971226468567,
+									"sid": 772173625505636,
 									"parameters": {
 										"audio-file": "bossSlashHit",
 										"loop": "not-looping",
-										"volume": "-10",
+										"volume": "-2",
 										"tag-optional": "\"\""
 									}
 								},
@@ -7921,11 +7921,11 @@
 								{
 									"id": "play",
 									"objectClass": "Audio",
-									"sid": 598119528294488,
+									"sid": 822551373809313,
 									"parameters": {
 										"audio-file": "bossSlashHit",
 										"loop": "not-looping",
-										"volume": "0",
+										"volume": "-2",
 										"tag-optional": "\"\""
 									}
 								},
@@ -7970,9 +7970,9 @@
 								{
 									"id": "on-animation-finished",
 									"objectClass": "Boss",
-									"sid": 440973679105701,
+									"sid": 437751959321278,
 									"parameters": {
-										"animation": "\"Summon\""
+										"animation": "\"Skill\""
 									}
 								},
 								{
@@ -7989,7 +7989,7 @@
 								{
 									"id": "set-animation",
 									"objectClass": "Boss",
-									"sid": 930153923560107,
+									"sid": 929239607873124,
 									"parameters": {
 										"animation": "\"Idle\"",
 										"from": "beginning"
@@ -7998,7 +7998,7 @@
 								{
 									"id": "create-object",
 									"objectClass": "System",
-									"sid": 396266427400035,
+									"sid": 381755084318451,
 									"parameters": {
 										"object-to-create": "phasingSkull",
 										"layer": "1",
@@ -8010,7 +8010,7 @@
 								{
 									"id": "create-object",
 									"objectClass": "System",
-									"sid": 901409393954784,
+									"sid": 915330811320485,
 									"parameters": {
 										"object-to-create": "bouncingSkull",
 										"layer": "1",
@@ -8022,19 +8022,19 @@
 								{
 									"id": "set-instvar-value",
 									"objectClass": "bouncingSkull",
-									"sid": 593396219893990,
+									"sid": 735637813702710,
 									"parameters": {
 										"instance-variable": "Health",
-										"value": "level*2"
+										"value": "level+1"
 									}
 								},
 								{
 									"id": "set-instvar-value",
 									"objectClass": "phasingSkull",
-									"sid": 529219533192990,
+									"sid": 648028226616022,
 									"parameters": {
 										"instance-variable": "Health",
-										"value": "level*2"
+										"value": "level+1"
 									}
 								},
 								{
@@ -8105,10 +8105,10 @@
 										{
 											"id": "set-instvar-value",
 											"objectClass": "redSkeleton",
-											"sid": 810354908089305,
+											"sid": 909373179263774,
 											"parameters": {
 												"instance-variable": "Health",
-												"value": "level"
+												"value": "level*2+1"
 											}
 										}
 									],
@@ -8144,10 +8144,10 @@
 										{
 											"id": "set-instvar-value",
 											"objectClass": "whiteSkeleton",
-											"sid": 285856949360770,
+											"sid": 637532627967478,
 											"parameters": {
 												"instance-variable": "Health",
-												"value": "level"
+												"value": "level*2+1"
 											}
 										}
 									],
@@ -8183,10 +8183,10 @@
 										{
 											"id": "set-instvar-value",
 											"objectClass": "Skeleton",
-											"sid": 786899538173992,
+											"sid": 812416836029725,
 											"parameters": {
 												"instance-variable": "Health",
-												"value": "level"
+												"value": "level*2+1"
 											}
 										}
 									],
@@ -8222,10 +8222,10 @@
 										{
 											"id": "set-instvar-value",
 											"objectClass": "spittingSkull",
-											"sid": 295258486382471,
+											"sid": 694146524512228,
 											"parameters": {
 												"instance-variable": "Health",
-												"value": "level*2"
+												"value": "level+1"
 											}
 										}
 									],
