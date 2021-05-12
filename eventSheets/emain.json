@@ -4026,11 +4026,11 @@
 						{
 							"id": "play",
 							"objectClass": "Audio",
-							"sid": 731596603016712,
+							"sid": 603486216738271,
 							"parameters": {
 								"audio-file": "key",
 								"loop": "not-looping",
-								"volume": "0",
+								"volume": "-20",
 								"tag-optional": "\"\""
 							}
 						},
@@ -4075,11 +4075,11 @@
 						{
 							"id": "play",
 							"objectClass": "Audio",
-							"sid": 103738898630419,
+							"sid": 201189734116672,
 							"parameters": {
 								"audio-file": "gold",
 								"loop": "not-looping",
-								"volume": "0",
+								"volume": "-10",
 								"tag-optional": "\"\""
 							}
 						},
@@ -7194,11 +7194,11 @@
 								{
 									"id": "play",
 									"objectClass": "Audio",
-									"sid": 621955601652960,
+									"sid": 194971226468567,
 									"parameters": {
 										"audio-file": "bossSlashHit",
 										"loop": "not-looping",
-										"volume": "0",
+										"volume": "-10",
 										"tag-optional": "\"\""
 									}
 								},
