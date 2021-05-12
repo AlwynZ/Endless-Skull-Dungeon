@@ -844,12 +844,21 @@
 															}
 														},
 														{
-															"id": "set-speed",
+															"id": "set-bounce-off-solids",
 															"objectClass": "spittingSkull",
-															"sid": 214854635561762,
+															"sid": 164657317482656,
 															"behaviorType": "Bullet",
 															"parameters": {
-																"speed": "100*(1+0.1*level)"
+																"state": true
+															}
+														},
+														{
+															"id": "set-speed",
+															"objectClass": "spittingSkull",
+															"sid": 124855746502067,
+															"behaviorType": "Bullet",
+															"parameters": {
+																"speed": "50*(1+0.1*level)"
 															}
 														},
 														{
@@ -3179,10 +3188,10 @@
 						{
 							"id": "compare-eventvar",
 							"objectClass": "System",
-							"sid": 668928385444511,
+							"sid": 677996434521291,
 							"parameters": {
 								"variable": "lives",
-								"comparison": 0,
+								"comparison": 3,
 								"value": "0"
 							}
 						}
@@ -3257,6 +3266,15 @@
 									"sid": 462642194905862,
 									"parameters": {
 										"layout": "Dungeon"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 704802580326048,
+									"parameters": {
+										"variable": "level",
+										"value": "1"
 									}
 								},
 								{
@@ -4297,11 +4315,11 @@
 										{
 											"id": "compare-two-values",
 											"objectClass": "System",
-											"sid": 857877749630794,
+											"sid": 820833502010780,
 											"parameters": {
 												"first-value": "numEnemies",
 												"comparison": 3,
-												"second-value": "1"
+												"second-value": "2"
 											}
 										},
 										{
